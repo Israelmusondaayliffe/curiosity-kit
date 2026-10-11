@@ -2,6 +2,8 @@
 
 *Independent skills for curious people.*
 
+**[Download for ChatGPT](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip)** · [Upload and install](#chatgpt-web)
+
 Curiosity Kit is a plugin for Codex and Claude Code. It brings together 26 independent skills for researching, writing, making decisions, building software, producing creative work and finishing multi-step projects.
 
 Start with Chief of Staff when you want help choosing an approach. Go straight to a specialist when you know what you need. Each skill includes its own methods and supporting files, so using one doesn't require running the others first.
@@ -9,6 +11,21 @@ Start with Chief of Staff when you want help choosing an approach. Go straight t
 [Install](#install) · [First task](#your-first-task) · [Skills](#the-26-skills) · [Requirements and limits](#requirements-and-limits) · [Troubleshooting](#troubleshooting)
 
 ## Install
+
+### ChatGPT (web)
+
+1. Click **[Download for ChatGPT](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip)** and save the ZIP file. Keep it zipped.
+2. On ChatGPT web, open **Plugins > Add > Upload plugin/archive**, when that option is available. Eligible workspace owners and administrators can use **Admin console > select workspace > Plugins > Add > Upload plugin**.
+3. Choose `curiosity-kit-chatgpt.zip`, review the plugin, and select **Install** when shown.
+4. Open a fresh chat, select **Curiosity Kit**, then choose **Chief of Staff** and describe what you want to do.
+
+Upload requires permission or access as an eligible workspace owner or administrator. Availability varies by account, plan and workspace; not every personal account offers ZIP upload. If the option is missing, check with your workspace administrator. See OpenAI's [Plugins in ChatGPT instructions](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
+
+Use the ZIP linked above. GitHub's whole-repository **Download ZIP** and attaching a ZIP to an ordinary chat are not plugin installation.
+
+This package has been checked for structure, resources and archive integrity. This exact public Curiosity Kit archive has **not yet been natively installed in ChatGPT**. A successful installation of the source edition, Curio, does not establish installation proof for this Kit. All 26 skills and existing hooks are included; native hooks are unsupported in ChatGPT Cloud and will not provide local hook behavior there. Other workflows still depend on the tools and permissions available in your host. Read [Data handling](#data-handling) and [Cloud and hooks](#cloud-and-hooks) before use.
+
+### Codex and Claude Code
 
 Clone or download this repository, open a terminal in its root directory, and run the two commands for your host. Use an existing Codex or Claude Code installation. For a published Git marketplace, its repository URL can replace `.`.
 
