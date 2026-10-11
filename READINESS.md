@@ -1,6 +1,6 @@
-# Curiosity Kit candidate readiness
+# Curiosity Kit release readiness
 
-Private review candidate. Publication is not authorized by this file.
+Public clean-history release, published with the repository owner's approval. Directory acceptance is a separate review.
 
 ## Scope
 
@@ -8,7 +8,7 @@ All 26 skill identities, full methods, host metadata and explicit-selection boun
 
 Original contributions are MIT-licensed under LICENSE. Third-party notices and terms remain scoped to their material. Every generated package carries the original-contribution license; each skill keeps its applicable third-party credits.
 
-Private plans, qualification runs, conversation evidence, evaluation archives and historical development files are excluded from this candidate tree. The source edition keeps that evidence privately. This candidate must be exported as a new clean root before publication: its current private review ancestry includes an unsanitized seed.
+Private plans, qualification runs, conversation evidence, evaluation archives and historical development files are excluded from this public tree. The source edition keeps that evidence privately. The public repository began with a new clean root; the private review ancestry and unsanitized seed were not imported.
 
 ## Verification
 
@@ -55,4 +55,4 @@ Uncleared stock texture images, sound-effect clips and two font binaries are exc
 
 The source edition had bounded local Codex and Claude Cloud behavior proof and local installation/removal proof. This edited candidate does not inherit a new native pass. Persistent Cloud installation and Codex Cloud execution remain unverified; fresh Codex hook execution remains unrun. External engines, browsers, renderers, providers and account permissions remain explicit prerequisites.
 
-Before publication, the owner must review the clean export, third-party rights scope and candidate results. No public repository or release was created.
+The owner approved publication of the cleaned export, and the GitHub repository is public. The data-handling disclosure is in README.md. Publication does not establish directory acceptance or a fresh native workflow pass.

@@ -26,7 +26,7 @@ claude plugin marketplace add .
 claude plugin install curiosity-kit@curiosity-kit
 ```
 
-The repository is currently private pending final review; these commands require authorized access. Then check the plugin list and open a fresh session.
+After installation, check the plugin list and open a fresh session.
 
 ```sh
 codex plugin list
@@ -135,6 +135,16 @@ Curiosity Kit supplies skill instructions, local support files and host integrat
 - Monitoring and recurring work need a supported scheduler and your authorization. Installing a skill doesn't start a background service.
 
 Each skill documents its specific prerequisites. Curiosity Kit doesn't supply credentials, connect accounts or override host restrictions. It doesn't pin one model for all work; exact capabilities still depend on the selected model and environment.
+
+### Data handling
+
+The selected skill can read user-authorized files, session exports and memory records, and save local drafts, research records, logs, checkpoints or reviewed learning records. These can contain personal or sensitive information. Local records remain until you or your environment removes them; the plugin provides no universal deletion deadline. Local scripts and two native hooks support these workflows. The package declares no MCP server.
+
+Your Codex or Claude Code host processes task content through its configured model and tools. Requested workflows can send prompts, references or selected content to third parties, including OpenAI Images, Google Gemini and Midjourney, through available host tools, connectors or browser operations. Some caption and motion HTML templates load GSAP from jsDelivr when opened, causing browser requests to that CDN independently of host connectors. Each selected service has its own privacy policy, account controls and retention rules.
+
+Memory uses a separately installed Claude Mem engine. Its capture, local storage, configured model provider and optional cloud sync have their own settings; cloud sync can transmit observations and full prompts. Installing Curiosity Kit does not install that engine or enable cloud sync.
+
+Curiosity Kit has no creator-operated data-collection endpoint or bundled analytics service. Its creator receives no task data through the plugin and therefore holds no developer-service copy to retain. This does not replace your host's or other providers' data policies. Review the selected method and destination before sending sensitive content.
 
 ### Cloud and hooks
 
