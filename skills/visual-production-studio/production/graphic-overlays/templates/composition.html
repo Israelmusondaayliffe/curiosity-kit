@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- Copy to the staged public/index.html; replace all synthetic timing, source and card content. -->
+<html lang="en"><head><meta charset="utf-8"><title>Graphic overlay composition</title>
+<link rel="stylesheet" href="frames.css">
+<style>
+@font-face{font-family:Inter;src:url('assets/fonts/Inter-400-latin.woff2');font-weight:400;font-display:block}
+@font-face{font-family:Inter;src:url('assets/fonts/Inter-700-latin.woff2');font-weight:700;font-display:block}
+@font-face{font-family:Caveat;src:url('assets/fonts/Caveat-400-latin.woff2');font-weight:400;font-display:block}
+@font-face{font-family:Caveat;src:url('assets/fonts/Caveat-400-latin.woff2');font-weight:700;font-display:block}
+:root{--bg:#fff9e3;--text:#1e1e1e;--accent-0:#1971c2;--accent-1:#e03131;--accent-2:#2f9e44;--accent-3:#e8590c;--accent-4:#9c36b5}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:#0a0c12;font-family:Inter,Caveat,system-ui,sans-serif}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden}
+.card-host{position:absolute;pointer-events:none;overflow:hidden}.card-host>.card{position:relative;width:100%;height:100%;overflow:hidden}
+</style></head><body>
+<div id="stage" data-composition-id="graphic-overlays" data-start="0" data-duration="6" data-fps="30" data-width="1920" data-height="1080">
+ <div id="video-wrap" class="video-wrapper frame-clean" style="left:960px;top:0;width:960px;height:1080px;z-index:1">
+  <div class="video-viewport"><video id="bg-video" src="input-video.mp4" muted playsinline data-start="0" data-duration="6" data-track-index="1"></video></div>
+ </div>
+ <div class="card-host clip" data-card-id="card-01" data-start="0" data-duration="6" data-track-index="2" style="left:0;top:0;width:960px;height:1080px;z-index:2;visibility:hidden;opacity:0">
+  <div class="card" data-card-id="card-01">
+   <style>
+    .card[data-card-id="card-01"] .root{height:100%;padding:72px;background:var(--bg);color:var(--text);display:flex;flex-direction:column;justify-content:center}
+    .card[data-card-id="card-01"] h1{font-size:104px;line-height:1.04;margin:0 0 32px}
+    .card[data-card-id="card-01"] p{font-size:36px;line-height:1.35}
+   </style>
+   <div class="root"><h1 data-anim="fade-in" data-anim-at="0.2" data-anim-duration="0.4">One clear takeaway</h1><p data-anim="fade-in" data-anim-at="0.6">Replace this synthetic example with source-grounded content.</p></div>
+  </div>
+ </div>
+</div>
+<script src="assets/vendor/gsap.min.js"></script><script src="scripts/compile-animations.js"></script>
+<script>
+(function(){
+ const stage=document.getElementById('stage'),fps=Number(stage.dataset.fps),duration=Number(stage.dataset.duration);
+ const tl=gsap.timeline({paused:true});
+ document.querySelectorAll('.card-host').forEach(function(host){
+  const start=Number(host.dataset.start),end=Math.min(duration,start+Number(host.dataset.duration));
+  GraphicOverlayAnimations.compileCard(tl,host,{startSec:start,endSec:end,fps:fps,transition:host.dataset.transition||'fade'});
+ });
+ const clock={t:0};tl.to(clock,{t:duration,duration:duration,ease:'none'},0);
+ window.__timelines=window.__timelines||{};window.__timelines['graphic-overlays']=tl;
+})();
+</script></body></html>

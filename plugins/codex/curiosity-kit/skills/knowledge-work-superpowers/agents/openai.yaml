@@ -1,0 +1,7 @@
+interface:
+  display_name: "Knowledge Work Superpowers"
+  short_description: "Research, write and verify complete evidence-backed work."
+  default_prompt: "Use $knowledge-work-superpowers to turn these sources into a complete, verified decision brief."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Writing Like Me"
+  short_description: "Write, edit and review in the writer's evidenced voice."
+  default_prompt: "Use $writing-like-me to turn my notes into a complete draft."
+
+policy:
+  allow_implicit_invocation: true

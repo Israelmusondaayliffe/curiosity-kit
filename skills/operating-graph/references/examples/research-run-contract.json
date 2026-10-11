@@ -1,0 +1,24 @@
+{
+  "evidenceTier": "controller-declared",
+  "maxLaunchAttempts": 24,
+  "approvalBindings": {},
+  "seeds": [],
+  "optionalNodeIds": [],
+  "criteria": [
+    {
+      "criterion": "The final report exists.",
+      "deliverableId": "final-report",
+      "evaluatorNodeId": "independent-evaluator"
+    },
+    {
+      "criterion": "The independent evaluator approves the final report.",
+      "deliverableId": "final-report",
+      "evaluatorNodeId": "independent-evaluator"
+    },
+    {
+      "criterion": "Every material claim has traceable evidence.",
+      "deliverableId": "final-report",
+      "evaluatorNodeId": "independent-evaluator"
+    }
+  ]
+}

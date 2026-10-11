@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "kind": "audit",
+  "sources": [
+    {"id": "source-note", "location": "synthetic/current-decision.txt", "version": "sample-v2", "status": "available"}
+  ],
+  "scope": "Synthetic example: inspect the current decision's stated owner and review date within this one note.",
+  "reviewed_at": "2026-10-06",
+  "result": "clear",
+  "block_reason": null,
+  "findings": []
+}

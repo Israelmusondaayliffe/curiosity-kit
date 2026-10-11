@@ -1,0 +1,717 @@
+{
+  "contract": "composition-contract.md",
+  "templates": [
+    {
+      "id": "card-flyby",
+      "path": "references/templates/card-flyby/index.html",
+      "variables": [
+        {
+          "id": "theme",
+          "type": "string",
+          "label": "Palette theme \u2014 aurora | ember | mono | slate",
+          "default": "aurora"
+        },
+        {
+          "id": "bgColor",
+          "type": "color",
+          "label": "Stage background override (empty = theme bg)",
+          "default": ""
+        },
+        {
+          "id": "cards",
+          "type": "string",
+          "label": "Deck JSON \u2014 array of {tag,title,meta,color?}",
+          "default": ""
+        },
+        {
+          "id": "landings",
+          "type": "string",
+          "label": "Landing beats JSON \u2014 abs seconds, one per card",
+          "default": ""
+        },
+        {
+          "id": "yaw",
+          "type": "number",
+          "label": "Scene yaw (deg, side tilt of the whole deck)",
+          "default": -12
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": "references/templates/card-flyby/program.json"
+    },
+    {
+      "id": "held-message-living-field",
+      "path": "references/templates/held-message-living-field/index.html",
+      "variables": [
+        {
+          "id": "bgColor",
+          "type": "color",
+          "label": "Page background",
+          "default": "#050507"
+        },
+        {
+          "id": "colorLow",
+          "type": "color",
+          "label": "Flow \u2014 shadow tone",
+          "default": "#0a1430"
+        },
+        {
+          "id": "colorMid",
+          "type": "color",
+          "label": "Flow \u2014 mid tone",
+          "default": "#6a6f9e"
+        },
+        {
+          "id": "colorHigh",
+          "type": "color",
+          "label": "Flow \u2014 highlight tone",
+          "default": "#e8f0ff"
+        },
+        {
+          "id": "accentColor",
+          "type": "color",
+          "label": "Core / glow accent",
+          "default": "#aee4ff"
+        },
+        {
+          "id": "markText",
+          "type": "string",
+          "label": "Monogram",
+          "default": "HF"
+        },
+        {
+          "id": "titleText",
+          "type": "string",
+          "label": "Title",
+          "default": "HYPERFRAMES"
+        },
+        {
+          "id": "tagText",
+          "type": "string",
+          "label": "Tagline",
+          "default": "HTML \u00b7 SHADERS \u00b7 MP4"
+        },
+        {
+          "id": "flowSpeed",
+          "type": "number",
+          "label": "Flow speed",
+          "default": 1,
+          "min": 0.1,
+          "max": 3,
+          "step": 0.1
+        },
+        {
+          "id": "holdMode",
+          "type": "select",
+          "label": "Foreground motion",
+          "options": [
+            "reveal",
+            "stationary"
+          ],
+          "default": "reveal"
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": null
+    },
+    {
+      "id": "held-text-strobe-burst",
+      "path": "references/templates/held-text-strobe-burst/index.html",
+      "variables": [
+        {
+          "id": "markText",
+          "type": "string",
+          "label": "Held word",
+          "default": "NAMSHI"
+        },
+        {
+          "id": "fontStyle",
+          "type": "select",
+          "label": "Font style",
+          "options": [
+            "display",
+            "serif"
+          ],
+          "default": "display"
+        },
+        {
+          "id": "markScale",
+          "type": "number",
+          "label": "Word size scale",
+          "default": 1,
+          "min": 0.3,
+          "max": 2,
+          "step": 0.05
+        },
+        {
+          "id": "idleColor",
+          "type": "color",
+          "label": "Idle background (between bursts)",
+          "default": "#000000"
+        },
+        {
+          "id": "idleInk",
+          "type": "color",
+          "label": "Idle word color",
+          "default": "#ffffff"
+        },
+        {
+          "id": "frames",
+          "type": "string",
+          "label": "Texture frames JSON (licensed local masks required)",
+          "default": ""
+        },
+        {
+          "id": "strobePlan",
+          "type": "string",
+          "label": "Strobe plan JSON bursts (empty=built-in)",
+          "default": ""
+        },
+        {
+          "id": "decor",
+          "type": "select",
+          "label": "Blueprint grid + crop border",
+          "options": [
+            "no",
+            "yes"
+          ],
+          "default": "no"
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": null
+    },
+    {
+      "id": "intro-kinetic-cascade",
+      "path": "references/templates/intro-kinetic-cascade/index.html",
+      "variables": [
+        {
+          "id": "theme",
+          "type": "string",
+          "label": "Palette \u2014 light | dark | bold",
+          "default": "light"
+        },
+        {
+          "id": "icon",
+          "type": "string",
+          "label": "Climax icon \u2014 bell|cursor|sparkle|bolt|play|heart|check|star, an emoji, <svg>, or none",
+          "default": "bell"
+        },
+        {
+          "id": "phrases",
+          "type": "string",
+          "label": "Phrases JSON (empty = built-in intro)",
+          "default": ""
+        },
+        {
+          "id": "climax",
+          "type": "string",
+          "label": "Climax JSON {text,in,iconAt,hold,size} (empty = default)",
+          "default": ""
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": "references/templates/intro-kinetic-cascade/program.json"
+    },
+    {
+      "id": "logo-split-lockup-pulse",
+      "path": "references/templates/logo-split-lockup-pulse/index.html",
+      "variables": [
+        {
+          "id": "bgColor",
+          "type": "color",
+          "label": "Background",
+          "default": "#249b5f"
+        },
+        {
+          "id": "markColor",
+          "type": "color",
+          "label": "Logo mark color",
+          "default": "#e7e3dd"
+        },
+        {
+          "id": "textColor",
+          "type": "color",
+          "label": "Word color",
+          "default": "#e7e3dd"
+        },
+        {
+          "id": "leftMark",
+          "type": "string",
+          "label": "Left mark SVG (empty = spark)",
+          "default": ""
+        },
+        {
+          "id": "rightMark",
+          "type": "string",
+          "label": "Right mark SVG (empty = cloud)",
+          "default": ""
+        },
+        {
+          "id": "word1",
+          "type": "string",
+          "label": "Word 1 (opens the gap)",
+          "default": "lille"
+        },
+        {
+          "id": "word2",
+          "type": "string",
+          "label": "Word 2 (lands on the surge)",
+          "default": "2020"
+        },
+        {
+          "id": "word3",
+          "type": "string",
+          "label": "Word 3 (optional)",
+          "default": ""
+        },
+        {
+          "id": "word4",
+          "type": "string",
+          "label": "Word 4 (optional)",
+          "default": ""
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": null
+    },
+    {
+      "id": "poster-tile-mosaic",
+      "path": "references/templates/poster-tile-mosaic/index.html",
+      "variables": [
+        {
+          "id": "bgColor",
+          "type": "color",
+          "label": "Stage background",
+          "default": "#e9e9e9"
+        },
+        {
+          "id": "tiles",
+          "type": "number",
+          "label": "Tile count (mosaic)",
+          "default": 12
+        },
+        {
+          "id": "bands",
+          "type": "number",
+          "label": "Snake-fill row bands",
+          "default": 3
+        },
+        {
+          "id": "gap",
+          "type": "number",
+          "label": "Seam / gap (px)",
+          "default": 10
+        },
+        {
+          "id": "showText",
+          "type": "boolean",
+          "label": "Show tile labels",
+          "default": true
+        },
+        {
+          "id": "labels",
+          "type": "string",
+          "label": "Tile labels (comma list)",
+          "default": "DARE TO BE BOLD,NEW DROP,WALK THE TALK,STAND OUT,PUCKER UP,SUPER SONIC,IN TECHNICOLOUR,BOLD PRINTS,NEW SCENTS,TIME TO MOVE,CRAZY FUNKY COOL,BEAUTY INSIDE"
+        },
+        {
+          "id": "program",
+          "type": "string",
+          "label": "Program JSON (empty = built-in group_5 score)",
+          "default": ""
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": "references/templates/poster-tile-mosaic/program.json"
+    },
+    {
+      "id": "roll-flipbook-word-cycle",
+      "path": "references/templates/roll-flipbook-word-cycle/index.html",
+      "variables": [
+        {
+          "id": "bgColor",
+          "type": "color",
+          "label": "Background",
+          "default": "#000000"
+        },
+        {
+          "id": "textColor",
+          "type": "color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "id": "accentColor",
+          "type": "color",
+          "label": "Period accent",
+          "default": "#ff6a32"
+        },
+        {
+          "id": "flipWords",
+          "type": "string",
+          "label": "Flipbook words (comma-separated)",
+          "default": "Design,Strategy,Branding,Marketing,Production,Campaigns,Experiential,Communication,Event Management"
+        },
+        {
+          "id": "resolveText",
+          "type": "string",
+          "label": "Lock phrase (empty = pure flicker, no lock)",
+          "default": "everything you need"
+        },
+        {
+          "id": "periodChar",
+          "type": "string",
+          "label": "Trailing accent (empty = none)",
+          "default": "."
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": null
+    },
+    {
+      "id": "split-anchor-word-slot",
+      "path": "references/templates/split-anchor-word-slot/index.html",
+      "variables": [
+        {
+          "id": "bgColor",
+          "type": "color",
+          "label": "Stage background (theme 0)",
+          "default": "#0a84ff"
+        },
+        {
+          "id": "anchors",
+          "type": "string",
+          "label": "Left anchor column (comma list = rows)",
+          "default": "studio,contre,courant"
+        },
+        {
+          "id": "theme",
+          "type": "number",
+          "label": "Base theme index",
+          "default": 0
+        },
+        {
+          "id": "showText",
+          "type": "boolean",
+          "label": "Show text (false = blocks only)",
+          "default": true
+        },
+        {
+          "id": "program",
+          "type": "string",
+          "label": "Program JSON (empty = built-in group_6 score)",
+          "default": ""
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": "references/templates/split-anchor-word-slot/program.json"
+    },
+    {
+      "id": "typewriter-phrase-keyword-shuffle",
+      "path": "references/templates/typewriter-phrase-keyword-shuffle/index.html",
+      "variables": [
+        {
+          "id": "bgColor",
+          "type": "color",
+          "label": "Background",
+          "default": "#000000"
+        },
+        {
+          "id": "textColor",
+          "type": "color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "id": "accentColor",
+          "type": "color",
+          "label": "Period / keyword accent",
+          "default": "#ff6a32"
+        },
+        {
+          "id": "lead1",
+          "type": "string",
+          "label": "Lead word 1 (optional)",
+          "default": "growth"
+        },
+        {
+          "id": "lead2",
+          "type": "string",
+          "label": "Lead word 2 (optional)",
+          "default": "through"
+        },
+        {
+          "id": "lead3",
+          "type": "string",
+          "label": "Lead word 3 (optional)",
+          "default": ""
+        },
+        {
+          "id": "keyword",
+          "type": "string",
+          "label": "Keyword (shuffles font)",
+          "default": "creativity"
+        },
+        {
+          "id": "periodChar",
+          "type": "string",
+          "label": "Trailing accent char (empty = none)",
+          "default": "."
+        }
+      ],
+      "clock": "source schedule adapted to approved music anchors",
+      "scope": "isolated document or explicitly namespaced frame adaptation",
+      "program": null
+    }
+  ],
+  "primitives": [
+    {
+      "id": "hypercut-whip",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/hypercut-whip/index.html"
+    },
+    {
+      "id": "kinetic-letter-in",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/kinetic-letter-in/index.html"
+    },
+    {
+      "id": "braam-punch",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/braam-punch/index.html"
+    },
+    {
+      "id": "chromatic-split",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/chromatic-split/index.html"
+    },
+    {
+      "id": "mask-reveal",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/mask-reveal/index.html"
+    },
+    {
+      "id": "screen-shake",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/screen-shake/index.html"
+    },
+    {
+      "id": "binary-decrypt",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/binary-decrypt/index.html"
+    },
+    {
+      "id": "dolly-zoom",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/dolly-zoom/index.html"
+    },
+    {
+      "id": "iris-open",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/iris-open/index.html"
+    },
+    {
+      "id": "electric-arc",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/electric-arc/index.html"
+    },
+    {
+      "id": "neon-flicker",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/neon-flicker/index.html"
+    },
+    {
+      "id": "chrome-sweep",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/chrome-sweep/index.html"
+    },
+    {
+      "id": "slot-machine-reveal",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/slot-machine-reveal/index.html"
+    },
+    {
+      "id": "liquid-morph",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/liquid-morph/index.html"
+    },
+    {
+      "id": "gooey-metaball",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/gooey-metaball/index.html"
+    },
+    {
+      "id": "3d-card-flip",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/3d-card-flip/index.html"
+    },
+    {
+      "id": "crash-zoom-in",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/crash-zoom-in/index.html"
+    },
+    {
+      "id": "spotlight-sweep",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/spotlight-sweep/index.html"
+    },
+    {
+      "id": "outline-to-fill",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/outline-to-fill/index.html"
+    },
+    {
+      "id": "counting-punch",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/counting-punch/index.html"
+    },
+    {
+      "id": "particle-burst",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/particle-burst/index.html"
+    },
+    {
+      "id": "radial-burst-lines",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/radial-burst-lines/index.html"
+    },
+    {
+      "id": "pixel-dissolve",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/pixel-dissolve/index.html"
+    },
+    {
+      "id": "datamosh-smear",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/datamosh-smear/index.html"
+    },
+    {
+      "id": "text-wave-distort",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/text-wave-distort/index.html"
+    },
+    {
+      "id": "bg-flow-field",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/bg-flow-field/index.html"
+    },
+    {
+      "id": "blur-resolve",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/blur-resolve/index.html"
+    },
+    {
+      "id": "chromatic-pressure",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "color-grid-shuffle",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "content-swap",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "directional-fill",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/directional-fill/index.html"
+    },
+    {
+      "id": "flash-cut",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/flash-cut/index.html"
+    },
+    {
+      "id": "freeze-hold",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "hard-cut",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/hard-cut/index.html"
+    },
+    {
+      "id": "mosaic-pack",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/mosaic-pack/index.html"
+    },
+    {
+      "id": "negative-space-hold",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "overlay-pop",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "palette-flip",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/palette-flip/index.html"
+    },
+    {
+      "id": "staggered-exit",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/staggered-exit/index.html"
+    },
+    {
+      "id": "staggered-reveal",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "system-replace",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "text-spectral-rays",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/text-spectral-rays/index.html"
+    },
+    {
+      "id": "tile-mosaic",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/tile-mosaic/index.html"
+    },
+    {
+      "id": "typewriter-reveal",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/typewriter-reveal/index.html"
+    },
+    {
+      "id": "value-counter",
+      "status": "composable-recipe",
+      "path": "catalog-recipes.md"
+    },
+    {
+      "id": "word-grid-burst",
+      "status": "standalone-demonstration",
+      "path": "motion-primitives/word-grid-burst/index.html"
+    }
+  ],
+  "dependency": {
+    "gsap": "motion-primitives/assets/gsap.min.js",
+    "runtime": "motion-primitives/assets/composition-runtime.js",
+    "version": "GSAP 3.15.0",
+    "renderer": "External qualified HyperFrames composition engine; not bundled",
+    "fredoka": "../embedded-captions/modes/standard/fonts/files/fredoka-latin-700-normal.woff2",
+    "fredoka_license": "../embedded-captions/licenses/third-party-licenses/fontsource/fredoka.txt"
+  },
+  "scope": "Authoring library; standalone demo geometry is 1920\u00d71080 and must be redesigned for the chosen canvas."
+}

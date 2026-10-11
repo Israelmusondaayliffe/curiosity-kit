@@ -1,0 +1,26 @@
+{
+  "profiles": [
+    {
+      "id": "generic",
+      "label": "Generic film prompt",
+      "captured": "2026-10-05",
+      "source": "Project-owned formula; provider-independent original format",
+      "reference_token_template": "{tag}",
+      "format_prefix": "",
+      "technical_suffix": "",
+      "capability_status": "Text format only; no provider execution"
+    },
+    {
+      "id": "seedance-2.5",
+      "label": "Seedance 2.5 image-reference prompt",
+      "captured": "2026-10-05",
+      "source": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "source_published": "2026-07-31",
+      "reference_token_template": "@Image {index}",
+      "format_prefix": "Use the numbered image references only for their declared roles. Follow the timed action blocks and the requested continuous-take or cut structure.",
+      "technical_suffix": "Reference labels describe the intended image-slot order. Confirm matching uploaded slots and actual mode controls before live use.",
+      "capability_status": "Dated image-reference text format. Live surface, access, controls, costs and generated quality unverified. No API or paid generation is performed.",
+      "scope": "Original natural-language prompts and numbered image-reference binding; mixed video/audio references and edit/extension controls require actual surface verification. No service limits are enforced from this snapshot."
+    }
+  ]
+}

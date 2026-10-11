@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "kind": "flow",
+  "stage": "planned",
+  "task_id": "synthetic-catalog",
+  "build": null,
+  "viewports": [
+    {
+      "id": "desktop",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "id": "narrow",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "states": [
+    "default",
+    "denied"
+  ],
+  "flows": [
+    {
+      "id": "save",
+      "name": "Save an item",
+      "actor": "Synthetic editor",
+      "goal": "Reopen the same saved item",
+      "preconditions": [
+        "A fresh isolated catalog fixture contains item C-12 and an empty saved-item list",
+        "Synthetic editor is authorized to save; this is the allowed-role control for the denied fixture"
+      ],
+      "critical": true,
+      "recovery_flow_id": "denied",
+      "status": "unrun",
+      "steps": [
+        {
+          "id": "open",
+          "action": "Open item C-12 from the visible result link",
+          "expected": "The detail dialog names C-12 and exposes the supported Save action",
+          "evidence_plan": "Capture the real link activation and fresh detail state",
+          "viewport_id": "desktop",
+          "state_id": "default",
+          "status": "unrun",
+          "observation": null,
+          "evidence": []
+        },
+        {
+          "id": "save",
+          "action": "Activate Save once",
+          "expected": "The result identifies C-12 as saved",
+          "evidence_plan": "Capture real activation and current result",
+          "viewport_id": "desktop",
+          "state_id": "default",
+          "status": "unrun",
+          "observation": null,
+          "evidence": []
+        },
+        {
+          "id": "readback",
+          "action": "Read the isolated server-owned saved-item endpoint without mutation",
+          "expected": "C-12 occurs exactly once in the saved list",
+          "evidence_plan": "Retain the actual response with its fixture role and build identity",
+          "viewport_id": "desktop",
+          "state_id": "default",
+          "status": "unrun",
+          "observation": null,
+          "evidence": []
+        },
+        {
+          "id": "reload",
+          "action": "Reload the page through the browser",
+          "expected": "Saved still includes C-12",
+          "evidence_plan": "Capture reload and current persisted state",
+          "viewport_id": "desktop",
+          "state_id": "default",
+          "status": "unrun",
+          "observation": null,
+          "evidence": []
+        },
+        {
+          "id": "second-consumer",
+          "action": "Open Saved in a second authorized isolated browser context",
+          "expected": "The same stored C-12 is present once",
+          "evidence_plan": "Capture second-consumer view against the same isolated server data",
+          "viewport_id": "desktop",
+          "state_id": "default",
+          "status": "unrun",
+          "observation": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "denied",
+      "name": "Reject a viewer write",
+      "actor": "Synthetic viewer",
+      "goal": "Understand denial without changing stored data",
+      "preconditions": [
+        "Reset a separate isolated catalog fixture to the same empty saved-list baseline, with C-12 present in the catalog but absent from Saved",
+        "Preserve the exact empty baseline response before the attempt",
+        "The corresponding editor control succeeded; this context authenticates only the denied synthetic viewer"
+      ],
+      "critical": false,
+      "recovery_flow_id": null,
+      "status": "unrun",
+      "steps": [
+        {
+          "id": "attempt-denied-save",
+          "action": "Attempt the supported Save action as synthetic viewer",
+          "expected": "The server denies the action and the interface explains the permission problem",
+          "evidence_plan": "Capture the actual viewer action, response and visible denial",
+          "viewport_id": "desktop",
+          "state_id": "denied",
+          "status": "unrun",
+          "observation": null,
+          "evidence": []
+        },
+        {
+          "id": "read-denied-effect",
+          "action": "Read the isolated source-owned saved-item list without mutation",
+          "expected": "The list is byte-for-byte equal to its frozen pre-attempt value",
+          "evidence_plan": "Retain baseline and current readbacks from the same isolated store",
+          "viewport_id": "desktop",
+          "state_id": "denied",
+          "status": "unrun",
+          "observation": null,
+          "evidence": []
+        }
+      ]
+    }
+  ]
+}

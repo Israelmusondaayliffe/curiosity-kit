@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "observation_id": "EXAMPLE-REPLACE-WITH-UNIQUE-ID",
+  "responsibility": "EXAMPLE agreed daily commitments",
+  "created_at": null,
+  "timezone": "EXAMPLE chosen IANA zone",
+  "prior_observation_id": null,
+  "sources": [
+    {
+      "source": "EXAMPLE calendar",
+      "account": "EXAMPLE scoped account alias",
+      "query": "EXAMPLE exact bounded query",
+      "window_start": null,
+      "window_end": null,
+      "boundary_semantics": "EXAMPLE start inclusive, end exclusive",
+      "last_successful_read_at": null,
+      "status": "UNREAD",
+      "complete": false,
+      "cursor": null,
+      "gaps": ["Example only; no source has been observed"]
+    }
+  ],
+  "items": [],
+  "commitments": [],
+  "notifications": [],
+  "readback": null
+}

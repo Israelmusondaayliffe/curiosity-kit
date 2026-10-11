@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="467" viewBox="0 0 1000 467" role="img" aria-labelledby="title description">
+<title id="title">Overall completion fell while both case types improved</title>
+<desc id="description">Overall completion fell from 82.7 to 33.6 percent. Routine and complex case rates both increased. Values in Percent completed within target. All cases - earlier: 82.7; All cases - later: 33.6; Routine - earlier: 90; Routine - later: 95; Complex - earlier: 10; Complex - later: 20</desc>
+<metadata>{"source_file": "example.csv", "source_sha256": "762c84ed126f9577915af8d72d3a8a9f67eaa45253b0190e8ab6f87224f3ea50", "label_column": "label", "value_column": "rate", "lower_column": null, "upper_column": null, "rows": 6, "scope": "rendered supplied values; not statistical or semantic verification"}</metadata>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans, sans-serif" fill="#172b3a">
+<text x="28" y="32" font-size="21" font-weight="bold">Overall completion fell while both case types improved</text>
+<text x="335" y="70" font-size="14" >Percent completed within target</text>
+<line x1="335.000" y1="86" x2="335.000" y2="338" stroke="#d7dfe5"/>
+<text x="335.000" y="360" font-size="12" text-anchor="middle">0</text>
+<line x1="437.105" y1="86" x2="437.105" y2="338" stroke="#d7dfe5"/>
+<text x="437.105" y="360" font-size="12" text-anchor="middle">20</text>
+<line x1="539.211" y1="86" x2="539.211" y2="338" stroke="#d7dfe5"/>
+<text x="539.211" y="360" font-size="12" text-anchor="middle">40</text>
+<line x1="641.316" y1="86" x2="641.316" y2="338" stroke="#d7dfe5"/>
+<text x="641.316" y="360" font-size="12" text-anchor="middle">60</text>
+<line x1="743.421" y1="86" x2="743.421" y2="338" stroke="#d7dfe5"/>
+<text x="743.421" y="360" font-size="12" text-anchor="middle">80</text>
+<text x="28" y="112" font-size="15" >All cases - earlier</text>
+<circle cx="757.205" cy="107" r="5" fill="#126b74"/>
+<text x="845" y="112" font-size="15" >82.7</text>
+<text x="28" y="152" font-size="15" >All cases - later</text>
+<circle cx="506.537" cy="147" r="5" fill="#126b74"/>
+<text x="845" y="152" font-size="15" >33.6</text>
+<text x="28" y="192" font-size="15" >Routine - earlier</text>
+<circle cx="794.474" cy="187" r="5" fill="#126b74"/>
+<text x="845" y="192" font-size="15" >90</text>
+<text x="28" y="232" font-size="15" >Routine - later</text>
+<circle cx="820.000" cy="227" r="5" fill="#126b74"/>
+<text x="845" y="232" font-size="15" >95</text>
+<text x="28" y="272" font-size="15" >Complex - earlier</text>
+<circle cx="386.053" cy="267" r="5" fill="#126b74"/>
+<text x="845" y="272" font-size="15" >10</text>
+<text x="28" y="312" font-size="15" >Complex - later</text>
+<circle cx="437.105" cy="307" r="5" fill="#126b74"/>
+<text x="845" y="312" font-size="15" >20</text>
+<text x="28" y="394" font-size="13" >Fictional checked summary. Case mix changed; these observations do not establish a policy effect.</text>
+<text x="28" y="414" font-size="13" >Source: example.csv, all six rows; definitions in example-method.md</text>
+</g>
+</svg>

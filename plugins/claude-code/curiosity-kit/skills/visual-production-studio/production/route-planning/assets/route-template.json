@@ -1,0 +1,10 @@
+{
+  "route": "faceless-explainer",
+  "objective": "What the viewer should understand or do",
+  "duration_seconds": 60,
+  "width": 1080,
+  "height": 1920,
+  "runtime": "hyperframes",
+  "skills": ["faceless-explainer", "embedded-captions", "video-delivery-qc"],
+  "rationale": "Why this path fits the brief"
+}

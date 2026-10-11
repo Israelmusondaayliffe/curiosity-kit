@@ -1,0 +1,120 @@
+{
+  "title": "Synthetic example: invoice-follow-up pilot",
+  "product": "A founder-operated invoice-reminder pilot for small design agencies",
+  "product_url": "https://example.com/pilot",
+  "target_customer": "Hypothesis: small design agencies where the owner still follows up overdue invoices. Exclude agencies with a working automated collection process.",
+  "buyer": "Agency owner, hypothesized budget owner; purchasing authority unconfirmed",
+  "user": "Owner or operations coordinator doing follow-up; distinct from confirmed buyer",
+  "search_scope": "Two synthetic supplied records for demonstration. No public research was performed.",
+  "generated_at": "2026-10-08",
+  "mode": "quick",
+  "verdict": "One potential interview prospect fits the supplied workflow signal; no purchase or pilot commitment is established. A second agency remains speculative.",
+  "window": {
+    "start": "2026-09-08",
+    "end": "2026-10-08"
+  },
+  "sources": [
+    {
+      "id": "E1",
+      "title": "Synthetic owner workflow note",
+      "url": "https://example.com/synthetic/owner-note",
+      "source_type": "Synthetic supplied note, not a real public post",
+      "observed_at": "2026-10-08",
+      "publication_date": "2026-10-01",
+      "event_date": "2026-09-30",
+      "recency_basis": "event",
+      "access": "supplied",
+      "excerpt": "Fictional owner: I review overdue invoices each Friday and write each reminder myself.",
+      "limitations": "Invented test data. No actual owner, website read, budget or willingness to pay. Dates are synthetic."
+    },
+    {
+      "id": "E2",
+      "title": "Synthetic unavailable agency page",
+      "url": "https://example.com/synthetic/unavailable",
+      "source_type": "Placeholder URL, inaccessible in this example",
+      "observed_at": null,
+      "publication_date": null,
+      "event_date": null,
+      "recency_basis": "unknown",
+      "access": "inaccessible",
+      "excerpt": "No page content was read. The supplied agency description only suggests a possible segment fit.",
+      "limitations": "Cannot support a pain, timing or demand claim; observation date does not establish recency."
+    }
+  ],
+  "prospects": [
+    {
+      "id": "P1",
+      "name": "Fictional North Agency",
+      "type": "Synthetic company",
+      "stage": "Potential interview participant; no confirmed buyer, pilot or payment",
+      "pain_signal": "The supplied fictional note describes manual weekly follow-up.",
+      "evidence": "E1 contains the workflow statement; burden and willingness to pay are unknown.",
+      "why_fit": "The proposed pilot addresses reminder preparation, subject to learning the actual workflow.",
+      "why_now": "The synthetic event date falls within the requested window; this is not a real timing signal.",
+      "suggested_channel": "An existing professional channel, only if supplied and authorized later",
+      "opener": "How did you handle the last overdue invoice, from noticing it through the next step?",
+      "caution": "Synthetic example only. Confirm current workflow, user and buyer before pitching. Do not send this draft.",
+      "dimensions": {
+        "pain_strength": 3,
+        "product_fit": 4,
+        "timing": 3,
+        "reachability": 1,
+        "evidence_quality": 2
+      },
+      "score": 56,
+      "evidence_ids": [
+        "E1"
+      ]
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "P2",
+      "name": "Fictional West Agency",
+      "type": "Synthetic company",
+      "stage": "Speculative segment fit only",
+      "pain_signal": "Unknown; no pain evidence available",
+      "evidence": "E2 records an inaccessible placeholder, not a read page.",
+      "why_fit": "Agency category may fit; workflow is unknown.",
+      "why_now": "Unknown; no publication or event date",
+      "suggested_channel": "Unknown",
+      "opener": "No outreach draft is warranted without relevant evidence.",
+      "caution": "Do not promote to qualified shortlist based on company category.",
+      "dimensions": null,
+      "score": null,
+      "evidence_ids": [
+        "E2"
+      ]
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Manual reminders: single observation, not a repeated pattern",
+      "count": 1,
+      "insight": "Only P1 supplies a workflow signal. This does not establish prevalence across agencies.",
+      "prospect_ids": [
+        "P1"
+      ],
+      "evidence_ids": [
+        "E1"
+      ]
+    }
+  ],
+  "outreach_plan": {
+    "angle": "Learn the current workaround before proposing a small pilot.",
+    "first_step": "Prepare one neutral interview draft; a real contact and sending authority are still absent.",
+    "follow_up": "After a separately authorized conversation, ask about the last real invoice and what the owner already tried.",
+    "success": "Learning goal: document one actual workflow and identify who approves spend. This example supplies no measured outcomes.",
+    "stop_rules": [
+      "Do not send messages or contact fictional companies.",
+      "For real outreach, stop follow-ups after any reply; assess the reply before further action.",
+      "Honor any opt-out across channels; do not evade it through another address.",
+      "If no relevant evidence can be found, return an empty qualified shortlist."
+    ]
+  },
+  "limits": [
+    "Everything in this example is synthetic; it is not demand evidence.",
+    "Scores rank supplied hypotheses and are not conversion probabilities.",
+    "The checker validates shape, references, dates and arithmetic only. It cannot establish truth, source access, consent or buyer status."
+  ]
+}

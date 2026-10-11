@@ -1,0 +1,7 @@
+interface:
+  display_name: "Chief of Staff"
+  short_description: "Coordinate the right skills and keep useful work moving."
+  default_prompt: "Use Chief of Staff to understand this request, choose the smallest useful workflow, and carry it through with clear evidence."
+
+policy:
+  allow_implicit_invocation: true

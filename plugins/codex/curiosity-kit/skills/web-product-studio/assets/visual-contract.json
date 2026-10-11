@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "kind": "visual-contract",
+  "stage": "planned",
+  "task_id": "synthetic-reference-panel",
+  "objective": "Implement the user-approved synthetic telemetry panel with recognizable reference composition",
+  "first_glance": "A compact instrument panel organizes one dominant circular reading above subordinate trend and status information.",
+  "proof_slice": "The primary reading, its trend and the narrow-layout rearrangement",
+  "author_ids": [
+    "contract-author-to-resolve"
+  ],
+  "builder_ids": [
+    "builder-to-resolve"
+  ],
+  "references": [
+    {
+      "id": "approved-panel",
+      "source": "Task-supplied approved synthetic reference; inspect actual bytes before lock",
+      "permission_status": "supplied-by-user",
+      "artifact": null,
+      "inspection": null
+    }
+  ],
+  "traits": [
+    "One dominant circular reading retains the reference silhouette and numeric hierarchy",
+    "Trend and status use the approved compact alignment and calm material language",
+    "The narrow crop retains the reading and a reachable primary action"
+  ],
+  "forbidden": [
+    "Equal-weight cards that erase the dominant reading",
+    "A glossy three-dimensional dial replacing the approved flat instrument",
+    "Clipped reading or inaccessible primary action at the accepted narrow width"
+  ],
+  "viewports": [
+    {
+      "id": "desktop",
+      "width": 1280,
+      "height": 800,
+      "framing": "Whole panel with neighboring navigation for scale"
+    },
+    {
+      "id": "narrow",
+      "width": 390,
+      "height": 844,
+      "framing": "Accepted narrow composition with the primary action visible"
+    }
+  ],
+  "states": [
+    "default",
+    "extreme"
+  ],
+  "required_views": [
+    {
+      "id": "desktop-default",
+      "viewport_id": "desktop",
+      "state_id": "default",
+      "reference_ids": [
+        "approved-panel"
+      ],
+      "proof_slice": true
+    },
+    {
+      "id": "narrow-default",
+      "viewport_id": "narrow",
+      "state_id": "default",
+      "reference_ids": [
+        "approved-panel"
+      ],
+      "proof_slice": true
+    },
+    {
+      "id": "desktop-extreme",
+      "viewport_id": "desktop",
+      "state_id": "extreme",
+      "reference_ids": [
+        "approved-panel"
+      ],
+      "proof_slice": false
+    }
+  ],
+  "medium": {
+    "selected": "HTML/CSS with a source-owned SVG instrument",
+    "rationale": "The approved target is a flat information panel with precise labels and responsive geometry.",
+    "rejected": [
+      "Canvas would complicate selectable labels and semantics without a visual need",
+      "Three-dimensional rendering would change the reference material and hierarchy"
+    ],
+    "switch_condition": "If the proposed primitive cannot retain the approved silhouette and label alignment at both required widths after a bounded geometry repair, replace that primitive and repeat the proof slice."
+  },
+  "constraint_conflicts": [],
+  "conflicts_resolved": true,
+  "secondary_features_started": false,
+  "visual_gate": "unrun",
+  "incomplete_wording": "Planned target only. The reference has not been inspected or locked and no candidate has been visually reviewed."
+}

@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {"id": "fictional-brief", "may_inform": true, "direct_audiences": ["author", "presenter", "participant", "public"], "transform_audiences": ["author", "presenter", "participant", "public"], "attribution_required": false}
+  ],
+  "artifacts": [
+    {"id": "handout", "path": "assets/workshop-participant.md", "audience": "participant"},
+    {"id": "notes", "path": "assets/workshop-presenter.md", "audience": "presenter"}
+  ],
+  "items": [
+    {"id": "event-facts", "kind": "claim", "source_ids": ["fictional-brief"], "evidence_ids": [], "artifact_ids": ["handout", "notes"], "mode": "direct", "state": "illustrative"},
+    {"id": "invitation", "kind": "example", "source_ids": [], "evidence_ids": ["event-facts"], "artifact_ids": ["handout"], "mode": "transform", "state": "illustrative"}
+  ]
+}

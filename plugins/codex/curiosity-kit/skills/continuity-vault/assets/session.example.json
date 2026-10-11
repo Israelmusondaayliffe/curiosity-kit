@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "kind": "session",
+  "sources": [
+    {"id": "source-workshop", "location": "synthetic/workshop-notes.txt", "version": "sample-v1", "status": "available"}
+  ],
+  "session": {
+    "id": "session-example",
+    "purpose": "Synthetic example of retaining a permission gap without producing a derivative.",
+    "participants": ["Facilitator role; name not recorded"],
+    "date": null,
+    "completeness": "partial"
+  },
+  "items": [
+    {
+      "id": "item-follow-up",
+      "kind": "follow_up",
+      "content": "Compare two onboarding checklists before choosing one.",
+      "source_id": "source-workshop",
+      "evidence": "Synthetic notes, lines 2-3: Compare the two onboarding checklists. No owner, date, or reuse permission was recorded.",
+      "reuse": "unknown",
+      "reuse_reason": "The notes do not record reuse permission or an allowed audience.",
+      "audience": [],
+      "attribution": null,
+      "deidentify": "unknown",
+      "identifiers": [],
+      "owner": null,
+      "owner_evidence": null,
+      "date": null,
+      "date_evidence": null
+    }
+  ],
+  "candidates": [
+    {
+      "id": "candidate-checklist-brief",
+      "description": "Prepare a comparison brief if the audience and reuse permission are established.",
+      "item_ids": ["item-follow-up"],
+      "audience": [],
+      "selected": false,
+      "selection_evidence": null,
+      "state": "blocked",
+      "reason": "Ask the source owner to clarify reuse and audience before offering this derivative for selection. Keep owner and timing unknown."
+    }
+  ],
+  "outputs": [],
+  "no_output_reason": null
+}

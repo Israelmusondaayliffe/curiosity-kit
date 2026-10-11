@@ -1,0 +1,29 @@
+{
+  "decision": "Sample trial",
+  "decision_ref": "sample:decision-1",
+  "assumptions": [
+    {
+      "id": "A1",
+      "statement": "Participants can attend remotely.",
+      "kind": "capability",
+      "load_bearing": "Without access the trial cannot work.",
+      "status": "untested",
+      "confidence": "low",
+      "reversibility": "reversible",
+      "owner": null,
+      "test": null,
+      "kill_condition": "Any intended participant cannot join.",
+      "supporting_evidence": [],
+      "contradicting_evidence": [],
+      "history": [
+        {
+          "date": "2026-10-10",
+          "from_status": null,
+          "to_status": "untested",
+          "reason": "Initial untested belief.",
+          "evidence": []
+        }
+      ]
+    }
+  ]
+}

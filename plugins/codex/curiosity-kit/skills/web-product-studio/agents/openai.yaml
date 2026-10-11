@@ -1,0 +1,7 @@
+interface:
+  display_name: "Web Product Studio"
+  short_description: "Build, redesign and verify complete web products."
+  default_prompt: "Use $web-product-studio to complete this web task and verify the actual result."
+
+policy:
+  allow_implicit_invocation: true

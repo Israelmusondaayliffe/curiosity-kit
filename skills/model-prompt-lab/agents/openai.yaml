@@ -1,0 +1,6 @@
+interface:
+  display_name: "Model Prompt Lab"
+  short_description: "Build prompts and compare models with traceable evidence."
+  default_prompt: "Use Model Prompt Lab for the requested prompt or evaluation task, preserving the selected model and separating prepared work from measured results."
+policy:
+  allow_implicit_invocation: true

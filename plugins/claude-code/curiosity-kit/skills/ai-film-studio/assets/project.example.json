@@ -1,0 +1,428 @@
+{
+  "title": "The Last Key",
+  "brief": "At the last ferry departure, a booth keeper must choose whether to surrender the key that ends her shift.",
+  "formula": {
+    "blocks": [
+      "scene_context",
+      "references",
+      "location_map",
+      "first_frame",
+      "format",
+      "optics",
+      "camera",
+      "action",
+      "physics",
+      "lighting",
+      "audio",
+      "acting",
+      "style",
+      "quality",
+      "constraints",
+      "technical"
+    ],
+    "descriptor_policy": "verbatim",
+    "style_constant": "Muted rust and green, tactile canvas and worn brass; restrained contrast and patient framing."
+  },
+  "assets": [
+    {
+      "id": "mara-dry",
+      "identity": "mara",
+      "state": "dry",
+      "parent": null,
+      "kind": "character",
+      "tag": "@mara-dry",
+      "descriptor": "Mara wears a rust canvas jacket with a square brass clasp.",
+      "version": 1,
+      "voice": "A low, dry voice; deliberate consonants and a short breath before each line.",
+      "behavior": "She steadies loose objects before answering."
+    },
+    {
+      "id": "iven",
+      "identity": "iven",
+      "state": "waiting",
+      "parent": null,
+      "kind": "character",
+      "tag": "@iven",
+      "descriptor": "Iven wears a charcoal apron with a stitched white corner.",
+      "version": 1,
+      "voice": "A light, close voice with an even pace and soft final consonants.",
+      "behavior": "He keeps his hands open whenever he asks for something."
+    },
+    {
+      "id": "key-held",
+      "identity": "key",
+      "state": "held",
+      "parent": null,
+      "kind": "prop",
+      "tag": "@key-held",
+      "descriptor": "A flat brass key with one triangular notch.",
+      "version": 1
+    },
+    {
+      "id": "key-table",
+      "identity": "key",
+      "state": "on-table",
+      "parent": "key-held",
+      "kind": "prop",
+      "tag": "@key-table",
+      "descriptor": "A flat brass key with one triangular notch, resting flat on the table.",
+      "version": 1
+    },
+    {
+      "id": "booth",
+      "identity": "booth",
+      "state": "night",
+      "parent": null,
+      "kind": "location",
+      "tag": "@booth",
+      "descriptor": "A narrow ferry ticket booth with a green counter and a round clock.",
+      "version": 1
+    }
+  ],
+  "scenes": [
+    {
+      "id": "booth-night",
+      "title": "The counter at closing",
+      "dramatic_question": "Will Mara give up the key when leaving means abandoning her post?",
+      "prose": "The clock ticks past closing. Iven holds out his hand. Mara braces the key in her palm.\n\nIVEN: The last boat is waiting.\n\nMara covers the notch with her thumb. She lays the key on the counter.\n\nMARA: Then let it wait.\n\nIven pulls his hand back. The key stays between them.",
+      "location": "booth",
+      "geography": {
+        "text": "The green counter is frame-left. The round clock is frame-right, 2 metres from the counter. The doorway is 1 metre behind the counter.",
+        "landmarks": [
+          "green counter",
+          "round clock",
+          "doorway"
+        ],
+        "camera_side": "Camera remains on the doorway side of the counter\u2013clock axis.",
+        "reverse_rule": "Reverse from the same doorway side; keep counter frame-left and clock frame-right."
+      },
+      "shots": [
+        {
+          "id": "s1",
+          "purpose": "Establish the distance before the last crossing closes.",
+          "duration": 1,
+          "active": [
+            {
+              "asset": "mara-dry",
+              "version": 1,
+              "role": "identity"
+            },
+            {
+              "asset": "iven",
+              "version": 1,
+              "role": "identity"
+            },
+            {
+              "asset": "key-held",
+              "version": 1,
+              "role": "prop-state"
+            },
+            {
+              "asset": "booth",
+              "version": 1,
+              "role": "geography"
+            }
+          ],
+          "first_frame": [
+            {
+              "asset": "mara-dry",
+              "landmark": "green counter",
+              "distance_m": 0.2,
+              "frame_side": "left",
+              "gaze": "toward Iven"
+            },
+            {
+              "asset": "iven",
+              "landmark": "round clock",
+              "distance_m": 0.5,
+              "frame_side": "right",
+              "gaze": "toward Mara"
+            },
+            {
+              "asset": "key-held",
+              "landmark": "green counter",
+              "distance_m": 0.2,
+              "frame_side": "left",
+              "gaze": "flat orientation toward the counter edge"
+            }
+          ],
+          "format": "Single continuous shot; widescreen.",
+          "optics": "35 mm equivalent, eye-level perspective.",
+          "camera": "Locked wide.",
+          "beats": [
+            {
+              "start": 0,
+              "end": 1,
+              "action": "The camera holds wide as Mara braces the key against her palm and Iven holds out one hand."
+            }
+          ],
+          "physics": "Hands retain five fingers. The key keeps its rigid shape and falls only when unsupported.",
+          "light": {
+            "source": "the practical counter lamp",
+            "motivation": "The shaded lamp casts a single soft-edged shadow across the counter."
+          },
+          "dialogue": [],
+          "acting": {
+            "mara-dry": "Her thumb presses the notch; her jaw stays still.",
+            "iven": "His open hand stops at the counter edge; his eyes follow her fingers."
+          },
+          "quality": "Coherent hands, key geometry and stable facial identity.",
+          "constraints": [
+            "Eyes follow the scene partner.",
+            "The key retains its triangular notch."
+          ],
+          "technical": "16:9; 1 seconds.",
+          "sfx": "A quiet clock tick and canvas brushing the counter."
+        },
+        {
+          "id": "s2",
+          "purpose": "Make the request cost Mara something.",
+          "duration": 4,
+          "active": [
+            {
+              "asset": "mara-dry",
+              "version": 1,
+              "role": "identity"
+            },
+            {
+              "asset": "iven",
+              "version": 1,
+              "role": "identity"
+            },
+            {
+              "asset": "key-held",
+              "version": 1,
+              "role": "prop-state"
+            },
+            {
+              "asset": "booth",
+              "version": 1,
+              "role": "geography"
+            }
+          ],
+          "first_frame": [
+            {
+              "asset": "mara-dry",
+              "landmark": "green counter",
+              "distance_m": 0.2,
+              "frame_side": "left",
+              "gaze": "toward Iven"
+            },
+            {
+              "asset": "iven",
+              "landmark": "round clock",
+              "distance_m": 0.5,
+              "frame_side": "right",
+              "gaze": "toward Mara"
+            },
+            {
+              "asset": "key-held",
+              "landmark": "green counter",
+              "distance_m": 0.2,
+              "frame_side": "left",
+              "gaze": "flat orientation toward the counter edge"
+            }
+          ],
+          "format": "Single continuous shot; widescreen.",
+          "optics": "50 mm equivalent, focus on the hands and face.",
+          "camera": "Slow 20 cm push toward Mara.",
+          "beats": [
+            {
+              "start": 0,
+              "end": 4,
+              "action": "The camera eases toward Mara as her thumb covers the key notch."
+            }
+          ],
+          "physics": "Hands retain five fingers. The key keeps its rigid shape and falls only when unsupported.",
+          "light": {
+            "source": "the practical counter lamp",
+            "motivation": "The shaded lamp casts a single soft-edged shadow across the counter."
+          },
+          "dialogue": [
+            {
+              "speaker": "iven",
+              "line": "The last boat is waiting.",
+              "action": "He leaves his palm open.",
+              "reaction": "Mara presses her thumb against the notch."
+            }
+          ],
+          "acting": {
+            "mara-dry": "Her thumb presses the notch; her jaw stays still.",
+            "iven": "His open hand stops at the counter edge; his eyes follow her fingers."
+          },
+          "quality": "Coherent hands, key geometry and stable facial identity.",
+          "constraints": [
+            "Eyes follow the scene partner.",
+            "The key retains its triangular notch."
+          ],
+          "technical": "16:9; 4 seconds.",
+          "sfx": "A quiet clock tick and canvas brushing the counter."
+        },
+        {
+          "id": "s3",
+          "purpose": "Turn surrender into a visible decision.",
+          "duration": 4,
+          "active": [
+            {
+              "asset": "mara-dry",
+              "version": 1,
+              "role": "identity"
+            },
+            {
+              "asset": "iven",
+              "version": 1,
+              "role": "identity"
+            },
+            {
+              "asset": "key-held",
+              "version": 1,
+              "role": "prop-state"
+            },
+            {
+              "asset": "booth",
+              "version": 1,
+              "role": "geography"
+            }
+          ],
+          "first_frame": [
+            {
+              "asset": "mara-dry",
+              "landmark": "green counter",
+              "distance_m": 0.2,
+              "frame_side": "left",
+              "gaze": "toward Iven"
+            },
+            {
+              "asset": "iven",
+              "landmark": "round clock",
+              "distance_m": 0.5,
+              "frame_side": "right",
+              "gaze": "toward Mara"
+            },
+            {
+              "asset": "key-held",
+              "landmark": "green counter",
+              "distance_m": 0.2,
+              "frame_side": "left",
+              "gaze": "flat orientation toward the counter edge"
+            }
+          ],
+          "format": "Single continuous shot; widescreen.",
+          "optics": "50 mm equivalent, focus on the hands and face.",
+          "camera": "Locked close framing.",
+          "beats": [
+            {
+              "start": 0,
+              "end": 4,
+              "action": "The camera holds at counter height as Mara slides the key onto the counter and opens her hand."
+            }
+          ],
+          "physics": "Hands retain five fingers. The key keeps its rigid shape and falls only when unsupported.",
+          "light": {
+            "source": "the practical counter lamp",
+            "motivation": "The shaded lamp casts a single soft-edged shadow across the counter."
+          },
+          "dialogue": [
+            {
+              "speaker": "mara-dry",
+              "line": "Then let it wait.",
+              "action": "She releases the key.",
+              "reaction": "Iven draws one breath and holds it."
+            }
+          ],
+          "acting": {
+            "mara-dry": "Her thumb lifts clear of the notch as her fingers open; she leaves the key on the counter and holds Iven's gaze.",
+            "iven": "His offered hand stays at the counter edge while he watches her release; he draws one breath and holds it."
+          },
+          "quality": "Coherent hands, key geometry and stable facial identity.",
+          "constraints": [
+            "Eyes follow the scene partner.",
+            "The key retains its triangular notch."
+          ],
+          "technical": "16:9; 4 seconds.",
+          "sfx": "A quiet clock tick and canvas brushing the counter."
+        },
+        {
+          "id": "s4",
+          "purpose": "Hold the consequence before cutting away.",
+          "duration": 3,
+          "active": [
+            {
+              "asset": "mara-dry",
+              "version": 1,
+              "role": "identity"
+            },
+            {
+              "asset": "iven",
+              "version": 1,
+              "role": "identity"
+            },
+            {
+              "asset": "key-table",
+              "version": 1,
+              "role": "prop-state"
+            },
+            {
+              "asset": "booth",
+              "version": 1,
+              "role": "geography"
+            }
+          ],
+          "first_frame": [
+            {
+              "asset": "mara-dry",
+              "landmark": "green counter",
+              "distance_m": 0.2,
+              "frame_side": "left",
+              "gaze": "toward Iven"
+            },
+            {
+              "asset": "iven",
+              "landmark": "round clock",
+              "distance_m": 0.5,
+              "frame_side": "right",
+              "gaze": "toward Mara"
+            },
+            {
+              "asset": "key-table",
+              "landmark": "green counter",
+              "distance_m": 0.2,
+              "frame_side": "left",
+              "gaze": "flat orientation toward the counter edge"
+            }
+          ],
+          "format": "Single continuous shot; widescreen.",
+          "optics": "50 mm equivalent, focus on the hands and face.",
+          "camera": "Locked close framing.",
+          "beats": [
+            {
+              "start": 0,
+              "end": 3,
+              "action": "The camera holds close as Iven draws his hand back and leaves the key on the counter."
+            }
+          ],
+          "physics": "Hands retain five fingers. The key keeps its rigid shape and falls only when unsupported.",
+          "light": {
+            "source": "the practical counter lamp",
+            "motivation": "The shaded lamp casts a single soft-edged shadow across the counter."
+          },
+          "dialogue": [],
+          "acting": {
+            "mara-dry": "Her empty hand rests open beside the key; her shoulders settle as she watches Iven withdraw.",
+            "iven": "He draws his offered hand back toward his apron, leaving the key on the counter; his eyes return to Mara."
+          },
+          "quality": "Coherent hands, key geometry and stable facial identity.",
+          "constraints": [
+            "Eyes follow the scene partner.",
+            "The key retains its triangular notch."
+          ],
+          "technical": "16:9; 3 seconds.",
+          "sfx": "A quiet clock tick and canvas brushing the counter.",
+          "state_changes": {
+            "key": "key-table"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Historical/design-reference material; retained for artistic depth. Not an active Standard engine or current native/render qualification. Use METHOD.md and the selected current DNA/theme. Do not execute embedded remote resources or revive unavailable historical fixtures without a separately qualified route.

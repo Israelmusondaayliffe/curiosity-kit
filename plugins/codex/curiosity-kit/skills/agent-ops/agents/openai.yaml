@@ -1,0 +1,7 @@
+interface:
+  display_name: "Agent Ops"
+  short_description: "Design, audit and recover agents; delegate with explicit authority."
+  default_prompt: "Use $agent-ops to design or audit this agent workflow."
+
+policy:
+  allow_implicit_invocation: true

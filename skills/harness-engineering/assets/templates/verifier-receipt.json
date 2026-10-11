@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "run_id": "[fill: run id from the run state]",
+  "candidate": "[fill: revision or package digest that was verified]",
+  "verified_at": "[fill: UTC time in the form 2026-10-03T22:42:19+00:00, after the last run step]",
+  "functional_result": "pass",
+  "qualitative_result": "not-required",
+  "unresolved_required": 0,
+  "checks": [
+    {"check": "[fill: command or inspection]", "status": "pass", "evidence": "[fill: output line or path]"}
+  ],
+  "notes": "functional_result is pass or fail; qualitative_result is pass, fail or not-required. hectl run stop --as completed refuses any receipt that records a failure, an unresolved required item, a non-passing check, or a time before the last step."
+}

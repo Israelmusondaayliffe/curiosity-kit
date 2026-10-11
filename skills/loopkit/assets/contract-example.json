@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "host": "codex",
+  "title": "Synthetic bounded result",
+  "outcome": "result.txt contains exactly ok and newline",
+  "authority": "Isolated local fixture execution approved for this test",
+  "allowed_paths": [
+    "."
+  ],
+  "forbidden_paths": [],
+  "external_actions": [],
+  "artifacts": [
+    "result.txt"
+  ],
+  "limits": {
+    "max_iterations": 3,
+    "no_progress_limit": 2,
+    "max_seconds": 120,
+    "max_output_bytes": 65536
+  },
+  "stops": {
+    "success": "Exact result verified",
+    "failure": "Integrity invalid",
+    "blocked": "Required tool unavailable",
+    "exhausted": "Execution or progress budget consumed"
+  },
+  "actions": [
+    {
+      "id": "write",
+      "argv": [
+        "python3",
+        "-c",
+        "from pathlib import Path; Path('result.txt').write_text('ok\\n')"
+      ],
+      "cwd": ".",
+      "timeout": 10,
+      "authority": "Write synthetic result.txt only",
+      "inputs": []
+    }
+  ],
+  "checks": [
+    {
+      "id": "exact",
+      "argv": [
+        "python3",
+        "-c",
+        "from pathlib import Path; assert Path('result.txt').read_bytes() == b'ok\\n'"
+      ],
+      "cwd": ".",
+      "timeout": 10,
+      "authority": "Read synthetic result.txt",
+      "inputs": []
+    }
+  ],
+  "judgments": [],
+  "units": [
+    {
+      "id": "result",
+      "outcome": "Exact synthetic output",
+      "actions": [
+        "write"
+      ],
+      "checks": [
+        "exact"
+      ],
+      "judgments": []
+    }
+  ]
+}

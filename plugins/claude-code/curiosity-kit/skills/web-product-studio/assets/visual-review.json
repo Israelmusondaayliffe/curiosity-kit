@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "kind": "visual-review",
+  "stage": "planned",
+  "task_id": "synthetic-reference-panel",
+  "state": "visual-passed",
+  "contract": null,
+  "build": null,
+  "reviewer": {
+    "id": null,
+    "independent": false,
+    "receipt": null
+  },
+  "captures": [],
+  "inspections": [],
+  "comparisons": [],
+  "score": null,
+  "differences": [],
+  "visual_gate": "unrun",
+  "functional_gate": "unrun",
+  "flow": null,
+  "decision": "incomplete",
+  "incomplete_wording": "Planned review only. No render, independent assessment or functional execution is claimed.",
+  "previous_review": null,
+  "full_build_receipt": null,
+  "secondary_features_started_before_visual_pass": false
+}

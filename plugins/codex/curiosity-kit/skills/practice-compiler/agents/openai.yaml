@@ -1,0 +1,7 @@
+interface:
+  display_name: "Practice Compiler"
+  short_description: "Turn selected work evidence into reviewed practice proposals."
+  default_prompt: "Use $practice-compiler to review these selected exports and propose evidence-backed improvements."
+
+policy:
+  allow_implicit_invocation: true

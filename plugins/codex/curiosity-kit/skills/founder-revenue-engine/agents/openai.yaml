@@ -1,0 +1,7 @@
+interface:
+  display_name: "Founder Revenue Studio"
+  short_description: "Research customers, shape offers and draft founder outreach."
+  default_prompt: "Use $founder-revenue-engine to turn these signals into a supported customer and offer decision."
+
+policy:
+  allow_implicit_invocation: true

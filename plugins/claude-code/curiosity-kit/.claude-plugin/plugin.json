@@ -1,0 +1,14 @@
+{
+  "name": "curiosity-kit",
+  "version": "0.1.0",
+  "description": "Curiosity Kit, the ever-curious: independent domain skills, each with its own playbooks, references and tools.",
+  "author": {
+    "name": "Curiosity Kit contributors"
+  },
+  "keywords": [
+    "harness",
+    "skills",
+    "personal"
+  ],
+  "skills": "./skills/"
+}

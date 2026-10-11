@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "run_id": "[fill: run id from the freeze]",
+  "approval": {
+    "status": "approved",
+    "group": "bounded-repair",
+    "authority": "user",
+    "evidence": "[fill: where the user approved]",
+    "approved_paths": [],
+    "created_paths": []
+  },
+  "workers": [],
+  "findings": [
+    {"id": "F-001", "state": "repaired", "evidence": "[fill: line and change]"},
+    {"id": "F-002", "state": "protected", "category": "identifier", "reason": "[fill]", "source_owner": "[fill]", "evidence": "[fill]"}
+  ],
+  "residuals": [
+    {"match": "harness", "class": "legitimate-technical", "evidence": "names the system under maintenance"}
+  ],
+  "quality": {
+    "category_scores": {
+      "meaning_fidelity": {"score": 2.0, "evidence": "[fill]"},
+      "protected_material": {"score": 2.0, "evidence": "[fill]"},
+      "scope_authority": {"score": 1.5, "evidence": "[fill]"},
+      "finding_reconciliation": {"score": 1.5, "evidence": "[fill]"},
+      "language_quality": {"score": 2.0, "evidence": "[fill]"},
+      "verification_evidence": {"score": 1.0, "evidence": "[fill]"}
+    },
+    "hard_gates": {
+      "fabrication_free": true,
+      "protected_material_intact": true,
+      "scope_intact": true,
+      "terminal_findings": true,
+      "p0_clear": true,
+      "authored_em_dash_free": true,
+      "method_self_contained": true
+    }
+  },
+  "repair_waves": [{"wave": 1, "unresolved_before": 2, "unresolved_after": 0}],
+  "integrated_review": {"status": "clear", "fresh": true, "reviewer": "[fill]", "inventory_sha256": "[fill: current_inventory_sha256 from verify]"}
+}

@@ -1,0 +1,27 @@
+name: Package checks
+
+on:
+  pull_request:
+    paths: ['skills/**', 'adapters/**', 'build/**', 'plugins/**', '.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json', '.github/workflows/package.yml']
+  push:
+    paths: ['skills/**', 'adapters/**', 'build/**', 'plugins/**', '.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json', '.github/workflows/package.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Check provenance and validator failure handling
+        run: python3 -B -m unittest discover -s build -p 'test_package.py' -v
+      - name: Validate both host packages and each standalone skill
+        run: python3 -B build/package.py --out "$RUNNER_TEMP/curiosity-kit-package-check"
+      - name: Check committed runtime packages match the build
+        run: |
+          diff -qr "$RUNNER_TEMP/curiosity-kit-package-check/codex/curiosity-kit" plugins/codex/curiosity-kit
+          diff -qr "$RUNNER_TEMP/curiosity-kit-package-check/claude-code/curiosity-kit" plugins/claude-code/curiosity-kit

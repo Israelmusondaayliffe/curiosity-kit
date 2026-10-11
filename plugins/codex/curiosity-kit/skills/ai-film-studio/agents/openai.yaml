@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Film Studio"
+  short_description: "Develop films with consistent assets, shots, prompts and review."
+  default_prompt: "Use $ai-film-studio to develop this film and verify its production package."
+
+policy:
+  allow_implicit_invocation: false

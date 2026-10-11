@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A timeout leaves the result unknown</title>
+  <style>
+    :root{color-scheme:light;--paper:#faf8f1;--ink:#172e33;--muted:#465e60;--accent:#a34123;--line:#517478;--wash:#e8eeea;--warning:#fff0d8;font-family:system-ui,sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55}
+    main{width:min(900px,100% - 36px);margin:auto;padding:38px 0 60px}
+    .eyebrow{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:750}
+    h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.05;max-width:14ch;margin:14px 0 22px}
+    .lead{font-size:1.15rem;max-width:56ch}
+    h2{font-size:1.35rem;margin:0 0 12px}
+    section{margin-top:36px;padding-top:25px;border-top:1px solid #b6c4bc}
+    p{max-width:66ch}
+    figure{margin:22px 0}
+    svg{display:block;width:100%;max-width:680px;height:auto;margin:auto}
+    svg text{font-family:system-ui,sans-serif;fill:var(--ink);font-size:17px}
+    .node{fill:var(--wash);stroke:var(--line);stroke-width:2}
+    .possible{fill:var(--paper);stroke:var(--accent);stroke-width:2;stroke-dasharray:7 5}
+    .edge{stroke:var(--line);stroke-width:2;fill:none}
+    .unknown-edge{stroke:var(--accent);stroke-width:2;stroke-dasharray:6 4;fill:none}
+    .small{font-size:14px}
+    .strong{font-weight:700}
+    figcaption{font-size:.95rem;color:var(--muted);max-width:66ch;margin:14px auto 0}
+    .caution{border-left:4px solid var(--accent);padding:12px 18px;background:var(--warning)}
+    code{font-family:ui-monospace,monospace;font-size:.93em;overflow-wrap:anywhere}
+    details{margin-top:26px;border:1px solid var(--line);padding:14px 18px;border-radius:4px}
+    summary{cursor:pointer;font-weight:700}
+    summary:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+    footer{margin-top:36px;color:var(--muted);font-size:.9rem}
+    @media(max-width:520px){main{padding-top:26px}section{margin-top:28px}svg text{font-size:18px}.small{font-size:15px}}
+    @media print{body{background:white}main{width:100%;padding:0}section,figure{break-inside:avoid}details{display:block}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">An illustrative explanation</div>
+  <h1>No reply does not mean no change.</h1>
+  <p class="lead">A timeout tells the client that it did not receive a response in time. It does not tell the client whether the service saved the change.</p>
+
+  <figure>
+    <svg viewBox="0 0 410 315" role="img" aria-labelledby="outcomes-title outcomes-desc">
+      <title id="outcomes-title">A missing response leaves the outcome unknown</title>
+      <desc id="outcomes-desc">The request was sent. If the response times out, the write may still be pending, it may have been saved while the reply was delayed, or it may have failed. The picture shows the first two; the timeout establishes none of them.</desc>
+      <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#517478"/></marker></defs>
+      <rect class="node" x="100" y="10" width="210" height="54" rx="5"/>
+      <text class="strong" x="205" y="43" text-anchor="middle">Request sent</text>
+      <path class="edge" d="M205 64 V100" marker-end="url(#arrow)"/>
+      <text class="small" x="216" y="91">No reply in time</text>
+      <rect class="node" x="100" y="104" width="210" height="52" rx="5"/>
+      <text class="strong" x="205" y="137" text-anchor="middle">Result unknown</text>
+      <path class="unknown-edge" d="M205 156 V181 H100 V207"/>
+      <path class="unknown-edge" d="M205 181 H310 V207"/>
+      <rect class="possible" x="10" y="210" width="180" height="83" rx="5"/>
+      <text x="100" y="240" text-anchor="middle">Write still</text>
+      <text x="100" y="265" text-anchor="middle">pending</text>
+      <rect class="possible" x="220" y="210" width="180" height="83" rx="5"/>
+      <text x="310" y="240" text-anchor="middle">Saved; reply</text>
+      <text x="310" y="265" text-anchor="middle">delayed</text>
+    </svg>
+    <figcaption>Dashed outlines mean possible outcomes, not observed events. A failed write is also possible; the picture highlights why a timeout alone cannot decide the result.</figcaption>
+  </figure>
+
+  <section aria-labelledby="retry-heading">
+    <h2 id="retry-heading">Check the retry rule before repeating the request.</h2>
+    <p>In this example, the client may retry only when <code>retry_safe</code> is true. If the flag is false, the rule does not permit a retry. The first write's result is still unknown.</p>
+    <p class="caution">This is a teaching example. It does not establish whether a real application's writes are safe to repeat.</p>
+  </section>
+
+  <details>
+    <summary>Show the technical distinction</summary>
+    <p>The client observes a timeout. That observation concerns the response deadline, not a confirmed transaction outcome.</p>
+    <p>A real service may use an operation identifier, deduplication or a status check to resolve uncertainty. None of those capabilities is assumed here. Inspect the service's actual contract before choosing a recovery action.</p>
+  </details>
+
+  <section aria-labelledby="remember-heading">
+    <h2 id="remember-heading">Keep the missing reply separate from the completed work.</h2>
+    <p>After the response deadline, report what you know: no reply arrived in time. Do not report “the write failed” unless another source establishes that fact.</p>
+  </section>
+  <footer>Example content for adaptation. No live request, service result or learner test was observed.</footer>
+</main>
+</body>
+</html>

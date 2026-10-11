@@ -1,0 +1,7 @@
+interface:
+  display_name: "Operating Graph"
+  short_description: "Coordinate explicit bounded workflow graphs with exact evidence."
+  default_prompt: "Use $operating-graph to design or run this bounded workflow."
+
+policy:
+  allow_implicit_invocation: false

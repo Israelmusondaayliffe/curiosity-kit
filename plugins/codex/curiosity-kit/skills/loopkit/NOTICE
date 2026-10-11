@@ -1,0 +1,5 @@
+LoopKit adapts the original Codex and Claude LoopKit functions and selected Pstack and Matt Pocock methods.
+
+Applicable license texts are retained in references/licenses/: codex-LICENSE, claude-LICENSE, pstack-LICENSE and matt-LICENSE. The original author's personal copyright identity in codex-LICENSE was neutralized with that author's authorization; the permission terms are unchanged. Third-party credits and license text remain unchanged.
+
+Pstack source revision: e43c7ee26e0038c6c1fa8380dd34ce86ff94cb2a. Matt Pocock source revision: 24fe0ef7737efae15c87225755e9f6f5965e4888. These are method sources, not runtime dependencies or execution evidence. Original contributions are licensed under the package-root MIT LICENSE; third-party material retains its stated terms.

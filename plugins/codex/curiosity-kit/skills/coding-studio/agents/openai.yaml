@@ -1,0 +1,7 @@
+interface:
+  display_name: "Coding Studio"
+  short_description: "Build, debug, review and deliver software with evidence."
+  default_prompt: "Use $coding-studio to implement and verify this software change."
+
+policy:
+  allow_implicit_invocation: true

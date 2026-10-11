@@ -1,0 +1,82 @@
+{
+  "schema": "last30days.run/v1",
+  "id": "sample-20261009",
+  "created_at": "2026-10-09T16:00:00Z",
+  "scope": {
+    "entity": "Example Project",
+    "queries": [
+      "Example Project release"
+    ],
+    "window": {
+      "start": "2026-09-10",
+      "end": "2026-10-09",
+      "timezone": "UTC",
+      "boundary": "inclusive"
+    },
+    "lanes": [
+      {
+        "id": "official",
+        "status": "ok",
+        "detail": "One supplied synthetic release body read."
+      }
+    ],
+    "selection": {
+      "cap": 10,
+      "method": "Relevant official release observations; synthetic example."
+    }
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "lane": "official",
+      "url": "https://example.com/releases/1",
+      "title": "Example release",
+      "body": "Version 1 adds a local export command.",
+      "visibility": "public",
+      "origin_id": "example-release-1",
+      "published_at": "2026-10-08T12:00:00Z",
+      "retrieved_at": "2026-10-09T15:00:00Z",
+      "read_status": "full",
+      "date_basis": "publication",
+      "engagement": [],
+      "locators": [
+        {
+          "kind": "section",
+          "url": "https://example.com/releases/1#export",
+          "label": "Export section",
+          "author": null,
+          "text": "Version 1 adds a local export command."
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "The synthetic release announces a local export command.",
+      "source_ids": [
+        "s1"
+      ],
+      "visibility": "public",
+      "review_status": "supported"
+    }
+  ],
+  "findings": [
+    {
+      "id": "f1",
+      "text": "Local export was announced; this example does not demonstrate production availability.",
+      "source_ids": [
+        "s1"
+      ],
+      "claim_ids": [
+        "c1"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "public_metadata": {
+    "reviewed": true,
+    "title": "Synthetic Example Project release research",
+    "entity": "Example Project"
+  }
+}

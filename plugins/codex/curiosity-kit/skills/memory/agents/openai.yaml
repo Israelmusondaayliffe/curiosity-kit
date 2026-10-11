@@ -1,0 +1,7 @@
+interface:
+  display_name: "Memory"
+  short_description: "Recall scoped work, resume tasks and diagnose memory capture."
+  default_prompt: "Use $memory to recall relevant work and verify its current source."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Loop Observatory"
+  short_description: "Compare loop outcomes, costs and judge agreement."
+  default_prompt: "Use $loop-observatory to analyze these selected loop records and report supported outcomes, uncertainty and repair evidence."
+
+policy:
+  allow_implicit_invocation: true

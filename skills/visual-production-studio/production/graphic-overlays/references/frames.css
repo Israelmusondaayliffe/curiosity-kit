@@ -1,0 +1,18 @@
+/* The outer video wrapper owns stage coordinates. All frame children are local. */
+.video-wrapper { position:absolute; --frame-accent:#2557a7; --frame-scale:1; }
+.video-wrapper .video-viewport { position:absolute; inset:0; overflow:hidden; background:#000; }
+.video-wrapper video { display:block; width:100%; height:100%; object-fit:contain; }
+.frame-clean { border-radius:0; box-shadow:none; }
+.pip-pill .video-viewport { border-radius:14px; }
+.pip-pill { border-radius:14px; box-shadow:0 24px 60px -20px rgba(0,0,0,.45),0 0 0 4px rgba(255,255,255,.7),0 0 0 5px rgba(0,0,0,.18); }
+.hairline-deco { position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 0 2px var(--frame-accent),inset 0 0 0 6px rgba(37,87,167,.13),0 0 0 1px rgba(0,0,0,.1); }
+@supports (color:color-mix(in srgb, blue, transparent)) { .hairline-deco {box-shadow:inset 0 0 0 2px var(--frame-accent),inset 0 0 0 6px color-mix(in srgb,var(--frame-accent) 13%,transparent),0 0 0 1px rgba(0,0,0,.1);} }
+.hairline-deco .tick { position:absolute; width:24px; height:24px; }
+.hairline-deco .tl { top:0;left:0;border-top:4px solid var(--frame-accent);border-left:4px solid var(--frame-accent); }
+.hairline-deco .tr { top:0;right:0;border-top:4px solid var(--frame-accent);border-right:4px solid var(--frame-accent); }
+.hairline-deco .bl { bottom:0;left:0;border-bottom:4px solid var(--frame-accent);border-left:4px solid var(--frame-accent); }
+.hairline-deco .br { bottom:0;right:0;border-bottom:4px solid var(--frame-accent);border-right:4px solid var(--frame-accent); }
+.frame-polaroid .polaroid-card { position:absolute;inset:calc(24px * var(--frame-scale));background:#fefefe;box-shadow:0 28px 60px -18px rgba(0,0,0,.55),0 4px 12px rgba(0,0,0,.12); }
+.frame-polaroid .video-viewport { left:calc(14px * var(--frame-scale));right:calc(14px * var(--frame-scale));top:calc(14px * var(--frame-scale));bottom:calc(64px * var(--frame-scale)); }
+.polaroid-caption { position:absolute;bottom:calc(18px * var(--frame-scale));left:0;right:0;text-align:center;font:700 calc(32px * var(--frame-scale))/1 "Caveat",cursive;color:#1d1c1a; }
+.washi { position:absolute;top:calc(12px * var(--frame-scale));left:20%;width:calc(120px * var(--frame-scale));height:calc(28px * var(--frame-scale));background:rgba(180,210,235,.85);background-image:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,255,255,.3) 6px 7px);box-shadow:0 3px 8px rgba(0,0,0,.15); }

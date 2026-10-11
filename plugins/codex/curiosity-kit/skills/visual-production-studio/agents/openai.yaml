@@ -1,0 +1,7 @@
+interface:
+  display_name: "Visual Production Studio"
+  short_description: "Create model-specific visual prompts and complete production plans."
+  default_prompt: "Use $visual-production-studio for this image, video or production task, preserving the requested model and checking the actual output."
+
+policy:
+  allow_implicit_invocation: true

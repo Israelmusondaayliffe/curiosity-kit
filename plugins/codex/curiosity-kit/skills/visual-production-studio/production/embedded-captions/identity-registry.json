@@ -1,0 +1,370 @@
+{
+  "schema": 1,
+  "identity_count": 36,
+  "identities": [
+    {
+      "id": "chrome",
+      "engine": "cinematic",
+      "definition": "dna/chrome.json",
+      "voice": null,
+      "when": "fashion-tech, music, Y2K-revival, product-flex content. The hero is cast in liquid metal \u2014 a gradient sheen sweeps across it once during the hold. Supporting lines stay cool steel.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "unvalidated",
+        "note": "signature = liquid-metal wordCss + sheen sweep (engine fx) \u2014 std ignores wordCss/fx"
+      },
+      "conditional": false
+    },
+    {
+      "id": "cream",
+      "engine": "cinematic",
+      "definition": "dna/cream.json",
+      "voice": null,
+      "when": "dark / mid-tone warm scenes (band luma < 150): studios, evening interiors, moody interviews. Introspective, narrative, emotional content. The successor of cinematic-cream.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "validated",
+        "note": "standard-mode lineage IS cinematic-cream; validated std renders (jimeng)"
+      },
+      "conditional": false
+    },
+    {
+      "id": "documentary",
+      "engine": "cinematic",
+      "definition": "dna/documentary.json",
+      "voice": null,
+      "when": "interviews, serious subject matter, journalism, testimonial. Burn-in reveals (no animation), bone on charcoal, a deliberately modest hero. Gravitas IS the style \u2014 stillness, no accent color, no glow.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "unvalidated",
+        "note": "the lower-third IS documentary's home register (Errol Morris); column stays deliberately modest"
+      },
+      "conditional": false
+    },
+    {
+      "id": "editorial",
+      "engine": "cinematic",
+      "definition": "dna/editorial.json",
+      "voice": null,
+      "when": "introspective monologue, fashion / beauty, poetic or lyrical content, premium brand films on mid/dark scenes. The serif italic carries intimacy that a grotesque can't. The hero stays lowercase italic \u2014 elegance over shout.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "unvalidated",
+        "note": "italic serif rail reads fine; the signature x-glide + line cascade-out exits don't exist in the std enum"
+      },
+      "conditional": false
+    },
+    {
+      "id": "glitch",
+      "engine": "cinematic",
+      "definition": "dna/glitch.json",
+      "voice": null,
+      "when": "digital / hacker / AI / dystopia content; anything that wants the captions to feel like a corrupted feed. RGB-split echoes snap together as each beat lands; timing is machine-percussive; nothing eases politely.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "unvalidated",
+        "note": "signature = RGB-split echoes converge (engine fx) \u2014 rail keeps only a tinted skin"
+      },
+      "conditional": false
+    },
+    {
+      "id": "ink",
+      "engine": "cinematic",
+      "definition": "dna/ink.json",
+      "voice": null,
+      "when": "BRIGHT scenes (band luma > 150): white offices, daylight, pale walls \u2014 the scenes where cream/screen washes out. Multiply blend makes the type read as printed ON the wall, picking up its texture. Confident, editorial-tech tone.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "unvalidated",
+        "note": "rail works (scale-press\u2192settle) but the letterpress identity wants a scene surface to press INTO"
+      },
+      "conditional": false
+    },
+    {
+      "id": "keynote",
+      "engine": "cinematic",
+      "definition": "dna/keynote.json",
+      "voice": null,
+      "when": "product walkthroughs, launches, founder updates, tech explainers. Opaque white type, dead-center planes, few words held long. Confidence comes from mass and stillness, not motion.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "validated",
+        "note": "wipe-up maps to the std entrance enum; keynote_std validated (Shine)"
+      },
+      "conditional": false
+    },
+    {
+      "id": "loud",
+      "engine": "cinematic",
+      "definition": "dna/loud.json",
+      "voice": null,
+      "when": "hype, social reels, sport, music, motivational shorts \u2014 content that WANTS the type to compete with the face (k-pop-lyric lineage; deliberately breaks 'subject wins' at the hero). Machine-gun letter staggers, slam entrances, scene-sampled saturated accent on the hero. Body lines ANNOUNCE in front of the subject (bodyLayer:fg \u2014 k-pop lyric depth); only the hero embeds behind.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "unvalidated",
+        "note": "slam maps; bodyLayer:fg already a std-shaped hybrid; validated both"
+      },
+      "conditional": false
+    },
+    {
+      "id": "neon",
+      "engine": "cinematic",
+      "definition": "dna/neon.json",
+      "voice": null,
+      "when": "cyberpunk / nightlife / tech-noir / music content on dark scenes. The captions ARE neon signage hanging in the room: electric cyan tubes, ignition flicker, a hum of glow. The hero powers ON like a sign being lit.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "unvalidated",
+        "note": "signature = flicker-on + glow layer (engine hero fx) \u2014 rail keeps only the cyan skin"
+      },
+      "conditional": false
+    },
+    {
+      "id": "velocity",
+      "engine": "cinematic",
+      "definition": "dna/velocity.json",
+      "voice": null,
+      "when": "sport, automotive, fitness, anything kinetic. Every word arrives ALONG its own motion vector (streak + skew settles upright); the hero passes through with speed trails behind it. Condensed italic forward lean.",
+      "delivery_qualification": {
+        "home": "column",
+        "rail": "unvalidated",
+        "note": "signature = streak + trail echoes along the speed vector (engine fx) \u2014 rail loses all of it"
+      },
+      "conditional": false
+    },
+    {
+      "id": "anchor",
+      "engine": "theme",
+      "definition": "themes/anchor.json",
+      "voice": "the quiet professional \u2014 a verbatim rail that simply reads (2-frame fade-ups, accent emphasis), and one climax that settles into the scene behind the subject with a drawn accent underline. No spectacle: discipline IS the style. This is the conservative default that replaced Standard mode.",
+      "when": "explainers, tutorials, product walkthroughs, corporate and news-adjacent clips \u2014 anywhere every word must be read and nothing should show off. Pick it when unsure.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "arcade",
+      "engine": "theme",
+      "definition": "themes/arcade.json",
+      "voice": "8-bit cabinet attract mode \u2014 the whole frame plays through a CRT (scanlines + vignette) above a bordered HUD bar (1UP blinking on the classic cadence, CREDIT 01) where every word coin-pops in on steps(2) with a 1-frame white blip; emphasis words run a cyan\u2192magenta palette swap. The apex is a BOSS INTRO behind the subject: the room dims, WARNING blinks twice, ~64 seeded pixel blocks fall quantized into a matrix grid over the word rect, then the word flashes ON in Press Start 2P with chromatic ghost layers + a 3-frame palette strobe while letterbox bars slam in and a HI-SCORE odometer rolls top-right; everything dissolves checkerboard and the blocks drop away.",
+      "when": "gaming, retro-tech, playful hype, launches, achievement/level-up beats, '\u50cf\u7d20/\u8857\u673a/8-bit/\u6253\u6e38\u620f' asks \u2014 anything that should read as an arcade cabinet boss fight. Loud register; the boss dim + dark HUD bar bring their own contrast on bright skies.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "aurora",
+      "engine": "theme",
+      "definition": "themes/aurora.json",
+      "voice": "polar-night elegance \u2014 the sky is alive and every caption is woven light. Two huge aurora blobs drift the top of frame all clip; body words are silk serif ink whose rose\u2192teal\u2192violet sheen drifts continuously through the letters (emphasis words get one bright highlight sweep), lines share two coexisting rows like a woven couplet and dissolve UPWARD into drifting light streaks. The apex is a SILK RIBBON: the hero word is hand-WRITTEN into the sky behind the subject stroke by stroke (single-line script font, blurred halo + bright core, a light mote riding the pen) \u2014 and the signature: the aurora gradient keeps FLOWING through the drawn ribbon during the hold while a soft spill tints the sky and light motes rise past the subject. Gentle \u2014 no shake.",
+      "when": "dreamy / romantic / wonder content, night-sky and travel pieces, poetry, weddings, elegant brand films, '\u6781\u5149/\u4e1d\u5e26/\u4f18\u96c5\u624b\u5199\u5b57\u5e55' asks \u2014 anything that should feel written by light rather than printed. Soft register; the apex scrim + dark understroke carry contrast on bright skies.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "biolume",
+      "engine": "theme",
+      "definition": "themes/biolume.json",
+      "voice": "deep-sea bioluminescence \u2014 the clip sinks into an abyss grade with a breathing vignette and every caption is a living light. Body words GLOW ON like jellyfish (2-frame opacity + radial bloom from center while a cyan glow breathes in), emphasis words pulse a slow double-beat (propulsion), lines float on a gentle drift across two coexisting rows and SINK away dimming; seeded plankton motes drift the open water and the ones ringing the apex get pulled into the bloom. The apex is a bioluminescent BLOOM behind the subject: a creature pre-glow double-beats and crushes to a point, the word condenses in, six luminous tendrils draw outward like filaments while caustics shimmer and cyan light spills onto the scene \u2014 then all the light sinks back into the deep.",
+      "when": "ocean / nature / science-wonder docs, dreamy or meditative monologues, slow night-time reveals, 'underwater / \u6df1\u6d77 / \u53d1\u5149\u6c34\u6bcd' asks \u2014 anything that should feel alive and submerged rather than printed. Soft register; the abyss grade + pocket scrim make their own contrast on bright scenes.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "brush",
+      "engine": "theme",
+      "definition": "themes/brush.json",
+      "voice": "sumi-e study \u2014 the lower third is a washi paper band (deckle-edged under-sheets, warm translucent sheet) where every word is brush-WIPED on behind a traveling brush-head shadow in a Mincho serif, seeded \u00b11\u00b0 tilt; emphasis words get a double curved ink underline drawn beneath, and spent lines are wiped OFF right-to-left like a wet cloth. At the apex a warm paper wash charges behind the subject and the hero word is written in ONE violent calligraphic gesture \u2014 a pressure-tapered wet brush (four stacked stroke widths) slapping down on a start-splat, spattering droplets at the sharpest curves, ink flecks kicking past the subject \u2014 then the ink BLEEDS into the paper through the hold and a vermilion SEAL chop stamps the work with the plate punch.",
+      "when": "calm-authority explainers, craft / design / philosophy / Japan-adjacent content, tea-ceremony-paced brand films, meditation and writing channels \u2014 anything that wants ink-and-paper elegance with one violent flourish. The dark ink needs a mid/bright scene band (the paper wash supplies its own ground on bright skies).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "chalkboard",
+      "engine": "theme",
+      "definition": "themes/chalkboard.json",
+      "voice": "night lecture \u2014 the lower third is a worn deep-green chalk band where every word is SCRIBBLED in fast chalk (2-frame pop + scribble reveal + dust puff, seeded crooked), emphasis gets double underline dashes and the final word lands in yellow chalk; between sentences an ERASER SWIPE smears the old words off and leaves ghost smudges. At the apex the band grows into a full blackboard behind the subject and the hero word is HAND-WRITTEN 130px tall in chalk stroke by stroke (jittered nib, dust falling from the pen), finished with a hand-slap dust clap and two violent underlines, then the halo breathes.",
+      "when": "education/explainers, science and lecture content, teacher channels, documentary asides, 'professor energy' brand spots. Reads as handwriting, so it suits thoughtful pacing; the deep-green board supplies its own contrast on bright scenes.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "dossier",
+      "engine": "theme",
+      "definition": "themes/dossier.json",
+      "voice": "cold-war case file \u2014 the clip is typed onto a manila transcript strip (carbon Special Elite hammered in char by char on seeded baselines, red ink circles around the evidence), and the verdict lands as a RUBBER STAMP behind the subject: the footage goes sepia-archival, the stamp crushes in at -8\u00b0, double-strike ghost, thin-ink patches, then holds DEAD STILL \u2014 sold only by a breathing paper indent \u2014 until the page is filed away with a mechanical yank.",
+      "when": "investigations, expos\u00e9s, true-crime, document-driven storytelling, 'the record shows' narration, declassified/archival framing. Works on any luma (the manila strip is self-lit; the stamp brings its own sepia charge).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "graffiti",
+      "engine": "theme",
+      "definition": "themes/graffiti.json",
+      "voice": "street bombing run \u2014 the lower third is a marker rail where words FLICK on crooked like fast handstyles (1-frame squeak skew, seeded rotation, back.out settle); emphasis words take alternating paint colors (yellow/magenta) with a spray-underline swoosh + overspray dots, spent lines are ROLLER-BUFFED away by a gray paint roller whose wet smear lingers, and the final word lands BIG in yellow with the punch. At the apex a writer steps up behind the subject: the dusk wall dims, the can RATTLES, and the hero word is spray-TAGGED stroke by stroke in fat yellow paint (dark under-stroke armor + soft overspray halo + glowing nib), drips grow from the low points through the hold and a magenta paint splat pops at the pen-finish.",
+      "when": "street culture, hip-hop / rap, sneaker and fashion drops, urban sports, skate/BMX, rebellious brand spots \u2014 anything that wants real handstyle energy. Loud register; the dark under-stroke armors the tag against bright skies.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "hologram",
+      "engine": "theme",
+      "definition": "themes/hologram.json",
+      "voice": "volumetric projection \u2014 every caption is LIGHT cast from an emitter. The body rail is a scanlined projection plate fed by a desk cone; words boot with a rising sweep + 1-frame interference glitch + chromatic fringe, emphasis words drop out for 2 frames and restore brighter, lines drift in rotationY and exit with the projector cut (collapse to a slit, then a dot). The apex is the full volumetric boot: emitter dot pop, cone snap, seed beam, 7-layer hologram word with climbing interference bands; a hand passes through it before the projector cuts it to the base dot.",
+      "when": "tech / sci-fi / AI / product-reveal explainers, futuristic UI talk, space and imaging content \u2014 anything that should feel projected rather than printed. Sleek register. Needs a lower frame edge for the emitter dots; the apex scrim makes its own contrast on bright scenes.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "inkwater",
+      "engine": "theme",
+      "definition": "themes/inkwater.json",
+      "voice": "sumi ink dropped in still water \u2014 the scene offers paper-white radial washes to the text zones, then Mincho-serif ink words BLEED into a lower-third of three fixed reading rows (blur + scale carry the bleed over a paper-glow halo, a dark blurred halo overshoots and tightens, an ink-settling hairline draws under each line, emphasis words shed a curling ink wisp) and spent lines re-dissolve upward like ink dispersing. At the apex a dark drop falls into the frame, hits an invisible water surface at the word point and BLOOMS \u2014 three stacked blurred ink ellipses at different rates, two thin ripple rings \u2014 and the hero words resolve out of the blob (blur 16\u21920) on their own spoken times while the world stills under a gentle vignette; through the hold the glyph edges breathe and the ink finally re-dissolves before the next thought needs the reader.",
+      "when": "contemplative, literary or scientific-wonder narration, astronomy / nature / memory / essay films, poetry and slow-craft channels \u2014 anything spoken quietly that wants one liquid, meditative event instead of an impact. Dark ink needs a mid/bright scene band (the paper washes supply their own ground on bright skies).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "laser",
+      "engine": "theme",
+      "definition": "themes/laser.json",
+      "voice": "concert laser rig \u2014 the room goes to blackout and the light operator types the transcript. Every body word is IGNITED where two thin beams (green from the top-left, magenta from the top-right) converge on it two frames early: flare pop, snap-on in laser green, single strobe on emphasis; a sweeper beam carries each line away. The apex is the drop: a 6-beam array sweeps to one hot point, the word ignites behind the subject in an additive glow stack with two controlled strobe pops, a criss-cross beam cage draws itself around it, then the array fans out slow and wide during the hold before the beams sweep everything off L\u2192R.",
+      "when": "music, nightlife, festivals, drops, hype reveals, tech keynote 'one more thing' beats \u2014 anything that should read as a light show. Loud register; the concert blackout makes its own contrast on any plate (bright skies included).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "lastpage",
+      "engine": "theme",
+      "definition": "themes/lastpage.json",
+      "voice": "the speaker reads from a manuscript that already exists \u2014 a blurred future-transcript haunts the room all video; one rack-focus reveals every faint line was the apex word. The future was only ever one sentence.",
+      "when": "visionary thesis, prophecy-toned founder talks, trailers, literary content. Mid/dark scenes (the field needs air).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "neonsign",
+      "engine": "theme",
+      "definition": "themes/neonsign.json",
+      "voice": "sign district at dusk \u2014 body lines are warm tube light flicking on word by word and dying like power cuts; the apex is a hand-bent neon tube WRITTEN onto the scene stroke by stroke (single-line font draw-on), then it hums.",
+      "when": "lifestyle, night/dusk scenes, music, fashion, mood pieces. Needs a darker or dusk backdrop for the glow to read; rose accent loves cool/dusk palettes.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "nightcity",
+      "engine": "theme",
+      "definition": "themes/nightcity.json",
+      "voice": "broken-UI hardware register meets the cover mark \u2014 body words BOOT in as corrupted cyan for a frame before settling to acid-yellow UI (minors keep a cyan/red registration shadow); the apex word slams in BEHIND the subject SET IN the replica typeface of the CP2077 cover lettering (real brush chops, blade terminals, spikes in the glyphs; logo case), with the cyan duplicate offset, a baseline streak merged into the glyph feet, cyan debris and a circuit trace off the tail. Tear-in slices, living print, tear-out.",
+      "when": "tech edge, gaming, glitch-culture content, hype drops \u2014 a game-cover title moment without the frame ever leaving footage. Loud register.",
+      "delivery_qualification": null,
+      "conditional": true
+    },
+    {
+      "id": "ordnance",
+      "engine": "theme",
+      "definition": "themes/ordnance.json",
+      "voice": "military marking system \u2014 everything has mass. Body words STAMP in and cool from hot amber to bone; the apex is a sliced stencil stamp that detonates: sheared slices snap into register, paint cools, positioning bars + designation tag deploy, the room reacts.",
+      "when": "punchy announcements, hype, product drops, sports, anything that should hit. Loud register. Needs a scene that tolerates a charge-dim (any luma).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "papercut",
+      "engine": "theme",
+      "definition": "themes/papercut.json",
+      "voice": "stop-motion paper craft \u2014 the frame becomes an animator's table. Body words are cream paper chips PLACED one by one on a kraft strip (steps(2) drop, seeded crooked, handmade jitter weave, washi-tape slaps on emphasis, accent-red sign-off chip); the apex is a torn kraft mat slapped down behind the subject where torn-edge letter chips DROP with stepped gravity, land crooked, wobble at 8fps, then a table bump scatters them off-frame on the final word. A red paper star stands in for the hero word on the rail (rail\u2194climax hand-off).",
+      "when": "craft/DIY, kids and family content, indie product demos, behind-the-scenes, maker channels \u2014 anything warm and handmade that suits a 12fps stop-motion heartbeat. Playful register; needs a lower third that tolerates a kraft-paper strip.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "popup",
+      "engine": "theme",
+      "definition": "themes/popup.json",
+      "voice": "a pop-up book opens inside the frame \u2014 body words POP UP on a baseline hinge (rotationX back.out, paper overshoot) along a cream page strip that unfolds from the bottom edge (center foldline, two reading rows); emphasis words land bigger with a contact squash the page FEELS, then flick-wobble with a paper strut leaning in behind. The apex is THE CENTERFOLD: blue + cream paper starbursts unfold behind the subject, the hero word pops up in three hinged segments, struts appear, backdrop + word wobble-settle together and breathe \u2014 then the whole spread folds flat (the book closing). A blue paper star holds the hero slot on the rail (rail\u2194climax hand-off); paper confetti flicks past the subject at the pop.",
+      "when": "kids and family content, storytelling, education, greeting-card and wholesome brand spots, picture-book or craft channels \u2014 anything warm, rounded and gentle that suits a paper toy theater. Playful register; needs a lower third that tolerates a cream paper strip.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "ransom",
+      "engine": "theme",
+      "definition": "themes/ransom.json",
+      "voice": "kidnapper's collage \u2014 every word is a cutout chip clipped from a different page (cream Anton, black Inter, newsprint typewriter, accent-yellow marker) and PASTED crooked on the rail with torn edges and misaligned baselines; emphasis words get a 1-frame re-paste lift, spent chips are RIPPED off with paper-tear flashes. The apex: the sky darkens behind a collage scrim and the hero word slams in letter by letter as a ransom note \u2014 each letter a different chip, flight shadow popping tight on contact \u2014 then the whole word JOLTS as the last letter lands (the plate punches with it), looms crooked through the hold, and is torn off chip by chip.",
+      "when": "true crime, mystery / thriller content, heist energy, punk / DIY zine aesthetics, edgy product drops, unhinged-comedy hooks, \"\u52d2\u7d22\u4fe1/\u526a\u8d34/\u62fc\u8d34\u5b57\u5e55\" asks. Loud register; the solid chip backgrounds carry their own contrast on any scene.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "scoreboard",
+      "engine": "theme",
+      "definition": "themes/scoreboard.json",
+      "voice": "stadium split-flap departures board \u2014 every body word is a mechanical flap tile on a chyron bar that flip-cycles two seeded wrong words before clacking onto the real one (hot amber flash, cools to bone); a ROW counter flips at each line change and an odometer chip rolls beside the first emphasis line. The apex is a board takeover behind the subject: floodlights swing on, a giant departures housing clacks down, one huge flap tile per letter flip-cycles wrong glyphs then locks the word left\u2192right under a crowd-flash, the status ticker types on, one tile re-flutters during the hold.",
+      "when": "sports, transit/travel, scores, countdowns, announcements and reveals \u2014 anything that should read as DEPARTURES-board mechanical. Loud register; needs a lower third that tolerates a dark chyron bar.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "spectrum",
+      "engine": "theme",
+      "definition": "themes/spectrum.json",
+      "voice": "an oscilloscope is listening \u2014 a dark scope band hosts an always-alive waveform (speech grows it, silence flattens it, every word kicks a local burst) and body words are traced on in phosphor mono with a just-traced flash; the apex is the trace itself LEAPING off the scope to hand-write the hero word in a thin phosphor stroke, fill flicker, hum, then collapse to a flatline \u2014 and on the final word the whole trace explodes, flatlines to a single dot and stamps SIGNAL LOST.",
+      "when": "science / signal / audio / measurement / astronomy explainers, data-nerd content, retro-lab or synth aesthetics, \"\u793a\u6ce2\u5668/\u6ce2\u5f62/\u4fe1\u53f7\u5b57\u5e55\" asks. The band brings its own dark glass; bright scenes fine.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "stardust",
+      "engine": "theme",
+      "definition": "themes/stardust.json",
+      "voice": "celestial condensation \u2014 letters condense out of drifting dust into an accumulating poem; the apex assembles from inbound star particles; on the final word the entire visible poem disperses back into dust (semantic exit).",
+      "when": "introspective, poetic, memory, science-wonder monologues. The poem column needs one clear side; a soft gradient scrim (behind the subject) handles bright skies.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "stomp",
+      "engine": "theme",
+      "definition": "themes/stomp.json",
+      "voice": "full-frame typographic takeover \u2014 every beat is a hard-cut center card over a dimmed plate; a long-held card creeps with tension into a true VOID, then the apex detonates in the accent color; the final word dissolves to blur.",
+      "when": "hooks, manifestos, ads, hype openers. The plate runs dimmed throughout \u2014 content where the words ARE the show. Body stays bg (text behind the subject is the identity).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "terminal",
+      "engine": "theme",
+      "definition": "themes/terminal.json",
+      "voice": "console session \u2014 the transcript is a signal log typed into a docked glass panel; the apex decodes out of noise as slot-machine glyph reels, and the log REDACTS the apex words (\u2588\u2588\u2588\u2588\u2588) until the decode locks. The feed corrupts on the final word.",
+      "when": "tech, data, AI, engineering, investigative explainers. Cool scenes preferred (the cyan is scene-motivated on cool/dusk palettes).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "thunder",
+      "engine": "theme",
+      "definition": "themes/thunder.json",
+      "voice": "the storm is the editor \u2014 slate storm mood on the room, ambient slanted rain in front of the subject, and the sky 'kisses' (1-frame brighten) on every body word. Body words arrive on a rain-scrimmed lower third with a lit-bright lightning pop; emphasis words get a sheet-lightning double flash mirrored by a double sky-kiss. The apex is THE STRIKE: a hand-authored branched bolt flashes two frames before the word, then the word slams in lit HARD with its shadow flipped toward the bolt, ozone under-glow breathing through the hold while the rain doubles; everything washes downward with the rain.",
+      "when": "dramatic reveals, storm/weather content, epic hype beats, trailer-toned monologues, anything that should land like a thunderclap. Loud register; the charge-dim + word scrim make their own contrast on any plate (bright skies included).",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "transit",
+      "engine": "theme",
+      "definition": "themes/transit.json",
+      "voice": "amber LED departure board \u2014 the whole video is a station PA system. Body words light column-by-column (L\u2192R LED wipe + 1-frame arrival flicker) on a docked departure strip whose lines page in/out by scroll-snap; furniture: green platform tag, ticking seconds clock, a \u26a0 DELAYED \u2192 \u25cf ON TIME swap gag after the apex. The apex is a board takeover behind the subject: a big LED panel expands upward inside a chasing marquee border, the word illuminates column-by-column under a PA flash + two brightness 'ding' pulses, glow breathes with LED dropouts, then the word pages up and the panel collapses.",
+      "when": "travel/transit, announcements, schedules, countdowns, retro-terminal or arcade registers \u2014 anything that should read as an amber dot-matrix station board. Mid-loud register; needs a lower third that tolerates a dark LED strip.",
+      "delivery_qualification": null,
+      "conditional": false
+    },
+    {
+      "id": "vhs",
+      "engine": "theme",
+      "definition": "themes/vhs.json",
+      "voice": "camcorder tape playback \u2014 the whole frame is a VHS deck. A permanent lens vignette and OSD furniture (\u25b6 PLAY, \u25cf REC, green blinking timestamp) frame the clip; body words are an OSD lower third with a permanent 1px red+cyan misregistration fringe, arriving by tracking glitch (instant on + 2-frame y-shake + 1-frame band-slice shift) and exiting as REWIND streaks with flat-white echoes + scrub lines; the deck flips PLAY\u2192REW in dead air. The apex is REC FREEZE: a 1-frame white tear band + head-switching noise bar, then the word slams in as a huge OSD readout behind the subject \u2014 three tracking-sliced bands shear in and SNAP into register, heavy red/cyan misregistration cools and keeps breathing through the hold under tape-weave jitter and an auto-iris pump, then the whole readout REWINDS off left.",
+      "when": "retro / nostalgia / found-footage / home-video registers, music and lifestyle edits, '90s tech content, '\u5f55\u50cf\u5e26/VHS/\u590d\u53e4/DV' asks \u2014 anything that should read as a tape being played back. Mid-loud register; the backlight-comp scrim makes its own contrast on bright skies.",
+      "delivery_qualification": null,
+      "conditional": false
+    }
+  ]
+}

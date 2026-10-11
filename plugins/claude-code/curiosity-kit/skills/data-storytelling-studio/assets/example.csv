@@ -1,0 +1,7 @@
+id,label,rate,completed,total
+all_before,All cases - earlier,82.7,91,110
+all_after,All cases - later,33.6,37,110
+routine_before,Routine - earlier,90,90,100
+routine_after,Routine - later,95,19,20
+complex_before,Complex - earlier,10,1,10
+complex_after,Complex - later,20,18,90

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing Like Me"
+  short_description: "Write and edit in your evidenced voice"
+  default_prompt: "Use $writing-like-me for this writing task."

@@ -1,0 +1,761 @@
+{
+  "notice": "Fictional complete schema examples, not authority or captured evidence. Materialize fixture texts in an explicitly authorized empty workspace, replace workspace/executable paths and compute actual pins, choose a current bounded deadline, then authenticate task/storage decisions before init. Never execute argv from an unreviewed imported record. The example executable pin is this drafting interpreter only; not portable proof.",
+  "fixture_files": {
+    "source.txt": "A1=12 B2=7 C3=9\n",
+    "check.py": "import csv,sys\nrows=list(csv.DictReader(open('candidate.csv')))\nexpected=[{'id':'A1','units':'12'},{'id':'B2','units':'7'},{'id':'C3','units':'9'}]\nok=rows==expected and sum(int(r['units']) for r in rows)==28\nprint('PASS' if ok else 'FAIL')\nsys.exit(0 if ok else 1)\n",
+    "candidate-bad.csv": "id,units\nA1,12\nB2,7\n",
+    "candidate-good.csv": "id,units\nA1,12\nB2,7\nC3,9\n"
+  },
+  "contract": {
+    "version": 2,
+    "run_id": "fictional-run",
+    "project": "fictional-project",
+    "task_id": "fictional-task",
+    "goal": "Produce all three rows and obtain release approval",
+    "family": "structured",
+    "privacy_class": "internal",
+    "workspace": "/tmp/proofloop-example",
+    "deliverables": [
+      "candidate.csv"
+    ],
+    "sources": [
+      {
+        "path": "source.txt",
+        "sha256": "7ef5a99313701a456fcfcd67028277df030f6ee99690f75bf57ec1f472981631"
+      }
+    ],
+    "dependencies": [],
+    "prohibited_actions": [
+      "network",
+      "promotion"
+    ],
+    "allowed_actions": [
+      "draft",
+      "execute",
+      "verify",
+      "record_observation",
+      "create_lesson",
+      "curate",
+      "retrieve",
+      "transfer"
+    ],
+    "learning": "workspace_ledger",
+    "learning_eligibility": {
+      "eligible": true,
+      "excluded_domains": [],
+      "classification_ref": "fictional-host-classification"
+    },
+    "storage": "task_local",
+    "criteria": [
+      {
+        "id": "rows",
+        "description": "Exact three rows and total28",
+        "required": true,
+        "method": "E3",
+        "verifier": "csv",
+        "predicate": {
+          "exit_code": 0
+        }
+      },
+      {
+        "id": "output",
+        "description": "Known complete checker output",
+        "required": true,
+        "method": "E3",
+        "verifier": "csv",
+        "predicate": {
+          "exit_code": 0,
+          "stdout_sha256": "c26de83abdc9496cd1301470918ec39ecca1cf389ef0ae1c6504da1800d1c431"
+        }
+      },
+      {
+        "id": "release",
+        "description": "Current direct human legibility approval",
+        "required": true,
+        "method": "E2",
+        "verifier": null,
+        "predicate": null
+      }
+    ],
+    "verifiers": [
+      {
+        "id": "csv",
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-I",
+          "/tmp/proofloop-example/check.py"
+        ],
+        "executable_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+        "cwd": ".",
+        "env": {},
+        "pins": [
+          {
+            "path": "check.py",
+            "sha256": "5fdc0c4aa29e2364f6ddbbe129cea94c2073dd5779b94c2e626b1ad8fd8cc8c1"
+          }
+        ],
+        "configuration": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "test_data": "7256685f12da14a6d0a817739009fdbdace223bbd65e1a783fd7d3f33c75c158",
+        "timeout_ms": 1500,
+        "output_cap_bytes": 4096,
+        "containment": "process_group",
+        "concurrent_mutation": "host_exclusive"
+      }
+    ],
+    "budgets": {
+      "drafts": 3,
+      "executions": 2,
+      "verifiers": 2,
+      "tool_calls": 20,
+      "minutes": 30,
+      "learning_records": 2,
+      "candidates": 1,
+      "policy_promotions": 0
+    },
+    "deadline_ms": 1791505800000,
+    "budget_scope": "adapter_only",
+    "verification_plan": {
+      "initial_invocations": 1,
+      "repair_invocations": 1,
+      "final_invocations": 0
+    },
+    "best_effort": false
+  },
+  "contract_init": {
+    "workspace": "/tmp/proofloop-example",
+    "store": "state.json",
+    "expected_generation": 0,
+    "expected_digest": null,
+    "payload": {
+      "version": 2,
+      "run_id": "fictional-run",
+      "project": "fictional-project",
+      "task_id": "fictional-task",
+      "goal": "Produce all three rows and obtain release approval",
+      "family": "structured",
+      "privacy_class": "internal",
+      "workspace": "/tmp/proofloop-example",
+      "deliverables": [
+        "candidate.csv"
+      ],
+      "sources": [
+        {
+          "path": "source.txt",
+          "sha256": "7ef5a99313701a456fcfcd67028277df030f6ee99690f75bf57ec1f472981631"
+        }
+      ],
+      "dependencies": [],
+      "prohibited_actions": [
+        "network",
+        "promotion"
+      ],
+      "allowed_actions": [
+        "draft",
+        "execute",
+        "verify",
+        "record_observation",
+        "create_lesson",
+        "curate",
+        "retrieve",
+        "transfer"
+      ],
+      "learning": "workspace_ledger",
+      "learning_eligibility": {
+        "eligible": true,
+        "excluded_domains": [],
+        "classification_ref": "fictional-host-classification"
+      },
+      "storage": "task_local",
+      "criteria": [
+        {
+          "id": "rows",
+          "description": "Exact three rows and total28",
+          "required": true,
+          "method": "E3",
+          "verifier": "csv",
+          "predicate": {
+            "exit_code": 0
+          }
+        },
+        {
+          "id": "output",
+          "description": "Known complete checker output",
+          "required": true,
+          "method": "E3",
+          "verifier": "csv",
+          "predicate": {
+            "exit_code": 0,
+            "stdout_sha256": "c26de83abdc9496cd1301470918ec39ecca1cf389ef0ae1c6504da1800d1c431"
+          }
+        },
+        {
+          "id": "release",
+          "description": "Current direct human legibility approval",
+          "required": true,
+          "method": "E2",
+          "verifier": null,
+          "predicate": null
+        }
+      ],
+      "verifiers": [
+        {
+          "id": "csv",
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+            "-I",
+            "/tmp/proofloop-example/check.py"
+          ],
+          "executable_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+          "cwd": ".",
+          "env": {},
+          "pins": [
+            {
+              "path": "check.py",
+              "sha256": "5fdc0c4aa29e2364f6ddbbe129cea94c2073dd5779b94c2e626b1ad8fd8cc8c1"
+            }
+          ],
+          "configuration": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "test_data": "7256685f12da14a6d0a817739009fdbdace223bbd65e1a783fd7d3f33c75c158",
+          "timeout_ms": 1500,
+          "output_cap_bytes": 4096,
+          "containment": "process_group",
+          "concurrent_mutation": "host_exclusive"
+        }
+      ],
+      "budgets": {
+        "drafts": 3,
+        "executions": 2,
+        "verifiers": 2,
+        "tool_calls": 20,
+        "minutes": 30,
+        "learning_records": 2,
+        "candidates": 1,
+        "policy_promotions": 0
+      },
+      "deadline_ms": 1791505800000,
+      "budget_scope": "adapter_only",
+      "verification_plan": {
+        "initial_invocations": 1,
+        "repair_invocations": 1,
+        "final_invocations": 0
+      },
+      "best_effort": false
+    }
+  },
+  "observation_record": {
+    "version": 2,
+    "id": "observation-a",
+    "revision": 1,
+    "type": "observation",
+    "status": "recorded",
+    "project": "fictional-project",
+    "task_id": "fictional-task",
+    "family": "structured",
+    "privacy_class": "internal",
+    "scope": [
+      "csv"
+    ],
+    "created_ms": 1791480000000,
+    "expires_ms": 1794072000000,
+    "provenance": "local",
+    "content": {
+      "result": "First fictional CSV omitted C3; corrected CSV matched all three rows and total28. Human release remained missing.",
+      "limits": "One isolated fixture; no general benefit demonstrated."
+    },
+    "dependencies": [
+      "7ef5a99313701a456fcfcd67028277df030f6ee99690f75bf57ec1f472981631"
+    ],
+    "privacy_review": "host_reviewed"
+  },
+  "experience_record": {
+    "version": 2,
+    "id": "experience-a",
+    "revision": 1,
+    "type": "experience",
+    "status": "recorded",
+    "project": "fictional-project",
+    "task_id": "fictional-task",
+    "family": "structured",
+    "privacy_class": "internal",
+    "scope": [
+      "csv"
+    ],
+    "created_ms": 1791480000000,
+    "expires_ms": 1794072000000,
+    "provenance": "local",
+    "content": {
+      "result": "First fictional CSV omitted C3; corrected CSV matched all three rows and total28. Human release remained missing.",
+      "limits": "One isolated fixture; no general benefit demonstrated."
+    },
+    "dependencies": [
+      "7ef5a99313701a456fcfcd67028277df030f6ee99690f75bf57ec1f472981631"
+    ],
+    "privacy_review": "host_reviewed"
+  },
+  "candidate_record": {
+    "version": 2,
+    "id": "lesson-a",
+    "revision": 1,
+    "type": "candidate_lesson",
+    "status": "candidate",
+    "project": "fictional-project",
+    "task_id": "fictional-task",
+    "family": "structured",
+    "privacy_class": "internal",
+    "scope": [
+      "csv"
+    ],
+    "created_ms": 1791480000000,
+    "expires_ms": 1794072000000,
+    "provenance": "local",
+    "content": {
+      "trigger": "Finite rows copied to CSV",
+      "method": "Check exact rows plus total",
+      "applicability": "This project CSV exports",
+      "exceptions": "Sources with intentional filtering",
+      "disconfirming_evidence": "One worked case only",
+      "benefit_hypothesis": "Might catch omissions",
+      "reuse_check": "Compare next authorized export against independent literal rows",
+      "key": "csv_check",
+      "value": "exact_rows"
+    },
+    "dependencies": [
+      "7ef5a99313701a456fcfcd67028277df030f6ee99690f75bf57ec1f472981631"
+    ],
+    "privacy_review": "host_reviewed"
+  },
+  "preference_record": {
+    "version": 2,
+    "id": "preference-a",
+    "revision": 1,
+    "type": "user_preference",
+    "status": "recorded",
+    "project": "fictional-project",
+    "task_id": "fictional-task",
+    "family": "creative_preference",
+    "privacy_class": "internal",
+    "scope": [
+      "fictional-poster"
+    ],
+    "created_ms": 1791480000000,
+    "expires_ms": 1794072000000,
+    "provenance": "local",
+    "content": {
+      "quote": "Use the blue title on this poster.",
+      "selection_ref": "fictional-current-user-message",
+      "key": "poster_title_colour",
+      "value": "blue"
+    },
+    "dependencies": [
+      "7ef5a99313701a456fcfcd67028277df030f6ee99690f75bf57ec1f472981631"
+    ],
+    "privacy_review": "host_reviewed"
+  },
+  "candidate_add_decision": {
+    "action": "add",
+    "record_id": "lesson-a",
+    "revision": 1,
+    "safe_digest": "7adf5fb8ad99d604e9f1d6537d3f65d43f4445618dc5f2e319f88f6e7d9cb07c",
+    "project": "fictional-project",
+    "task_id": "fictional-task",
+    "decision_ref": "fictional-current-user-message-not-authenticated-by-cli"
+  },
+  "candidate_approve_decision": {
+    "action": "approve",
+    "record_id": "lesson-a",
+    "revision": 1,
+    "safe_digest": "7adf5fb8ad99d604e9f1d6537d3f65d43f4445618dc5f2e319f88f6e7d9cb07c",
+    "project": "fictional-project",
+    "task_id": "fictional-task",
+    "decision_ref": "fictional-current-user-message-not-authenticated-by-cli"
+  },
+  "host_observation_receipt": {
+    "run_id": "fictional-run",
+    "operation_id": "human-1",
+    "revision": 2,
+    "outcome": "completed",
+    "observations": [
+      {
+        "criterion": "release",
+        "passed": true,
+        "method": "E2",
+        "decision_ref": "fictional-host-checked-human-message",
+        "limits": [
+          "The CLI cannot authenticate this decision"
+        ]
+      }
+    ]
+  },
+  "e4_criterion": {
+    "id": "independent-postcondition",
+    "description": "Independent direct evidence plus held-out postcondition",
+    "required": true,
+    "method": "E4",
+    "verifier": null,
+    "predicate": {
+      "components": [
+        "rows",
+        "release"
+      ],
+      "held_out": [
+        "release"
+      ],
+      "provenance_groups": {
+        "rows": "local-frozen-check",
+        "release": "direct-human-postcondition"
+      },
+      "independence_ref": "fictional-host-checked-independence-reference"
+    }
+  },
+  "transfer_preview_input": {
+    "records": [
+      {
+        "version": 2,
+        "id": "lesson-a",
+        "revision": 1,
+        "type": "candidate_lesson",
+        "status": "candidate",
+        "project": "fictional-project",
+        "task_id": "fictional-task",
+        "family": "structured",
+        "privacy_class": "internal",
+        "scope": [
+          "csv"
+        ],
+        "created_ms": 1791480000000,
+        "expires_ms": 1794072000000,
+        "provenance": "local",
+        "content": {
+          "trigger": "Finite rows copied to CSV",
+          "method": "Check exact rows plus total",
+          "applicability": "This project CSV exports",
+          "exceptions": "Sources with intentional filtering",
+          "disconfirming_evidence": "One worked case only",
+          "benefit_hypothesis": "Might catch omissions",
+          "reuse_check": "Compare next authorized export against independent literal rows",
+          "key": "csv_check",
+          "value": "exact_rows"
+        },
+        "dependencies": [
+          "7ef5a99313701a456fcfcd67028277df030f6ee99690f75bf57ec1f472981631"
+        ],
+        "privacy_review": "host_reviewed"
+      }
+    ],
+    "destination_project": "fictional-destination"
+  },
+  "transfer_apply_payload": {
+    "bundle": {
+      "version": 2,
+      "destination_project": "fictional-destination",
+      "records": [
+        {
+          "version": 2,
+          "id": "lesson-a",
+          "revision": 1,
+          "type": "candidate_lesson",
+          "status": "candidate",
+          "project": "fictional-destination",
+          "task_id": "fictional-task",
+          "family": "structured",
+          "privacy_class": "internal",
+          "scope": [
+            "csv"
+          ],
+          "created_ms": 1791480000000,
+          "expires_ms": 1794072000000,
+          "provenance": "imported_quarantined",
+          "content": {
+            "trigger": "Finite rows copied to CSV",
+            "method": "Check exact rows plus total",
+            "applicability": "This project CSV exports",
+            "exceptions": "Sources with intentional filtering",
+            "disconfirming_evidence": "One worked case only",
+            "benefit_hypothesis": "Might catch omissions",
+            "reuse_check": "Compare next authorized export against independent literal rows",
+            "key": "csv_check",
+            "value": "exact_rows"
+          },
+          "dependencies": [
+            "7ef5a99313701a456fcfcd67028277df030f6ee99690f75bf57ec1f472981631"
+          ],
+          "privacy_review": "pending"
+        }
+      ]
+    },
+    "bundle_digest": "e706a763176f41d8027bb59c861be707d4ca51e89c52454333475b1e9a917f75",
+    "decision_ref": "fictional-host-checked-destination-authority",
+    "destination_project": "fictional-destination"
+  },
+  "paired_audit": {
+    "selection": {
+      "ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "start_ms": 0,
+      "end_ms": 200,
+      "family": "structured",
+      "metric": "errors",
+      "missingness": "indeterminate"
+    },
+    "pairs": [
+      {
+        "id": "0",
+        "at_ms": 100,
+        "family": "structured",
+        "without": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 1,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "with": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 0,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "independence": "Fictional paired data, no independence or causal proof",
+        "provenance": "supplied"
+      },
+      {
+        "id": "1",
+        "at_ms": 100,
+        "family": "structured",
+        "without": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 0,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "with": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 0,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "independence": "Fictional paired data, no independence or causal proof",
+        "provenance": "supplied"
+      },
+      {
+        "id": "2",
+        "at_ms": 100,
+        "family": "structured",
+        "without": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 0,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "with": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 1,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "independence": "Fictional paired data, no independence or causal proof",
+        "provenance": "supplied"
+      },
+      {
+        "id": "3",
+        "at_ms": 100,
+        "family": "structured",
+        "without": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": null,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "with": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 0,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "independence": "Fictional paired data, no independence or causal proof",
+        "provenance": "supplied"
+      },
+      {
+        "id": "4",
+        "at_ms": 100,
+        "family": "structured",
+        "without": {
+          "identities": {
+            "contract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 2,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "with": {
+          "identities": {
+            "contract": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "artifact_spec": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "verifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "test_data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "environment": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "budget": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "criteria": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "work": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "required_pass": true,
+          "errors": 0,
+          "latency_ms": null,
+          "cost_decimal": null
+        },
+        "independence": "Fictional paired data, no independence or causal proof",
+        "provenance": "supplied"
+      }
+    ],
+    "controls": [
+      {
+        "kind": "known-positive",
+        "observed": "supplied only; no model calibration performed"
+      },
+      {
+        "kind": "known-defect",
+        "observed": "omitted C3 fixture failed actual local helper test"
+      }
+    ],
+    "incidents": [],
+    "reviewer_disagreement": []
+  },
+  "paired_expected_counts": {
+    "helpful": 1,
+    "neutral": 1,
+    "harmful": 1,
+    "indeterminate": 1,
+    "incomparable": 1
+  },
+  "paired_expected_denominators": {
+    "selected": 5,
+    "comparable": 4,
+    "determinate": 3
+  },
+  "supplied_comparison": {
+    "cases": [
+      {
+        "id": "typed-equality",
+        "actual": true,
+        "expected": 1
+      },
+      {
+        "id": "literal-total",
+        "actual": 28,
+        "expected": 28
+      }
+    ]
+  }
+}

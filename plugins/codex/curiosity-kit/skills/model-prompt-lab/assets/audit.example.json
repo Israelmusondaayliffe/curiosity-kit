@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": {
+    "model": "user-selected model",
+    "interface": "chat",
+    "prompt_sha256": "324284451f8e95d1237f9c886a63261dce28c7ddf3d319c8a2e40cc46a4175af"
+  },
+  "target": {
+    "provider": "user-selected provider",
+    "model": "user-selected model",
+    "interface": "chat",
+    "verification": "unverified",
+    "checked_at": null,
+    "sources": []
+  },
+  "findings": [],
+  "unsupported_parameters": [],
+  "coverage": {
+    "status": "complete",
+    "inspected": [
+      "The synthetic classification prompt in prompt-package.example.json and its stated output/policy contract."
+    ],
+    "missing": []
+  },
+  "verification_required": true,
+  "notes": "A zero-finding structural specimen, not an executed model audit. Target behavior still requires testing."
+}

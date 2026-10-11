@@ -1,0 +1,11 @@
+# Deconstruct a video or storyboard
+
+Produce an evidence-bound explanation of how supplied media works. Analysis alone needs no generation model. For boards use the reconstruction branch of [previs](previs.md).
+
+1. Establish evidence: actual accessible video/frames/audio, user description, production notes or a linked source. Inspect the media if available. A title, remembered ad or article is not direct viewing; clearly distinguish supplied descriptions, observation and inference. If a named reference cannot be accessed, request the clip or analyze only known details.
+2. Build a shot timeline in observed order. For each shot record actual/approximate timestamps, visible action, composition, subject, camera movement, speed treatment, light/optical/atmospheric effects and transition. Mark confidence per uncertain item, not merely a global disclaimer. Static frames may reveal composition but not exact motion, timing or sound.
+3. Name effects precisely using relevant [vocabulary](../builder/references/effects-vocabulary.md). Distinguish an observed visual result from an inferred production technique. Do not assert a particular model, training source, lens or editing application without evidence.
+4. When the user requests a full breakdown, enumerate effects with count and shot IDs, map density/pacing through the timeline, describe energy peaks/holds/resolution, and identify signature moments. The [worked breakdown](../builder/references/effects-breakdown-reference.md) supplies a detailed reference format. Quieter clips need not have a dramatic arc or signature effect.
+5. Explain the transferable structure: shot/timing relationships, recurring motifs, continuity anchors, useful constraints and what depends on the original subject. Separate reliably known structure from speculative additions. State missing evidence and suitable next questions.
+
+Deliver the requested level of analysis. For a reusable breakdown include the timeline, effects inventory, rhythm/energy description and short assessment of confidence, gaps and reusable architecture. Never label this as the recovered original generation prompt. A reconstruction is one plausible new prompt, visibly distinguished from factual analysis. Use [remix](remix.md) only when adaptation is requested.

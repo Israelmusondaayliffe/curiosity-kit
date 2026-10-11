@@ -1,0 +1,7 @@
+interface:
+  display_name: "ProofLoop"
+  short_description: "Run bounded tasks with evidence and quarantined lessons."
+  default_prompt: "Use $proofloop to complete this bounded task and report its evidence."
+
+policy:
+  allow_implicit_invocation: false

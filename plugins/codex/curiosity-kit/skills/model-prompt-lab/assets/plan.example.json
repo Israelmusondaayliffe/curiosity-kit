@@ -1,0 +1,82 @@
+{
+  "schema": "mpl-plan-v1",
+  "experiment": "fixture",
+  "population": "two held-out letter tasks",
+  "environment": {
+    "host": "offline fixture",
+    "profile_revision": "fixture-v1"
+  },
+  "baseline": "A",
+  "repetitions": 1,
+  "candidates": [
+    {
+      "id": "A",
+      "prompt": "Return the letter.",
+      "native_config": {
+        "model": "A"
+      },
+      "tools": [],
+      "parser": {
+        "kind": "text"
+      }
+    },
+    {
+      "id": "B",
+      "prompt": "Return the letter.",
+      "native_config": {
+        "model": "B"
+      },
+      "tools": [],
+      "parser": {
+        "kind": "text"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "x",
+      "input": "x",
+      "demonstrations": [],
+      "output_contract": "One letter",
+      "expected": "x",
+      "scorer": {
+        "kind": "exact_text"
+      },
+      "exposure": "held_out",
+      "family": "letters"
+    },
+    {
+      "id": "y",
+      "input": "y",
+      "demonstrations": [],
+      "output_contract": "One letter",
+      "expected": "y",
+      "scorer": {
+        "kind": "exact_text"
+      },
+      "exposure": "held_out",
+      "family": "letters"
+    }
+  ],
+  "retry": {
+    "max_attempts": 2,
+    "transient_statuses": [
+      "timeout",
+      "transport_error"
+    ]
+  },
+  "resources": {
+    "currency": "USD",
+    "cost_basis": "measured",
+    "latency_region": "request wall time",
+    "max_total_cost": null,
+    "max_candidate_mean_cost": null
+  },
+  "rule": {
+    "metric": "trial_pass_rate",
+    "aggregation": "uniform",
+    "threshold": 1.0,
+    "minimum_improvement": 0.25,
+    "tie": "no_decision"
+  }
+}

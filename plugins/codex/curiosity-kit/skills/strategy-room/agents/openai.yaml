@@ -1,0 +1,7 @@
+interface:
+  display_name: "Strategy Room"
+  short_description: "Resolve choices with nine complete evidence-grounded methods."
+  default_prompt: "Use $strategy-room to clarify and assess this decision."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,23 @@
+{
+  "packetType": "ThreadLaunchRecord",
+  "protocolVersion": 2,
+  "runId": "run-simulated-packet-example-60e039a0981345648bb5dcb2ce44a01c",
+  "invocationId": "inv-builder-0001",
+  "taskPacketSha256": "cff633fef730743241329066233cae4ece21873cdbc1c882985bab0f247efdbf",
+  "request": {
+    "tool": "host.fresh_worker",
+    "forkTurns": "none",
+    "model": null,
+    "taskName": "og_e32b9d07f65f3ff33efca5fa",
+    "normalizedIntent": true,
+    "identityKind": "host-worker"
+  },
+  "response": {
+    "outcome": "launched",
+    "agentId": "simulated-inv-builder-0001",
+    "reference": "simulated-local-demonstration:inv-builder-0001"
+  },
+  "evidenceClass": "simulated-controller-declaration",
+  "exampleOnly": true,
+  "nativeQualification": false
+}

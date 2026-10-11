@@ -1,0 +1,5 @@
+# Source and adaptation notice
+
+Loop Observatory adapts the original private Loop Observatory editions. Original contributions are licensed under the package-root MIT LICENSE; third-party material retains its stated terms.
+
+GStack, PStack/Potato, Matt Pocock’s skills and Ponytail informed selected methods. Their code is not a runtime dependency. Public analytical references are credited in references/sources.md. No source reading establishes runtime correctness or a new test result. No credentials or machine-local account state belong in this package.

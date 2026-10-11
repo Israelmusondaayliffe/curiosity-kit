@@ -1,0 +1,61 @@
+{
+  "packetType": "NodeReturnPacket",
+  "protocolVersion": 2,
+  "runId": "run-simulated-packet-example-60e039a0981345648bb5dcb2ce44a01c",
+  "invocationId": "inv-builder-0001",
+  "nodeId": "builder",
+  "graphVersion": 1,
+  "epoch": 1,
+  "attempt": 1,
+  "taskPacketSha256": "cff633fef730743241329066233cae4ece21873cdbc1c882985bab0f247efdbf",
+  "agentId": "simulated-inv-builder-0001",
+  "status": "succeeded",
+  "summary": "Simulated local demonstration: the sample output and evidence were generated and checked; no real host worker ran.",
+  "actualWritePaths": [
+    "artifacts/builder/inv-builder-0001/deliverable.txt",
+    "node-runs/builder/inv-builder-0001/worker/inspection.json"
+  ],
+  "artifacts": [
+    {
+      "artifactType": "deliverable",
+      "path": "artifacts/builder/inv-builder-0001/deliverable.txt",
+      "sha256": "0201f3be4bb95ad1ab9295471d95a8a052e1e819cacd5f6375cf58279c91ea5c",
+      "mediaType": "text/plain"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion": "The deliverable is complete.",
+      "result": "met",
+      "evidencePaths": [
+        "node-runs/builder/inv-builder-0001/worker/inspection.json"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "node-runs/builder/inv-builder-0001/worker/inspection.json",
+      "sha256": "32812393db0234be2f0c3cd27abd6e2e38d060c78172cf59c834db76882b9de6",
+      "kind": "simulated-sample-inspection"
+    }
+  ],
+  "evaluations": [],
+  "localIterations": 1,
+  "workUnits": 1,
+  "unresolvedIssues": [],
+  "risks": [
+    "Illustrative simulated result only; this is not a real worker launch, actual approval, or native qualification receipt."
+  ],
+  "recommendedSignals": [],
+  "authority": {
+    "maySpawnWorkers": false,
+    "mayApprove": false,
+    "mayIntegrate": false,
+    "mayUpdateControllerState": false,
+    "mayAnswerUser": false,
+    "mayIssueTerminalVerdict": false
+  },
+  "evidenceClass": "simulated-controller-declaration",
+  "exampleOnly": true,
+  "nativeQualification": false
+}

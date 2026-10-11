@@ -1,0 +1,19 @@
+{
+  "evidenceTier": "controller-declared",
+  "maxLaunchAttempts": 12,
+  "approvalBindings": {},
+  "seeds": [],
+  "optionalNodeIds": [],
+  "criteria": [
+    {
+      "criterion": "The deliverable exists.",
+      "deliverableId": "final-deliverable",
+      "evaluatorNodeId": "independent-evaluator"
+    },
+    {
+      "criterion": "The evaluator independently verifies the deliverable.",
+      "deliverableId": "final-deliverable",
+      "evaluatorNodeId": "independent-evaluator"
+    }
+  ]
+}

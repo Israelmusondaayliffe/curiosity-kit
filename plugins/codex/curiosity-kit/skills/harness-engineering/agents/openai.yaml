@@ -1,0 +1,7 @@
+interface:
+  display_name: "Harness Engineering"
+  short_description: "Design, audit, build, verify and maintain an AI harness."
+  default_prompt: "Use $harness-engineering to audit my Codex harness."
+
+policy:
+  allow_implicit_invocation: true

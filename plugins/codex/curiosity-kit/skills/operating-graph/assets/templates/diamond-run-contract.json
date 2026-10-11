@@ -1,0 +1,24 @@
+{
+  "evidenceTier": "controller-declared",
+  "maxLaunchAttempts": 24,
+  "approvalBindings": {},
+  "seeds": [],
+  "optionalNodeIds": [],
+  "criteria": [
+    {
+      "criterion": "The recommendation is supported by both specialist lanes.",
+      "deliverableId": "recommendation",
+      "evaluatorNodeId": "final-evaluator"
+    },
+    {
+      "criterion": "A skeptic and final evaluator have inspected the work.",
+      "deliverableId": "recommendation",
+      "evaluatorNodeId": "final-evaluator"
+    },
+    {
+      "criterion": "A human records the decision before consequential action.",
+      "deliverableId": "human-decision-record",
+      "evaluatorNodeId": "decision-auditor"
+    }
+  ]
+}

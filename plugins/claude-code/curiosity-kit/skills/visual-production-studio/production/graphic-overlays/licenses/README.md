@@ -1,0 +1,12 @@
+# Graphic-overlay dependency notices
+
+The adapted card system and workflow retain [the upstream vtake-skills MIT notice](../NOTICE.md). It credits copyright 2026 leeoxiang and the original vtake-cut project. This does not relicense separate assets.
+
+- `../assets/fonts/Inter-400-latin.woff2` and `Inter-700-latin.woff2`: retain [Inter's supplied SIL OFL notice](../../embedded-captions/licenses/third-party-licenses/fontsource/inter.txt), sourced from the original plugin's fontsource notices. Exact binary revision provenance is not established merely by the license filename.
+- `../assets/fonts/Caveat-400-latin.woff2` (canonical payload for both original 400/700 aliases): retain [Caveat's supplied SIL OFL notice](../../embedded-captions/licenses/third-party-licenses/fontsource/caveat.txt). The duplicate 700 payload is consolidated into the 400 path; both CSS weight declarations remain. Fontconfig identifies regular, bold and variable weights in the shared payload.
+- `LXGWWenKaiTC-400-latin.woff2` and `Virgil.woff2`: excluded source assets, not bundled files. LXGW embeds copyright 2024 The LXGW WenKai Project Authors (https://github.com/lxgw/LxgwWenkaiTC), version 1.330 and https://openfontlicense.org, but matching complete redistribution records were not supplied. Virgil embeds copyright 2011 Your Own Font Foundry, version 001.001, and a personal-use-only restriction (http://www.yourownfont.com). The default template uses retained Inter/Caveat; any requested additional font must be a supplied licensed local file with its own notices and verified glyph/weight behavior.
+- `../assets/vendor/gsap.min.js`: preserve its GSAP 3.15.0 copyright/author header and separate standard-license URL. Do not label GSAP MIT. Review the applicable vendor terms before public redistribution.
+
+Sora is a typeface name elsewhere in the broader production library; its font and license are unrelated to any video model retirement. This overlay cluster contains no Sora font or active video-model route. Do not remove typography resources elsewhere based on their name.
+
+Inter and Caveat share their exact canonical notices with embedded captions; no second copy is shipped here. When staging an independent reusable overlay bundle, copy those canonical notice files into the output licenses directory as shown in [composition and export](../references/composition.md). Keep this mapping and the MIT notice with the skill; copied assets retain their own terms.

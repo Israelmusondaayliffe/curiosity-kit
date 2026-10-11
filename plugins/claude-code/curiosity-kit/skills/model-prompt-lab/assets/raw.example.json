@@ -1,0 +1,125 @@
+{
+  "schema": "mpl-raw-v1",
+  "plan_digest": "a95935aec2e0318187090781e8769b608750f0d98ee1106ed6f1377434b14b0c",
+  "attempts": [
+    {
+      "candidate": "A",
+      "case": "x",
+      "repetition": 1,
+      "attempt": 1,
+      "plan_digest": "a95935aec2e0318187090781e8769b608750f0d98ee1106ed6f1377434b14b0c",
+      "candidate_digest": "8b970b1a8a8ccf4522fc588ee19ba0c1931fbcd4d4f0d07112219733967f50ad",
+      "case_digest": "42eafa81a03e5dbf4107bbd50c7f2fb3962d2527fd68d93579108e70e040de4d",
+      "status": "ok",
+      "stop_reason": "complete",
+      "output": "wrong",
+      "evidence": "synthetic",
+      "source": {
+        "receipt": "fixture:Ax",
+        "observed_model": "A"
+      },
+      "cost": null,
+      "latency_ms": 4,
+      "usage": null
+    },
+    {
+      "candidate": "A",
+      "case": "y",
+      "repetition": 1,
+      "attempt": 1,
+      "plan_digest": "a95935aec2e0318187090781e8769b608750f0d98ee1106ed6f1377434b14b0c",
+      "candidate_digest": "8b970b1a8a8ccf4522fc588ee19ba0c1931fbcd4d4f0d07112219733967f50ad",
+      "case_digest": "9f1971031750418c5e71855208da835b385f38408ec14686ed4eb63f341cf426",
+      "status": "ok",
+      "stop_reason": "complete",
+      "output": "wrong",
+      "evidence": "synthetic",
+      "source": {
+        "receipt": "fixture:Ay",
+        "observed_model": "A"
+      },
+      "cost": null,
+      "latency_ms": 4,
+      "usage": null
+    },
+    {
+      "candidate": "B",
+      "case": "x",
+      "repetition": 1,
+      "attempt": 1,
+      "plan_digest": "a95935aec2e0318187090781e8769b608750f0d98ee1106ed6f1377434b14b0c",
+      "candidate_digest": "8e9794a0e4d977a3dec12ac49a1d1f93060451c844c0a691f844e690f46842e7",
+      "case_digest": "42eafa81a03e5dbf4107bbd50c7f2fb3962d2527fd68d93579108e70e040de4d",
+      "status": "ok",
+      "stop_reason": "complete",
+      "output": "x",
+      "evidence": "synthetic",
+      "source": {
+        "receipt": "fixture:Bx",
+        "observed_model": "B"
+      },
+      "cost": null,
+      "latency_ms": 4,
+      "usage": null
+    },
+    {
+      "candidate": "B",
+      "case": "y",
+      "repetition": 1,
+      "attempt": 1,
+      "plan_digest": "a95935aec2e0318187090781e8769b608750f0d98ee1106ed6f1377434b14b0c",
+      "candidate_digest": "8e9794a0e4d977a3dec12ac49a1d1f93060451c844c0a691f844e690f46842e7",
+      "case_digest": "9f1971031750418c5e71855208da835b385f38408ec14686ed4eb63f341cf426",
+      "status": "ok",
+      "stop_reason": "complete",
+      "output": "y",
+      "evidence": "synthetic",
+      "source": {
+        "receipt": "fixture:By",
+        "observed_model": "B"
+      },
+      "cost": null,
+      "latency_ms": 4,
+      "usage": null
+    }
+  ],
+  "campaign_status": "complete",
+  "review": {
+    "reviewer": "fixture reviewer",
+    "receipt": "fixture:review",
+    "scope": "two held-out letter tasks",
+    "limitations": [
+      "Synthetic fixture, no model was called."
+    ],
+    "checks": {
+      "chronology": {
+        "status": "supported",
+        "evidence": "fixture:chronology"
+      },
+      "sample_adequacy": {
+        "status": "supported",
+        "evidence": "fixture:sample_adequacy"
+      },
+      "data_rights": {
+        "status": "supported",
+        "evidence": "fixture:data_rights"
+      },
+      "comparability": {
+        "status": "supported",
+        "evidence": "fixture:comparability"
+      },
+      "grading": {
+        "status": "supported",
+        "evidence": "fixture:grading"
+      },
+      "isolation": {
+        "status": "supported",
+        "evidence": "fixture:isolation"
+      },
+      "deployment_scope": {
+        "status": "supported",
+        "evidence": "fixture:deployment_scope"
+      }
+    }
+  }
+}

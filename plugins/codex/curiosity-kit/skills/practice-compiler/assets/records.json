@@ -1,0 +1,537 @@
+{
+  "decision": {
+    "actor_reference": "fixture-user",
+    "decided_at": "2026-10-08T13:01:00Z",
+    "decision": "approve",
+    "decision_reference": "fixture-decision-01",
+    "proposal_id": "csv-check-investigation",
+    "reason": "Approve only the bounded investigation handoff.",
+    "revision_digest": "e9c8d8188ed5cdc4fca279a183e88b97238e4ff97ac7c2b79e5ad6357866401e",
+    "scope": "handoff-only"
+  },
+  "example_status": "fictional isolated sample; no real user consent, change, or learning claim",
+  "handoff_example": {
+    "applied": false,
+    "authority": "investigation-only",
+    "casebook_digest": "ef8065b827a0b8f60d4e8d360a2f2a2ccd5d254c5cca743192433615815964fb",
+    "consent_authenticated": false,
+    "decision": {
+      "previous_digest": null,
+      "record": {
+        "actor_reference": "fixture-user",
+        "decided_at": "2026-10-08T13:01:00Z",
+        "decision": "approve",
+        "decision_reference": "fixture-decision-01",
+        "proposal_id": "csv-check-investigation",
+        "reason": "Approve only the bounded investigation handoff.",
+        "revision_digest": "e9c8d8188ed5cdc4fca279a183e88b97238e4ff97ac7c2b79e5ad6357866401e",
+        "scope": "handoff-only"
+      },
+      "record_digest": "0b51570f1ad099f507d66dce070f23bab47d87faf432a3b87fa9805f558b5164",
+      "sequence": 1
+    },
+    "destination_changed": false,
+    "evidence": [
+      {
+        "actor": "assistant",
+        "adapter": "codex",
+        "call_id": "c-9301353989445435f48f4133",
+        "command": "csv-check",
+        "context_id": "s-97e5d55a4ba95c94548fe892",
+        "context_type": "declared-session",
+        "id": "e-08eb7371d388eeb9f8512e8e",
+        "kind": "tool_call",
+        "line": 3,
+        "matching_call_observed": true,
+        "mirrors": [],
+        "native_id": "n-8cbdbabd1a47da74bc32e2da",
+        "outcome": "failure",
+        "record_digest": "dfeb3bb66532d65e330cd9bbd23e1bd306918da77434465b3cea649236acdeac",
+        "session_id": "s-5c2b72ad589a74876a3cd315",
+        "signals": [
+          "executed-command"
+        ],
+        "snippet": "",
+        "source_alias": "codex-a",
+        "source_class": "user-session",
+        "source_sha256": "8ef26bc92d629ea5bde16e5747573cc0fae048138becf429c5baaebcef614fcc",
+        "timestamp": "2026-10-01T04:07:00Z"
+      },
+      {
+        "actor": "tool",
+        "adapter": "codex",
+        "call_id": "c-9301353989445435f48f4133",
+        "command": "csv-check",
+        "context_id": "s-97e5d55a4ba95c94548fe892",
+        "context_type": "declared-session",
+        "id": "e-2dd5f1f72972b772f1f3916b",
+        "kind": "tool_result",
+        "line": 4,
+        "matching_call_observed": true,
+        "mirrors": [],
+        "native_id": "n-054a127fb00c715ab0facb97",
+        "outcome": "failure",
+        "record_digest": "24b4d7271e0bcf2f91c98ceda6cf259d0f46d813229ed5b5b6ce047e48cab9cb",
+        "session_id": "s-5c2b72ad589a74876a3cd315",
+        "signals": [
+          "command-failure"
+        ],
+        "snippet": "",
+        "source_alias": "codex-a",
+        "source_class": "user-session",
+        "source_sha256": "8ef26bc92d629ea5bde16e5747573cc0fae048138becf429c5baaebcef614fcc",
+        "timestamp": "2026-10-01T04:07:01Z"
+      },
+      {
+        "actor": "user",
+        "adapter": "claude",
+        "context_id": "s-90063124bb9bd58d29f61508",
+        "context_type": "declared-session",
+        "id": "e-64bd4bf5cc165e9ee986e894",
+        "kind": "message",
+        "line": 5,
+        "mirrors": [],
+        "native_id": "n-3f202ac69c05398e49d72ed1",
+        "outcome": "not-applicable",
+        "record_digest": "7dbeaaf6c323c794c8c935e84f1162484dbf36a79096039cf02d5eb566d4ca6d",
+        "session_id": "s-4c969895bdda74210be08848",
+        "signals": [],
+        "snippet": "Rough private sketches do not need final-delivery verification.",
+        "source_alias": "claude-b",
+        "source_class": "user-session",
+        "source_sha256": "7b1f785e73bc005444fcaee12dcb3a589c29d775ac9643e27e888a5e433ae4e3",
+        "timestamp": "2026-10-02T15:03:00Z"
+      },
+      {
+        "actor": "tool",
+        "adapter": "claude",
+        "call_id": "c-b93fd4ee55b737f112e9ef87",
+        "command": "csv-check",
+        "context_id": "s-90063124bb9bd58d29f61508",
+        "context_type": "declared-session",
+        "id": "e-96c813d303f27fd63931766c",
+        "kind": "tool_result",
+        "line": 3,
+        "matching_call_observed": true,
+        "mirrors": [],
+        "native_id": "n-2166cb4cfab58161ae2789ed",
+        "outcome": "success",
+        "record_digest": "8365edd3e7f6f6f7d7146991c66d7c74497b772fc2fd2d3e4ef224ca068f1fb0",
+        "session_id": "s-4c969895bdda74210be08848",
+        "signals": [],
+        "snippet": "",
+        "source_alias": "claude-b",
+        "source_class": "user-session",
+        "source_sha256": "7b1f785e73bc005444fcaee12dcb3a589c29d775ac9643e27e888a5e433ae4e3",
+        "timestamp": "2026-10-02T15:01:01Z"
+      },
+      {
+        "actor": "user",
+        "adapter": "codex",
+        "context_id": "s-97e5d55a4ba95c94548fe892",
+        "context_type": "declared-session",
+        "id": "e-b18041812ce82df5b224bd7f",
+        "kind": "message",
+        "line": 5,
+        "mirrors": [],
+        "native_id": "n-265c582caf9beaa33a1206bb",
+        "outcome": "not-applicable",
+        "record_digest": "bebdc0992aa2836ebc7b1ec7ac1ddc93e83707367e0c3fdd4a2830cecfd3074d",
+        "session_id": "s-5c2b72ad589a74876a3cd315",
+        "signals": [
+          "repeated-task"
+        ],
+        "snippet": "Please verify the final CSV.",
+        "source_alias": "codex-a",
+        "source_class": "user-session",
+        "source_sha256": "8ef26bc92d629ea5bde16e5747573cc0fae048138becf429c5baaebcef614fcc",
+        "timestamp": "2026-10-01T04:08:00Z"
+      },
+      {
+        "actor": "user",
+        "adapter": "codex",
+        "context_id": "s-97e5d55a4ba95c94548fe892",
+        "context_type": "declared-session",
+        "id": "e-c3504b352bf973cf13d2a977",
+        "kind": "message",
+        "line": 2,
+        "mirrors": [
+          {
+            "native_id": "n-053071e500a3fc2b56b82b73",
+            "source_alias": "neutral-copy",
+            "source_sha256": "70a285102ad298669e43ac0ad4d01ba013897f9f956ba127a1d2dfa7b464c5d4"
+          }
+        ],
+        "native_id": "n-e4973d8f15475ab9be4cd6b1",
+        "outcome": "not-applicable",
+        "record_digest": "01cdd3ab081701fca9ca7da6e67c1ccadcf4fc28fe5f3aa78672878e778bb49e",
+        "session_id": "s-5c2b72ad589a74876a3cd315",
+        "signals": [
+          "repeated-task"
+        ],
+        "snippet": "Please verify the final CSV.",
+        "source_alias": "codex-a",
+        "source_class": "user-session",
+        "source_sha256": "8ef26bc92d629ea5bde16e5747573cc0fae048138becf429c5baaebcef614fcc",
+        "timestamp": "2026-10-01T04:05:00Z"
+      },
+      {
+        "actor": "user",
+        "adapter": "claude",
+        "context_id": "s-90063124bb9bd58d29f61508",
+        "context_type": "declared-session",
+        "id": "e-d752fdd41b59f252d275361f",
+        "kind": "message",
+        "line": 4,
+        "mirrors": [],
+        "native_id": "n-48a83fb3e2b7cfd64697272b",
+        "outcome": "not-applicable",
+        "record_digest": "1e0212a6f50bda1653b08e20d4a04e2700365070ab8ff5aa97f16850c6274580",
+        "session_id": "s-4c969895bdda74210be08848",
+        "signals": [
+          "repeated-task",
+          "user-method"
+        ],
+        "snippet": "My method is first check the exported file then inspect the result.",
+        "source_alias": "claude-b",
+        "source_class": "user-session",
+        "source_sha256": "7b1f785e73bc005444fcaee12dcb3a589c29d775ac9643e27e888a5e433ae4e3",
+        "timestamp": "2026-10-02T15:02:00Z"
+      },
+      {
+        "actor": "user",
+        "adapter": "claude",
+        "context_id": "s-90063124bb9bd58d29f61508",
+        "context_type": "declared-session",
+        "id": "e-ddf077ca556c39b7a0ad5196",
+        "kind": "message",
+        "line": 1,
+        "mirrors": [],
+        "native_id": "n-60799eb29089f396fcde5286",
+        "outcome": "not-applicable",
+        "record_digest": "283e7f8ebe613f1beacf8831cc7bcb96d6732f269ed2099e87c3bd57c3239082",
+        "session_id": "s-4c969895bdda74210be08848",
+        "signals": [
+          "repeated-task"
+        ],
+        "snippet": "Please verify the final CSV.",
+        "source_alias": "claude-b",
+        "source_class": "user-session",
+        "source_sha256": "7b1f785e73bc005444fcaee12dcb3a589c29d775ac9643e27e888a5e433ae4e3",
+        "timestamp": "2026-10-02T15:00:00Z"
+      },
+      {
+        "actor": "assistant",
+        "adapter": "claude",
+        "call_id": "c-b93fd4ee55b737f112e9ef87",
+        "command": "csv-check",
+        "context_id": "s-90063124bb9bd58d29f61508",
+        "context_type": "declared-session",
+        "id": "e-e88387113be559113c43e4ee",
+        "kind": "tool_call",
+        "line": 2,
+        "matching_call_observed": true,
+        "mirrors": [],
+        "native_id": "n-8874345d78f48b01cdca78ff",
+        "outcome": "success",
+        "record_digest": "4ded154d2d30af7ed3500848d070a0fc56ba7b6a532cca3e4b6f6ec7dd350232",
+        "session_id": "s-4c969895bdda74210be08848",
+        "signals": [
+          "executed-command"
+        ],
+        "snippet": "",
+        "source_alias": "claude-b",
+        "source_class": "user-session",
+        "source_sha256": "7b1f785e73bc005444fcaee12dcb3a589c29d775ac9643e27e888a5e433ae4e3",
+        "timestamp": "2026-10-02T15:01:00Z"
+      }
+    ],
+    "outcome_proved": false,
+    "proposal_id": "csv-check-investigation",
+    "receiver_requirements": [
+      "Verify the real user decision through its declared reference.",
+      "Re-run handoff against the current canonical casebook and selected manifest before acting.",
+      "Obtain any separate authority needed to inspect or change the destination."
+    ],
+    "revision": {
+      "evidence_digest": "d8d18bc2568a0de5150d2d0273628009123347260df81751e586fdef7eddc35f",
+      "number": 1,
+      "proposal": {
+        "acceptance_checks": [
+          "Cite the current caller and its owner, or explicitly report both unresolved.",
+          "If a caller is found, exercise csv-check FILE on an isolated final CSV and inspect the result.",
+          "Show that the obsolete --verify invocation is caught with a clear corrective action.",
+          "A rough-sketch-only request must not force the final-delivery workflow."
+        ],
+        "applicability": "Final CSV delivery only.",
+        "context_artifacts": [
+          {
+            "rationale": "The current rule already requires final CSV checks and exempts rough sketches.",
+            "sha256": "2e54b986224f5fcd7dd3badd899147588004d41e8e5a12ab5107568fb53f2de0",
+            "target_alias": "delivery-rule"
+          },
+          {
+            "rationale": "Current help accepts csv-check FILE and rejects --verify.",
+            "sha256": "e9adb3fa41e53b10ab00dbbe0c1251c2f66e817c7182ed08c65c33cafe10c747",
+            "target_alias": "checker-help"
+          }
+        ],
+        "counterevidence": {
+          "analysis": "The current delivery rule already requires the correct checker form. Another selected command succeeds, and the user exempts rough private sketches. Adding a blanket rule would duplicate guidance and erase that exception.",
+          "event_ids": [
+            "e-64bd4bf5cc165e9ee986e894",
+            "e-d752fdd41b59f252d275361f"
+          ]
+        },
+        "destination": {
+          "investigator": "workflow-reviewer",
+          "owner_class": "unresolved",
+          "reason": "Locate the source that emits the unsupported flag.",
+          "status": "unresolved"
+        },
+        "diagnosis": {
+          "category": "broken-tool",
+          "confidence": "medium",
+          "rationale": "The selected failed invocation and checker help support one unsupported-flag defect. The bad caller and a repeated cause remain unlocated."
+        },
+        "evidence_ids": [
+          "e-08eb7371d388eeb9f8512e8e",
+          "e-2dd5f1f72972b772f1f3916b",
+          "e-96c813d303f27fd63931766c",
+          "e-b18041812ce82df5b224bd7f",
+          "e-c3504b352bf973cf13d2a977",
+          "e-ddf077ca556c39b7a0ad5196",
+          "e-e88387113be559113c43e4ee"
+        ],
+        "exceptions": "Private rough sketches remain exempt.",
+        "observed_problem": "Three user requests across two declared sessions concern final CSV checking. One actual invocation failed. Requests do not prove three missed checks or a bad CSV.",
+        "privacy_notes": "Only selected redacted evidence. Human review before any separate sharing.",
+        "proposal_id": "csv-check-investigation",
+        "proposed_change": {
+          "kind": "investigation",
+          "text": "Find the selected instruction or wrapper that emitted --verify. Identify its current artifact snapshot and owner, then propose the smallest supported correction. Return an explicit unresolved result if no caller is located. Do not change the checker merely because the caller failed."
+        },
+        "review": {
+          "reviewed_at": "2026-10-08T13:00:00Z",
+          "reviewer_reference": "synthetic-reviewer"
+        }
+      },
+      "revision_digest": "e9c8d8188ed5cdc4fca279a183e88b97238e4ff97ac7c2b79e5ad6357866401e"
+    },
+    "schema_version": 1,
+    "scope": {
+      "budgets": {
+        "max_events": 5000,
+        "max_file_bytes": 1048576,
+        "max_files": 12,
+        "max_line_bytes": 65536,
+        "max_total_bytes": 4194304
+      },
+      "complete": true,
+      "corpus_id": "csv-review",
+      "counts": {
+        "declared_sessions": 2,
+        "excluded_class": 0,
+        "excluded_injected_context": 0,
+        "ignored_records": 1,
+        "included_events": 9,
+        "linked_duplicates": 1,
+        "outside_window": 0,
+        "quoted_or_empty": 0,
+        "repeated_native_ids": 0,
+        "same_identity_duplicates": 0,
+        "selected_bytes": 2412,
+        "unknown_results": 0,
+        "unknown_time": 0
+      },
+      "coverage_complete": true,
+      "included_classes": [
+        "neutral-export",
+        "user-session"
+      ],
+      "limits": [
+        "Heuristic candidates are review topics, not causes or adopted practices.",
+        "Session independence and mirror links are supplied provenance, not authenticated facts.",
+        "Unknown secrets may survive redaction. Human privacy review is required before sharing.",
+        "Only the documented export layouts are decoded; private reasoning and tool payloads are omitted."
+      ],
+      "scope_id": "scope-899fa035a89d2be64fa57682",
+      "window": {
+        "begin_utc": "2026-10-01T04:00:00Z",
+        "end": "2026-10-02",
+        "end_exclusive_utc": "2026-10-03T04:00:00Z",
+        "start": "2026-10-01",
+        "timezone": "America/New_York"
+      }
+    },
+    "status": "handoff-ready"
+  },
+  "manifest": {
+    "access": {
+      "basis": "user-selected-export",
+      "reference": "test-only-user-request"
+    },
+    "budgets": {
+      "max_events": 5000,
+      "max_file_bytes": 1048576,
+      "max_files": 12,
+      "max_line_bytes": 65536,
+      "max_total_bytes": 4194304
+    },
+    "corpus_id": "csv-review",
+    "destinations": [
+      {
+        "alias": "delivery-rule",
+        "path": "delivery.md"
+      },
+      {
+        "alias": "checker-help",
+        "path": "checker-help.txt"
+      }
+    ],
+    "included_classes": [
+      "user-session",
+      "neutral-export"
+    ],
+    "private_terms": [
+      "fictional-private-canary"
+    ],
+    "schema_version": 1,
+    "sources": [
+      {
+        "adapter": "codex",
+        "alias": "codex-a",
+        "lineage_id": "origin-codex-a",
+        "mirrors": [],
+        "path": "codex-a.jsonl",
+        "session_id": "session-codex-a",
+        "source_class": "user-session"
+      },
+      {
+        "adapter": "claude",
+        "alias": "claude-b",
+        "lineage_id": "origin-claude-b",
+        "mirrors": [],
+        "path": "claude-b.jsonl",
+        "session_id": "session-claude-b",
+        "source_class": "user-session"
+      },
+      {
+        "adapter": "neutral",
+        "alias": "neutral-copy",
+        "lineage_id": "origin-neutral-copy",
+        "mirrors": [
+          {
+            "event_id": "copy-a1",
+            "source_alias": "codex-a",
+            "target_event_id": "a1"
+          }
+        ],
+        "path": "neutral-copy.json",
+        "session_id": "session-neutral-copy",
+        "source_class": "neutral-export"
+      }
+    ],
+    "window": {
+      "end": "2026-10-02",
+      "start": "2026-10-01",
+      "timezone": "America/New_York"
+    }
+  },
+  "materialize": {
+    "files": {
+      "checker-help.txt": "Usage: csv-check FILE\nThe --verify flag is not supported.\n",
+      "claude-b.jsonl": "{\"type\": \"user\", \"uuid\": \"b1\", \"sessionId\": \"session-b\", \"timestamp\": \"2026-10-02T15:00:00Z\", \"message\": {\"role\": \"user\", \"content\": [{\"type\": \"text\", \"text\": \"Please verify the final CSV.\"}]}}\n{\"type\": \"assistant\", \"uuid\": \"b-call\", \"sessionId\": \"session-b\", \"timestamp\": \"2026-10-02T15:01:00Z\", \"message\": {\"role\": \"assistant\", \"content\": [{\"type\": \"tool_use\", \"id\": \"checker-b\", \"name\": \"Bash\", \"input\": {\"command\": \"csv-check final.csv\"}}]}}\n{\"type\": \"user\", \"uuid\": \"b-result\", \"sessionId\": \"session-b\", \"timestamp\": \"2026-10-02T15:01:01Z\", \"message\": {\"role\": \"user\", \"content\": [{\"type\": \"tool_result\", \"tool_use_id\": \"checker-b\", \"is_error\": false, \"content\": \"The final CSV passes.\"}]}}\n{\"type\": \"user\", \"uuid\": \"b-method\", \"sessionId\": \"session-b\", \"timestamp\": \"2026-10-02T15:02:00Z\", \"message\": {\"role\": \"user\", \"content\": \"My method is first check the exported file then inspect the result.\"}}\n{\"type\": \"user\", \"uuid\": \"b-exception\", \"sessionId\": \"session-b\", \"timestamp\": \"2026-10-02T15:03:00Z\", \"message\": {\"role\": \"user\", \"content\": \"Rough private sketches do not need final-delivery verification.\"}}\n",
+      "codex-a.jsonl": "{\"type\": \"session_meta\", \"timestamp\": \"2026-09-30T12:00:00Z\", \"payload\": {\"id\": \"session-a\"}}\n{\"id\": \"a1\", \"timestamp\": \"2026-10-01T04:05:00Z\", \"type\": \"response_item\", \"payload\": {\"type\": \"message\", \"role\": \"user\", \"content\": [{\"type\": \"input_text\", \"text\": \"Please verify the final CSV.\"}]}}\n{\"id\": \"a3\", \"timestamp\": \"2026-10-01T04:07:00Z\", \"type\": \"response_item\", \"payload\": {\"type\": \"function_call\", \"name\": \"exec_command\", \"call_id\": \"checker-a\", \"arguments\": \"{\\\"cmd\\\": \\\"csv-check final.csv --verify\\\"}\"}}\n{\"id\": \"a3-result\", \"timestamp\": \"2026-10-01T04:07:01Z\", \"type\": \"response_item\", \"payload\": {\"type\": \"function_call_output\", \"call_id\": \"checker-a\", \"output\": \"Process exited with code 2\\nUnsupported --verify flag.\"}}\n{\"id\": \"a4\", \"timestamp\": \"2026-10-01T04:08:00Z\", \"type\": \"response_item\", \"payload\": {\"type\": \"message\", \"role\": \"user\", \"content\": [{\"type\": \"input_text\", \"text\": \"Please verify the final CSV.\"}]}}\n",
+      "delivery.md": "Before final CSV delivery, run csv-check FILE and inspect its result. Rough private sketches are exempt.\n",
+      "neutral-copy.json": "{\"schema_version\": 1, \"events\": [{\"id\": \"copy-a1\", \"session_id\": \"neutral-session\", \"timestamp\": \"2026-10-01T04:05:00Z\", \"actor\": \"user\", \"kind\": \"message\", \"text\": \"Please verify the final CSV.\"}]}"
+    },
+    "manifest_filename": "selected.json"
+  },
+  "reviewed_proposal": {
+    "acceptance_checks": [
+      "Cite the current caller and its owner, or explicitly report both unresolved.",
+      "If a caller is found, exercise csv-check FILE on an isolated final CSV and inspect the result.",
+      "Show that the obsolete --verify invocation is caught with a clear corrective action.",
+      "A rough-sketch-only request must not force the final-delivery workflow."
+    ],
+    "applicability": "Final CSV delivery only.",
+    "context_artifacts": [
+      {
+        "rationale": "The current rule already requires final CSV checks and exempts rough sketches.",
+        "sha256": "2e54b986224f5fcd7dd3badd899147588004d41e8e5a12ab5107568fb53f2de0",
+        "target_alias": "delivery-rule"
+      },
+      {
+        "rationale": "Current help accepts csv-check FILE and rejects --verify.",
+        "sha256": "e9adb3fa41e53b10ab00dbbe0c1251c2f66e817c7182ed08c65c33cafe10c747",
+        "target_alias": "checker-help"
+      }
+    ],
+    "counterevidence": {
+      "analysis": "The current delivery rule already requires the correct checker form. Another selected command succeeds, and the user exempts rough private sketches. Adding a blanket rule would duplicate guidance and erase that exception.",
+      "event_ids": [
+        "e-64bd4bf5cc165e9ee986e894",
+        "e-d752fdd41b59f252d275361f"
+      ]
+    },
+    "destination": {
+      "investigator": "workflow-reviewer",
+      "owner_class": "unresolved",
+      "reason": "Locate the source that emits the unsupported flag.",
+      "status": "unresolved"
+    },
+    "diagnosis": {
+      "category": "broken-tool",
+      "confidence": "medium",
+      "rationale": "The selected failed invocation and checker help support one unsupported-flag defect. The bad caller and a repeated cause remain unlocated."
+    },
+    "evidence_ids": [
+      "e-08eb7371d388eeb9f8512e8e",
+      "e-2dd5f1f72972b772f1f3916b",
+      "e-96c813d303f27fd63931766c",
+      "e-b18041812ce82df5b224bd7f",
+      "e-c3504b352bf973cf13d2a977",
+      "e-ddf077ca556c39b7a0ad5196",
+      "e-e88387113be559113c43e4ee"
+    ],
+    "exceptions": "Private rough sketches remain exempt.",
+    "observed_problem": "Three user requests across two declared sessions concern final CSV checking. One actual invocation failed. Requests do not prove three missed checks or a bad CSV.",
+    "privacy_notes": "Only selected redacted evidence. Human review before any separate sharing.",
+    "proposal_id": "csv-check-investigation",
+    "proposed_change": {
+      "kind": "investigation",
+      "text": "Find the selected instruction or wrapper that emitted --verify. Identify its current artifact snapshot and owner, then propose the smallest supported correction. Return an explicit unresolved result if no caller is located. Do not change the checker merely because the caller failed."
+    },
+    "review": {
+      "reviewed_at": "2026-10-08T13:00:00Z",
+      "reviewer_reference": "synthetic-reviewer"
+    }
+  },
+  "verified_example": {
+    "current_candidate_classes": [
+      "command-failure",
+      "executed-command",
+      "repeated-task",
+      "user-method"
+    ],
+    "handoff_authority": "investigation-only",
+    "handoff_status": "handoff-ready",
+    "revision_digest": "e9c8d8188ed5cdc4fca279a183e88b97238e4ff97ac7c2b79e5ad6357866401e",
+    "scan_counts": {
+      "declared_sessions": 2,
+      "excluded_class": 0,
+      "excluded_injected_context": 0,
+      "ignored_records": 1,
+      "included_events": 9,
+      "linked_duplicates": 1,
+      "outside_window": 0,
+      "quoted_or_empty": 0,
+      "repeated_native_ids": 0,
+      "same_identity_duplicates": 0,
+      "selected_bytes": 2412,
+      "unknown_results": 0,
+      "unknown_time": 0
+    }
+  }
+}

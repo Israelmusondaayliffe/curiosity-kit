@@ -1,0 +1,36 @@
+{
+  "schema": "last30days.watch/v1",
+  "revision": 1,
+  "topics": {
+    "example": {
+      "name": "example",
+      "scope": {
+        "entity": "Example Project",
+        "queries": [
+          "Example Project release"
+        ],
+        "window": {
+          "start": "2026-09-10",
+          "end": "2026-10-09",
+          "timezone": "UTC",
+          "boundary": "inclusive"
+        },
+        "lanes": [
+          {
+            "id": "official",
+            "status": "ok",
+            "detail": "One supplied synthetic release body read."
+          }
+        ],
+        "selection": {
+          "cap": 10,
+          "method": "Relevant official release observations; synthetic example."
+        }
+      },
+      "status": "active",
+      "schedule_request": null,
+      "scheduler_status": "unconfigured",
+      "runs": []
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "curiosity-kit",
+  "owner": {
+    "name": "Curiosity Kit contributors"
+  },
+  "plugins": [
+    {
+      "name": "curiosity-kit",
+      "source": "./plugins/claude-code/curiosity-kit",
+      "description": "Curiosity Kit, the ever-curious: 26 independent skills for Codex and Claude Code."
+    }
+  ]
+}

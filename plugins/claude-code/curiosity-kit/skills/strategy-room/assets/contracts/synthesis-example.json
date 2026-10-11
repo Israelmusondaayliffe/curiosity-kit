@@ -1,0 +1,49 @@
+{
+  "decision": "Choose a reversible workshop format",
+  "decision_owner": "Sample owner",
+  "horizon": "One month",
+  "stakes": "One internal trial",
+  "reversibility": "reversible",
+  "criteria": [
+    "Accessible to remote staff"
+  ],
+  "evidence_state": "recommend",
+  "evidence_sufficiency": "The synthetic accessibility check covers this bounded trial.",
+  "recommendation": "Use O1 for the trial.",
+  "recommended_option": "O1",
+  "options": [
+    {
+      "id": "O1",
+      "name": "Remote workshop",
+      "case_for": "Remote access",
+      "case_against": "Less informal discussion"
+    },
+    {
+      "id": "O2",
+      "name": "Written guide",
+      "case_for": "Asynchronous",
+      "case_against": "No live questions"
+    }
+  ],
+  "evidence": [
+    "S1: synthetic accessibility check"
+  ],
+  "counterevidence": [],
+  "risks": [],
+  "conditions": [],
+  "missing_evidence": [],
+  "confidence": "medium",
+  "change_conditions": [
+    "Revisit after trial feedback"
+  ],
+  "immediate_next_action": "Ask the owner to choose.",
+  "user_choice_gate": {
+    "state": "pending",
+    "authority": "user",
+    "choice": null,
+    "authority_source": null
+  },
+  "final_decision_record": null,
+  "execution_authorized": false,
+  "handoff": "Decision only; implementation requires its own authorization."
+}

@@ -1,0 +1,7 @@
+Strategy Room: independent adaptation for Curiosity Kit.
+
+Original methods and helper responsibilities come from earlier Strategy Room editions. Original notices credit Matt Pocock concepts at 9603c1cc8118d08bc1b3bf34cf714f62178dea3b; the applicable MIT text is retained in licenses/matt-original-MIT.txt.
+
+Selected methods were adapted from Pstack/Poteto (Lauren Tan), Matt Pocock, GStack (Garry Tan), REA (morluto) and Ponytail (DietrichGebert). The selected root MIT texts are retained in licenses/. No donor engine, provider service, generated GStack harness or REA binary tooling is bundled. GStack's separate Apache-derived design material was not copied; this notice makes no blanket licensing claim for that repository.
+
+The nine methods use local, host-neutral resources. Examples are synthetic and do not constitute evidence or user authorization. Original contributions are licensed under the package-root MIT LICENSE; third-party material retains its stated terms.

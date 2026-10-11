@@ -1,0 +1,7 @@
+interface:
+  display_name: "Gauntlet"
+  short_description: "Build and challenge work against an independent verification bar."
+  default_prompt: "Use $gauntlet to build and verify this task against explicit criteria."
+
+policy:
+  allow_implicit_invocation: false

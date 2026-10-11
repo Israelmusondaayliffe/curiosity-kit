@@ -1,0 +1,10 @@
+{
+  "host": "codex",
+  "cadence": "__REPLACE_ME__ Fill with the user's authorized cadence",
+  "timezone": "__REPLACE_ME__ Fill with the user's confirmed IANA timezone",
+  "task_prompt": "__REPLACE_ME__ Fill with a self-contained bounded task and actual workspace/contract locations",
+  "no_op": "Return no change only after successful inspection establishes no work",
+  "stop_condition": "__REPLACE_ME__ Fill with the requested stop or pause condition",
+  "evidence_return": "Return actual output and its verification evidence on meaningful change",
+  "authority": "__REPLACE_ME__ Fill with the specific recurrence authorization; this draft grants none"
+}

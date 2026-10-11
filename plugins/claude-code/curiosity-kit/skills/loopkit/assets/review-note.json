@@ -1,0 +1,8 @@
+{
+  "criterion_id": "Replace with a declared judgment id",
+  "verdict": "unavailable",
+  "reviewer": "Replace with the actual reviewer identity/context",
+  "independent": false,
+  "evidence_path": "Replace with the actual scoped review artifact",
+  "reason": "Record the observed conclusion and its limits"
+}

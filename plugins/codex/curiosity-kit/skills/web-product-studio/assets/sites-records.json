@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "kind": "sites",
+  "stage": "planned",
+  "task_id": "synthetic-prompt-library",
+  "brief": {
+    "title": "Prompt field notes: isolated sample",
+    "job": "teaching-reference",
+    "audience": "First-time visual prompt writers",
+    "use_moment": "Find a technique, understand it, and copy a complete example",
+    "outcome": "Readers can explain the technique, locate an example and copy its complete prompt without needing a private account",
+    "content": {
+      "spine": [
+        "What it is",
+        "Why it helps",
+        "How to use it",
+        "Worked prompt",
+        "Common mistake"
+      ],
+      "source_ids": [
+        "sample-reference"
+      ],
+      "required_provenance": [
+        "Visible prompt text and parameters",
+        "Origin and display rights for each example"
+      ]
+    },
+    "delivery": {
+      "mode": "local",
+      "deployment_requested": false,
+      "audience": "private",
+      "anonymous_test_required": false
+    }
+  },
+  "sources": {
+    "inspection_complete": false,
+    "midjourney_waiver_reason": "This isolated example supplies a task-specific synthetic reference; no account inspection or external asset use is requested.",
+    "items": [
+      {
+        "id": "sample-reference",
+        "source_type": "explicit-reference",
+        "locator": "task-supplied synthetic sample",
+        "access_class": "local",
+        "ownership": "user-owned",
+        "prompt_status": "unavailable",
+        "public_eligibility": "private-only",
+        "intended_role": "Teaching example and visual direction",
+        "inspected": false,
+        "evidence": null,
+        "prompt": null,
+        "public_projection": null
+      }
+    ]
+  },
+  "curation": {
+    "decisions": [
+      {
+        "source_id": "sample-reference",
+        "decision": "hold",
+        "reason": "Inspect the supplied source before choosing a display role.",
+        "useful_qualities": [],
+        "intended_role": "Potential worked example"
+      }
+    ]
+  },
+  "authority": {
+    "selected_direction": null,
+    "source_refs": [
+      "sample-reference"
+    ],
+    "design_constitution": null,
+    "rules": {
+      "layout": [],
+      "color": [],
+      "typography": [],
+      "imagery": [],
+      "material": [],
+      "motion": [],
+      "signature_tension": []
+    },
+    "avoid": [
+      "Fabricated prompt provenance",
+      "Decorative controls without a reading or retrieval purpose"
+    ],
+    "rejected_directions": []
+  },
+  "profile": {
+    "required": [
+      "teaching-library"
+    ],
+    "checks": [
+      {
+        "profile": "teaching-library",
+        "id": "first-time-reader-explanation",
+        "status": "unrun",
+        "evidence": null
+      },
+      {
+        "profile": "teaching-library",
+        "id": "practical-examples",
+        "status": "unrun",
+        "evidence": null
+      },
+      {
+        "profile": "teaching-library",
+        "id": "copyable-material",
+        "status": "unrun",
+        "evidence": null
+      },
+      {
+        "profile": "teaching-library",
+        "id": "search",
+        "status": "unrun",
+        "evidence": null
+      },
+      {
+        "profile": "teaching-library",
+        "id": "working-controls",
+        "status": "unrun",
+        "evidence": null
+      },
+      {
+        "profile": "teaching-library",
+        "id": "mobile",
+        "status": "unrun",
+        "evidence": null
+      }
+    ]
+  },
+  "release": {
+    "source": null,
+    "build": {
+      "id": null,
+      "status": "unrun",
+      "command": null,
+      "evidence": null
+    },
+    "flow": null,
+    "review": {
+      "status": "unrun",
+      "evaluator": null,
+      "builder_ids": [],
+      "evidence": null
+    },
+    "sites": {
+      "version": null,
+      "deployment_status": "not-requested",
+      "receipt": null,
+      "deployed_url": null
+    },
+    "health": {
+      "status": "not-required",
+      "evidence": null
+    },
+    "access": {
+      "audience": "private",
+      "anonymous_test_required": false,
+      "anonymous_test_status": "not-required",
+      "evidence": null
+    },
+    "public_source_ids": [],
+    "privacy_scan": null,
+    "documentation": null,
+    "unresolved_non_blocking": []
+  }
+}

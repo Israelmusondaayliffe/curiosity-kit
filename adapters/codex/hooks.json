@@ -1,0 +1,6 @@
+{
+  "loopkit": {
+    "PreCompact": [{"matcher": "^(manual|auto)$", "hooks": [{"type": "command", "command": "python3 \"${PLUGIN_ROOT}/skills/loopkit/scripts/loopkit_hook.py\" pre-compact --host codex", "timeout": 10}]}],
+    "SessionStart": [{"matcher": "^(startup|resume|compact)$", "hooks": [{"type": "command", "command": "python3 \"${PLUGIN_ROOT}/skills/loopkit/scripts/loopkit_hook.py\" session-start --host codex", "timeout": 10}]}]
+  }
+}

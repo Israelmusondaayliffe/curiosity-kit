@@ -1,0 +1,177 @@
+{
+  "schema_version": "2.0",
+  "parser_version": null,
+  "status": null,
+  "generated_at": null,
+  "identity": null,
+  "context": {
+    "operation": null,
+    "as_of": null,
+    "known_as_of": null,
+    "cohort": null,
+    "group_by": "engine",
+    "timezone": "UTC",
+    "cutoffs": "inclusive",
+    "reference_reviewer": null,
+    "machine_reviewer": null,
+    "metric_version": null
+  },
+  "counts": {
+    "discovered": 0,
+    "sources_read": 0,
+    "sources_failed": 0,
+    "records_read": 0,
+    "records_rejected": 0,
+    "duplicate_records": 0,
+    "current_runs": 0,
+    "eligible_runs": 0,
+    "historical_revisions": 0,
+    "conflicted_runs": 0,
+    "human_labeled_runs": 0,
+    "excluded_evidence": 0,
+    "new_revisions": 0
+  },
+  "manifest": null,
+  "source_manifest": [],
+  "records": [],
+  "current": [],
+  "history": [],
+  "conflicts": [],
+  "eligible_record_ids": [],
+  "labels": {},
+  "measurement_totals": {},
+  "metrics": {
+    "human_acceptance": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "label_coverage": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "human_acceptance_known": 0,
+    "accepted_runs": 0,
+    "unknown_human_runs": 0,
+    "costs": {},
+    "duration": {
+      "unit": "seconds",
+      "coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "minimum": null,
+      "maximum": null,
+      "mean": null,
+      "median": null,
+      "sum": null,
+      "observed_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      }
+    },
+    "tokens": {
+      "unit": "tokens",
+      "coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "minimum": null,
+      "maximum": null,
+      "mean": null,
+      "median": null,
+      "sum": null,
+      "observed_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      }
+    },
+    "exhausted_runs": 0,
+    "stop_reasons": {},
+    "escalation_reasons": {},
+    "iterations": {
+      "coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "minimum": null,
+      "maximum": null,
+      "mean": null,
+      "median": null
+    },
+    "process_completion": {
+      "positive": 0,
+      "negative": 0,
+      "unknown": 0,
+      "denominator": 0
+    },
+    "bound_machine_judgment": {
+      "positive": 0,
+      "negative": 0,
+      "unknown": 0,
+      "denominator": 0
+    },
+    "producer_machine_completion": {
+      "positive": 0,
+      "negative": 0,
+      "unknown": 0,
+      "denominator": 0
+    }
+  },
+  "calibration": {
+    "reference_policy": "one unique observation per exact target/rubric stratum; unresolved multiplicity excluded",
+    "reference_reviewer": null,
+    "machine_reviewer": null,
+    "paired_denominator": 0,
+    "paired_run_coverage": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "cells": {
+      "machine_positive_human_positive": [],
+      "machine_positive_human_negative": [],
+      "machine_negative_human_positive": [],
+      "machine_negative_human_negative": []
+    },
+    "cell_counts": {
+      "machine_positive_human_positive": 0,
+      "machine_positive_human_negative": 0,
+      "machine_negative_human_positive": 0,
+      "machine_negative_human_negative": 0
+    },
+    "pairs": [],
+    "disagreements": [],
+    "disagreement_rate": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "assessments": [],
+    "unpaired_or_conflicted_strata": 0,
+    "interpretation": "Observed disagreements; inspect the bound artifact and governing rubric before attributing a defect."
+  },
+  "groups": {
+    "engine": [],
+    "model": [],
+    "version": [],
+    "time": []
+  },
+  "comparison": {
+    "decision": null,
+    "strata": [],
+    "limitations": []
+  },
+  "handoffs": [],
+  "exclusions": [],
+  "report_paths": {
+    "json": null,
+    "markdown": null
+  }
+}

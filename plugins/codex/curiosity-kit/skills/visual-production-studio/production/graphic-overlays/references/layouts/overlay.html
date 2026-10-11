@@ -1,0 +1,109 @@
+<!--
+  Layout: overlay. zone="video-overlay"; video and transparent card host span
+  the full canvas. The visible glass card is a smaller, explicitly placed root.
+  Canvas and glass rectangles (x,y,width,height):
+    1920x1080: video/card-host (0,0,1920,1080); glass (48,460,660,540).
+    1080x1920: video/card-host (0,0,1080,1920); glass (24,1280,1032,564).
+    1080x1350: video/card-host (0,0,1080,1350); glass (24,900,1032,396.5625).
+  geometry.mjs scales using exact canvas ratios, never a rounded .703 constant.
+  The source remains contained unless cropping was specifically requested.
+  Layer order: video z=1, separate legibility gradient z=2, card z=3.
+  Use a dark glass base such as rgba(15,16,22,.78), blur(22px) saturate(140%),
+  18px rounded corners and a shadow. The gradient is an independent full-canvas
+  pointer-events:none layer, dark at top/bottom with a clear central region.
+  A full opaque style root MUST be deliberately converted to a transparent host
+  and this smaller translucent root. Inspect bright video; blur alone is insufficient.
+  Decorative frames are suppressed. Card content must not cover key faces/actions.
+-->
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>layout · overlay (video full-bleed, glass card)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0a0c12;
+        color: #fff;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .stage {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        transform-origin: top left;
+        transform: scale(0.5);
+        background: #0a0c12;
+        overflow: hidden;
+      }
+      .video-region {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #1a1f2e;
+        background-image: repeating-linear-gradient(
+          45deg,
+          transparent 0 12px,
+          rgba(255, 255, 255, 0.05) 12px 13px
+        );
+      }
+      .gradient {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, transparent 35%),
+          linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.55) 100%);
+      }
+      .card-region {
+        position: absolute;
+        left: 48px;
+        top: 460px;
+        width: 660px;
+        height: 540px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(18px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        border-radius: 18px;
+        box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font:
+          600 24px/1.3 ui-monospace,
+          monospace;
+        letter-spacing: 0.12em;
+      }
+      .label {
+        padding: 12px 18px;
+        border: 1.5px solid rgba(255, 255, 255, 0.7);
+        border-radius: 4px;
+      }
+      .v-label {
+        position: absolute;
+        left: 28px;
+        top: 28px;
+        color: rgba(255, 255, 255, 0.55);
+        padding: 8px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        font:
+          600 16px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.14em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="video-region"><span class="v-label">VIDEO · 1920×1080 (full-bleed)</span></div>
+      <div class="gradient"></div>
+      <div class="card-region"><span class="label">CARD · 660×540 glass</span></div>
+    </div>
+  </body>
+</html>

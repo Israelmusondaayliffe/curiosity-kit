@@ -1,0 +1,158 @@
+{
+  "agent-ops": {
+    "display_name": "Agent Ops",
+    "short_description": "Design, audit and recover agents; delegate with explicit authority.",
+    "default_prompt": "Use $agent-ops to design or audit this agent workflow.",
+    "allow_implicit_invocation": true
+  },
+  "ai-film-studio": {
+    "display_name": "AI Film Studio",
+    "short_description": "Develop films with consistent assets, shots, prompts and review.",
+    "default_prompt": "Use $ai-film-studio to develop this film and verify its production package.",
+    "allow_implicit_invocation": false
+  },
+  "coding-studio": {
+    "display_name": "Coding Studio",
+    "short_description": "Build, debug, review and deliver software with evidence.",
+    "default_prompt": "Use $coding-studio to implement and verify this software change.",
+    "allow_implicit_invocation": true
+  },
+  "continuity-vault": {
+    "display_name": "Continuity Vault",
+    "short_description": "Preserve source-backed handoffs, knowledge and continuity.",
+    "default_prompt": "Use $continuity-vault to prepare this source-backed continuity artifact.",
+    "allow_implicit_invocation": true
+  },
+  "data-storytelling-studio": {
+    "display_name": "Data Storytelling Studio",
+    "short_description": "Turn checked data into clear stories, charts and decisions.",
+    "default_prompt": "Use $data-storytelling-studio to create and verify this evidence-backed data story.",
+    "allow_implicit_invocation": true
+  },
+  "explanation-studio": {
+    "display_name": "Explanation Studio",
+    "short_description": "Explain concepts with clear language, bridges and visuals.",
+    "default_prompt": "Use $explanation-studio to explain this source clearly in the requested format.",
+    "allow_implicit_invocation": true
+  },
+  "founder-revenue-engine": {
+    "display_name": "Founder Revenue Studio",
+    "short_description": "Research customers, shape offers and draft founder outreach.",
+    "default_prompt": "Use $founder-revenue-engine to turn these signals into a supported customer and offer decision.",
+    "allow_implicit_invocation": true
+  },
+  "gauntlet": {
+    "display_name": "Gauntlet",
+    "short_description": "Build and challenge work against an independent verification bar.",
+    "default_prompt": "Use $gauntlet to build and verify this task against explicit criteria.",
+    "allow_implicit_invocation": false
+  },
+  "harness-engineering": {
+    "display_name": "Harness Engineering",
+    "short_description": "Design, audit, build, verify and maintain an AI harness.",
+    "default_prompt": "Use $harness-engineering to audit my Codex harness.",
+    "allow_implicit_invocation": true
+  },
+  "loopkit": {
+    "display_name": "LoopKit",
+    "short_description": "Run bounded work, verify results and recover interrupted loops.",
+    "default_prompt": "Use $loopkit to run this task with clear checks and stop conditions.",
+    "allow_implicit_invocation": true
+  },
+  "memory": {
+    "display_name": "Memory",
+    "short_description": "Recall scoped work, resume tasks and diagnose memory capture.",
+    "default_prompt": "Use $memory to recall relevant work and verify its current source.",
+    "allow_implicit_invocation": true
+  },
+  "writing-like-me": {
+    "display_name": "Writing Like Me",
+    "short_description": "Write, edit and review in the writer's evidenced voice.",
+    "default_prompt": "Use $writing-like-me to turn my notes into a complete draft.",
+    "allow_implicit_invocation": true
+  },
+  "knowledge-work-superpowers": {
+    "display_name": "Knowledge Work Superpowers",
+    "short_description": "Research, write and verify complete evidence-backed work.",
+    "default_prompt": "Use $knowledge-work-superpowers to turn these sources into a complete, verified decision brief.",
+    "allow_implicit_invocation": true
+  },
+  "outcome-engine": {
+    "display_name": "Outcome Engine",
+    "short_description": "Plan and deliver bounded outcomes with inspectable evidence.",
+    "default_prompt": "Use $outcome-engine to turn this accepted direction into a complete, verified result.",
+    "allow_implicit_invocation": true
+  },
+  "practice-compiler": {
+    "display_name": "Practice Compiler",
+    "short_description": "Turn selected work evidence into reviewed practice proposals.",
+    "default_prompt": "Use $practice-compiler to review these selected exports and propose evidence-backed improvements.",
+    "allow_implicit_invocation": true
+  },
+  "proofloop": {
+    "display_name": "ProofLoop",
+    "short_description": "Run bounded tasks with evidence and quarantined lessons.",
+    "default_prompt": "Use $proofloop to complete this bounded task and report its evidence.",
+    "allow_implicit_invocation": false
+  },
+  "model-prompt-lab": {
+    "display_name": "Model Prompt Lab",
+    "short_description": "Build prompts and compare models with traceable evidence.",
+    "default_prompt": "Use Model Prompt Lab for the requested prompt or evaluation task, preserving the selected model and separating prepared work from measured results.",
+    "allow_implicit_invocation": true
+  },
+  "guide-production-studio": {
+    "display_name": "Guide Production Studio",
+    "short_description": "Write complete, source-grounded practical and workshop guides.",
+    "default_prompt": "Create or revise a complete practical guide with usable examples, clear adult explanations and honest evidence checks.",
+    "allow_implicit_invocation": true
+  },
+  "operating-graph": {
+    "display_name": "Operating Graph",
+    "short_description": "Coordinate explicit bounded workflow graphs with exact evidence.",
+    "default_prompt": "Use $operating-graph to design or run this bounded workflow.",
+    "allow_implicit_invocation": false
+  },
+  "loop-observatory": {
+    "display_name": "Loop Observatory",
+    "short_description": "Compare loop outcomes, costs and judge agreement.",
+    "default_prompt": "Use $loop-observatory to analyze these selected loop records and report supported outcomes, uncertainty and repair evidence.",
+    "allow_implicit_invocation": true
+  },
+  "visual-production-studio": {
+    "display_name": "Visual Production Studio",
+    "short_description": "Create model-specific visual prompts and complete production plans.",
+    "default_prompt": "Use $visual-production-studio for this image, video or production task, preserving the requested model and checking the actual output.",
+    "allow_implicit_invocation": true
+  },
+  "web-product-studio": {
+    "display_name": "Web Product Studio",
+    "short_description": "Build, redesign and verify complete web products.",
+    "default_prompt": "Use $web-product-studio to complete this web task and verify the actual result.",
+    "allow_implicit_invocation": true
+  },
+  "last30days": {
+    "display_name": "Last30Days",
+    "short_description": "Research recent evidence and maintain a source-linked library.",
+    "default_prompt": "Use $last30days to research this topic with dated evidence and clear coverage.",
+    "allow_implicit_invocation": true
+  },
+  "strategy-room": {
+    "display_name": "Strategy Room",
+    "short_description": "Resolve choices with nine complete evidence-grounded methods.",
+    "default_prompt": "Use $strategy-room to clarify and assess this decision.",
+    "allow_implicit_invocation": true
+  },
+  "matt-pocock-knowledge-work": {
+    "display_name": "Matt Method Library",
+    "short_description": "Use 39 complete, explicitly selected Matt methods.",
+    "default_prompt": "Use $matt-pocock-knowledge-work for this named Matt method.",
+    "allow_implicit_invocation": false
+  },
+  "chief-of-staff": {
+    "display_name": "Chief of Staff",
+    "short_description": "Coordinate the right skills and keep useful work moving.",
+    "default_prompt": "Use Chief of Staff to understand this request, choose the smallest useful workflow, and carry it through with clear evidence.",
+    "allow_implicit_invocation": true
+  }
+}

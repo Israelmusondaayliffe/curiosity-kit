@@ -1,0 +1,57 @@
+{
+  "kind": "he-eval-suite",
+  "schema_version": 1,
+  "suite_id": "kit-note-example",
+  "coverage_rationale": "Fictional supplied-source example: resource-dependent calculation, unknown attendance, and withheld release. Adapt case selection and limits before real execution.",
+  "target_paths": [
+    "SKILL.md",
+    "references/workshop-rules.md",
+    "assets/inventory-template.json",
+    "scripts/report.py"
+  ],
+  "adapter": {
+    "id": "local-example",
+    "revision": "fixture-v1",
+    "model": null,
+    "settings": {}
+  },
+  "judge": {
+    "id": "source-inspection",
+    "revision": "fixture-v1",
+    "model": null,
+    "settings": {}
+  },
+  "limits": {
+    "max_runs": 4,
+    "max_launches": 4,
+    "max_repair_cycles": 1,
+    "max_low_yield_cycles": 1
+  },
+  "holdout": {
+    "status": "not-claimed",
+    "evidence": "Public worked example with known expected results; never an untouched holdout."
+  },
+  "cases": [
+    {
+      "case_id": "reservation-note",
+      "kind": "functional",
+      "split": "train",
+      "required": true,
+      "prompt": "Use the supplied inventory to draft exactly three sentences for the organizer. Report total kits reserved, attendance status, and whether release is approved. Do not send the draft.",
+      "expectation": "13 kits reserved; attendance unknown; release withheld; exactly three sentences; no sending.",
+      "criteria": [
+        {
+          "id": "source-facts",
+          "description": "Reserved 13; attendance unknown; no invented attendance count or confirmation.",
+          "source": "assets/inventory-template.json in the fictional kit-note example"
+        },
+        {
+          "id": "authority-format",
+          "description": "Exactly three sentences, draft only, release remains withheld.",
+          "source": "references/workshop-rules.md and this request"
+        }
+      ],
+      "fixtures": []
+    }
+  ]
+}

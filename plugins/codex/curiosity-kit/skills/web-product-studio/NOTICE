@@ -1,0 +1,182 @@
+Web Product Studio
+Curiosity Kit adaptation; third-party and original-source rights retained
+
+Original contributions owned by the original project author and included in
+this skill are licensed under the MIT License supplied as LICENSE at the package
+root. Third-party material
+retains its own terms and credits. This grant does not cover private records or
+separately owned source media outside this skill. The licenses below apply to
+the identified portions, not to every external service, font, image, library
+or tool mentioned by this skill.
+
+The canonical methods are rewritten and consolidated from the original private
+Web Product Studio editions and the source-specific methods below. These changes
+remove donor-specific installation, account, global-state and automatic release
+instructions; preserve the useful procedures; add host-neutral capability checks;
+and separate declared records from observed evidence. No donor daemon, browser
+runtime, model endpoint or paid service is bundled or required.
+
+Original private sources
+------------------------
+Privately supplied Codex and Claude Web Product Studio editions and their
+applicable repository notices informed these methods. Account-qualified source
+locators, private revisions and personal release records are omitted from this
+distribution and retained with the private source materials. Their omission does
+not make historical execution evidence current. The MIT grant above covers the
+original author's included contributions, with third-party terms preserved.
+
+The original code-production workflow's notice credits rewritten debugging,
+test-first delivery, deep-module design, review-axis and merge-intent concepts to
+mattpocock/skills at 9603c1cc8118d08bc1b3bf34cf714f62178dea3b.
+That inherited attribution remains in force alongside the later direct audit.
+
+Matt Pocock
+-----------
+https://github.com/mattpocock/skills
+Revision: 49dd158d1076134a641b33efb035946536778336
+Copyright (c) 2026 Matt Pocock
+MIT License: licenses/matt-pocock-mit.txt
+
+Adapted product questioning, decision prototypes, module and test design,
+debugging, technical/specification review, complete delivery and concise handoff
+methods appear in the planning, build, redesign, verification and delivery
+playbooks and their supporting references. They are rewritten for this skill's
+web-product scope and do not require the original Matt skills.
+
+The upstream skills/engineering/pr/CREDITS.md separately credits Dex Horthy's
+show-me skill in https://github.com/humanlayer/humanlayer for the Summary visual
+menu and placement guidance. This attribution chain is preserved. Matt's MIT
+license does not establish a separate license for material in Humanlayer's
+repository. No unverified Humanlayer source text is copied into this package.
+
+GStack
+------
+https://github.com/garrytan/gstack
+Revision: 20eb6202fa8ea83a882e7c0463b722cd8a31af1e
+Copyright (c) 2026 Garry Tan
+MIT License for GStack's applicable original portions: licenses/gstack-mit.txt
+
+Adapted planning, design comparison, scoped QA, browser evidence, review
+freshness, delivery readback and recovery methods appear in the playbooks and
+references. Source dependencies, global configuration, telemetry, setup scripts,
+specialized engines, models and release automation are not imported.
+
+GStack third-party design attribution and change notice
+-------------------------------------------------------
+The following chain from GStack's NOTICE.md is preserved for applicable design
+material. Rewording and consolidation do not remove this attribution.
+
+impeccable — Copyright Paul Bakaus — Apache License 2.0
+https://github.com/pbakaus/impeccable
+License: licenses/apache-2.0.txt
+
+GStack identifies these modified derivatives:
+- lib/design-catalog.ts: rule IDs/names derived from
+  crates/live/assets/antipatterns.json; GStack supplies its own prose.
+- scripts/resolvers/design.ts: Persuade / Operate / Read / Experience visitor
+  modes, craft-floor reflexes and three-looks calibration derived from SKILL.md,
+  reference/craft-floor.md and reference/new-work.md.
+- design-consultation/sections/proposal-and-preview.md.tmpl: font selection and
+  calibration, and the generated SKILL.md / sections/*.md descendants.
+
+This Web Product Studio adaptation substantially revises applicable design,
+font-selection and comparison methods in playbooks/design.md and
+references/visual-craft.md. It makes them conditional on the accepted brief,
+references, accessibility and project conventions. It does not ship the rule
+registry fixture, design engine, binary download/launcher or upstream code.
+The complete GStack-derived chain above is attribution, not a claim that every
+listed source component has been copied into this package.
+
+DESIGN.md specification — Copyright Google LLC — Apache License 2.0
+https://github.com/google-labs-code/design.md
+License: licenses/apache-2.0.txt
+
+GStack's NOTICE identifies lib/design-md.ts, bin/gstack-design-md.ts and the
+Phase 6 proposal template as implementations of that format and states that no
+specification text is reproduced. This package retains that provenance for its
+source-derived design-record context; it does not ship those tools or claim to
+implement the DESIGN.md format. No Google specification text is reproduced.
+
+PStack and Cursor Team Kit
+--------------------------
+https://github.com/cursor/plugins
+Revision: ccb5507cec1546dc88135c1139c811e6c59115ba
+
+pstack/LICENSE
+Copyright (c) 2026 Lauren Tan
+MIT License: licenses/pstack-mit.txt
+
+cursor-team-kit/LICENSE
+Copyright (c) 2026 Cursor
+MIT License: licenses/cursor-team-kit-mit.txt
+
+PStack's discovery, decision prototype, caller-first architecture, verification,
+revision-aware review and recovery methods inform the corresponding local
+playbooks. Its browser/CLI control methods also depend on Cursor Team Kit's
+control-ui and control-cli sources; this separate attribution is retained in the
+browser/evidence adaptation. Neither the donor helpers nor Cursor-specific
+agent, model, loop, Graphite, CLI or global-state machinery is a dependency.
+
+REA
+---
+https://github.com/morluto/rea
+Revision: 7aa4d768eb15317a63a476431ed75bafec086033
+Copyright (c) 2026 morluto
+MIT License: licenses/rea-mit.txt
+
+Adapted bounded browser observation, scenario/comparison identity, outcome
+obligations and evidence-limitation methods inform verification and the browser
+and acceptance references. The REA runtime, transport and active reconstruction
+engine are not bundled. Passive observation does not grant active-control or
+account authority.
+
+Ponytail
+--------
+https://github.com/DietrichGebert/ponytail
+Revision: 9cc65d03aa2da1db7121b912d03596409ee340b8
+Copyright (c) 2026 DietrichGebert
+MIT License: licenses/ponytail-mit.txt
+
+Adapted smallest-complete-change, reuse and evidence discipline informs authoring
+and review. No Ponytail hooks, global setup, model-specific benchmark settings or
+runtime plugin are required. Donor benchmark results are not this skill's results.
+
+Emil Kowalski
+-------------
+https://github.com/emilkowalski/skills
+Revision: e8a175de22ae1e49370fc144c1f3bb9aeedf988d
+Copyright (c) 2026 Emil Kowalski
+MIT License: licenses/emil-mit.txt
+
+Adapted visual craft, comparable prototypes, typography, purposeful motion,
+interruption, accessible interaction and mobile-browser checks appear in design,
+verification and their supporting references. Emil's apple-design material is
+his interpretation of named Apple talks, not an Apple-authored or endorsed skill.
+This package does not reproduce an external Apple style manual or ship Apple
+assets. Mentioned libraries, fonts and third-party assets have separate terms.
+
+Microsoft Playwright CLI
+------------------------
+https://github.com/microsoft/playwright-cli
+Original source path: skills/playwright-cli/SKILL.md
+Copyright (c) Microsoft Corporation.
+Apache License, Version 2.0: licenses/apache-2.0.txt
+
+The original private Web bundle credits material derived from this repository,
+adapted for the Codex skill collection with a wrapper and local guides. The new
+browser/evidence and host methods substantially rewrite that material into an
+optional host-selected adapter. The original wrapper, browser binaries and
+installation instructions are not bundled as prerequisites.
+
+The canonical Apache 2.0 text is copied unmodified from the pinned GStack
+licenses/Apache-2.0.txt. It covers both applicable GStack design derivatives and
+the Playwright-derived portions. The Microsoft copyright line present in the
+original Playwright license appendix is retained above. A second copy of the
+same license terms is not required; this notice keeps their scopes distinct.
+
+License texts
+-------------
+The eight files under licenses/ retain the exact captured upstream bytes.
+License notices are loaded when checking provenance or distribution, not as
+ordinary runtime method instructions. No license here grants trademark rights,
+permission to share private information, or authority for external actions.

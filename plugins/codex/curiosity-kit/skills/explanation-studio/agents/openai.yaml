@@ -1,0 +1,7 @@
+interface:
+  display_name: "Explanation Studio"
+  short_description: "Explain concepts with clear language, bridges and visuals."
+  default_prompt: "Use $explanation-studio to explain this source clearly in the requested format."
+
+policy:
+  allow_implicit_invocation: true

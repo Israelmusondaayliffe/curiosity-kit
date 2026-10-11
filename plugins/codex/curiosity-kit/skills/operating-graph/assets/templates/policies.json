@@ -1,0 +1,18 @@
+{
+  "automaticRiskLevels": [
+    "low"
+  ],
+  "approvalRiskLevels": [
+    "medium",
+    "high"
+  ],
+  "prohibitedMutations": [
+    "change-goal",
+    "weaken-completion-criteria",
+    "change-authority",
+    "expand-permissions",
+    "remove-approvals",
+    "delete-audit-history",
+    "rewrite-historical-versions"
+  ]
+}

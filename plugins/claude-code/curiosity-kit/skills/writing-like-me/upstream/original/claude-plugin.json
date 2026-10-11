@@ -1,0 +1,21 @@
+{
+  "name": "compound-writing",
+  "version": "2.3.0",
+  "description": "A context-first writing toolbox with one durable writing home for voice, style, examples, drafts, revision, stress-testing, and publication preparation.",
+  "author": {
+    "name": "Katie Parrott",
+    "email": "katie@every.to"
+  },
+  "keywords": [
+    "writing",
+    "editing",
+    "compound-writing",
+    "agent-native",
+    "ai-native-writing",
+    "style-guide",
+    "voice",
+    "workflow"
+  ],
+  "repository": "https://github.com/EveryInc/compound-writing",
+  "license": "MIT"
+}

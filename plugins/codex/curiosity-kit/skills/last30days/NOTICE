@@ -1,0 +1,7 @@
+Last30Days: independent adaptation for Curiosity Kit.
+
+The methods and local helper are newly authored from the original Last30Days family, including standalone and Founder-embedded editions. Original substantial documentation lineage: Matt Van Horn, Last30Days, MIT; the available notice is retained in licenses/last30days-MIT.txt.
+
+No donor provider engine, Bird implementation, authentication helper, startup hook or binary demonstration asset is bundled. Public research samples and synthetic fixtures are not runtime factual authorities.
+
+GStack, PStack/Potato, Matt Pocock skills, Ponytail, REA, Emil design guidance and public deep-research projects informed selected methods. No benchmark is a runtime dependency or endorsement. Source research is not execution evidence. Original contributions are licensed under the package-root MIT LICENSE; third-party material retains its stated terms.

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Guide Production Studio"
+  short_description: "Write complete, source-grounded practical and workshop guides."
+  default_prompt: "Create or revise a complete practical guide with usable examples, clear adult explanations and honest evidence checks."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Matt Method Library"
+  short_description: "Use 39 complete, explicitly selected Matt methods."
+  default_prompt: "Use $matt-pocock-knowledge-work for this named Matt method."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Synthetic workshop attendance note",
+      "location": "Supplied text in this example's evidence contract",
+      "type": "primary",
+      "access": "supplied",
+      "read_extent": "Read the entire two-sentence synthetic note reproduced in the evidence contract.",
+      "publication_date": "unknown",
+      "accessed_date": "2026-10-08",
+      "origin_ids": [],
+      "passages": ["Sentence 1: Eight people attended the workshop.", "Sentence 2: Ten people registered."]
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Eight people attended the workshop.",
+      "status": "supported",
+      "source_ids": ["S1"],
+      "depends_on": [],
+      "rationale": "The supplied synthetic note states this count directly. It does not identify individuals or explain absences.",
+      "counterevidence": [],
+      "artifact_locations": ["First sentence"]
+    }
+  ],
+  "review": {
+    "reviewed_sha256": "unknown",
+    "requirements_verdict": "unreviewed",
+    "evidence_verdict": "unreviewed",
+    "findings": []
+  }
+}

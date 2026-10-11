@@ -1,0 +1,36 @@
+import {existsSync,readFileSync,realpathSync} from 'node:fs';
+import {resolve,relative,dirname,sep} from 'node:path';
+export const finite=(x,name)=>{if(typeof x!=='number'||!Number.isFinite(x))throw Error(name+' must be finite');return x};
+export function localPath(root,p){if(typeof p!=='string'||!p||p.includes('\\')||p.includes('\0')||/^[a-z]+:/i.test(p))throw Error('Invalid local path');const abs=resolve(root,p);const rel=relative(resolve(root),abs);if(rel==='..'||rel.startsWith('..'+sep)||rel==='')throw Error('Path escapes project');if(existsSync(abs)){const real=relative(realpathSync(root),realpathSync(abs));if(real==='..'||real.startsWith('..'+sep))throw Error('Symlink escapes project')}return abs;}
+function strip(s){let quoted=false,escape=false;for(let i=0;i<s.length;i++){if(escape){escape=false;continue}if(s[i]==='\\'&&quoted){escape=true;continue}if(s[i]==='"')quoted=!quoted;if(s[i]==='#'&&!quoted&&(i===0||/\s/.test(s[i-1])))return s.slice(0,i).trim()}return s.trim()}
+export function json(s,name){try{return JSON.parse(strip(s))}catch{throw Error(name+' must use valid JSON, including quoted keys')}}
+export function parseMusicPlan(raw){const lines=raw.split(/\r?\n/);const globals={},frames=[];let front=false,frame=null,group=null;
+ for(let i=0;i<lines.length;i++){const line=lines[i];if(line.trim()==='---'&&!frame){front=!front;continue}if(front){const m=/^([A-Za-z][\w-]*):\s*(.*)$/.exec(line);if(m)globals[m[1].toLowerCase()]=strip(m[2]);continue}
+ const h=/^## Frame (\d+)\s*[—:-]\s*(.+)$/.exec(line);if(h){frame={number:Number(h[1]),id:h[2].trim(),groups:[]};frames.push(frame);group=null;continue}
+ const g=/^\s*[-*]\s*\*\*([\w-]+)\*\*\s*[—:-]\s*(template|free_design|asset)\b(.*)$/.exec(line);if(g){if(!frame)throw Error('Group before frame');group={id:g[1],kind:g[2]};if(g[2]==='template'){const id=/`([^`]+)`|:\s*([\w-]+)/.exec(g[3]);group.template=id?.[1]||id?.[2]}frame.groups.push(group);continue}
+ const m=/^(\s*)[-*]\s+([\w-]+):\s*(.*)$/.exec(line);if(m&&frame){const target=m[1].length>0&&group?group:frame;target[m[2]]=strip(m[3])}
+ }
+ if(front)throw Error('Unclosed frontmatter');const duration=Number(globals.duration_s);finite(duration,'duration_s');if(duration<=0)throw Error('duration_s must be positive');const canvas=json(globals.canvas||'', 'canvas');for(const k of ['w','h'])if(!Number.isSafeInteger(canvas[k])||canvas[k]<1||canvas[k]>16384)throw Error('Invalid canvas '+k);finite(canvas.fps,'fps');if(canvas.fps<=0||canvas.fps>240)throw Error('Invalid fps');
+ for(const f of frames){f.span=json(f.span_sec||'','frame span_sec');f.duration=Number(String(f.duration||'').replace(/s$/,''));for(const g of f.groups){g.span=json(g.span_sec||'','group span_sec');for(const k of ['params','role_bindings','anchors','free_design','asset'])if(g[k]!=null)g[k]=json(g[k],k)}}
+ return {globals,canvas,duration,frames};
+}
+export function validateMusicPlan(plan,audio,{templates,primitives,project}={}){const {duration,frames}=plan;if(!audio||!audio.audio)throw Error('Canonical audiomap required');finite(audio.audio.duration_sec,'audio duration');if(Math.abs(duration-audio.audio.duration_sec)>.001)throw Error('Audio duration mismatch');if(!frames.length)throw Error('No frames');const anchors=new Set([0,duration]);
+ const add=x=>{if(typeof x==='number'&&Number.isFinite(x)&&x>=0&&x<=duration)anchors.add(x)};
+ for(const x of audio.grid?.beats_sec||[])add(x);for(const x of audio.grid?.downbeats_sec||[])add(x);
+ for(const key of ['events','key_moments','hard_stops','rolls','phrases','energy_phases','silences'])for(const x of audio[key]||[]){if(typeof x==='number')add(x);else{add(x.t);add(x.start);add(x.end)}}
+ for(const x of audio.manual_anchors||[]){if(!x.source||!x.reason)throw Error('Manual anchors require source and reason');add(x.t)}
+ const onAnchor=(t,name)=>{if(![...anchors].some(a=>Math.abs(a-t)<=.001))throw Error(name+' is not an audiomap anchor: '+t)};
+ const span=(x,start,end,name)=>{if(!Array.isArray(x)||x.length!==2)throw Error(name+' must be [start,end]');x.forEach(v=>finite(v,name));if(x[1]<=x[0]||Math.abs(x[0]-start)>.001||x[1]>end+.001)throw Error(name+' has gap, overlap or invalid boundary');onAnchor(x[0],name);onAnchor(x[1],name)};
+ const ids=new Set();let cursor=0;
+ for(const f of frames){if(ids.has(f.id))throw Error('Duplicate frame id');ids.add(f.id);span(f.span,cursor,duration,'Frame '+f.id);finite(f.duration,'frame duration');if(Math.abs(f.duration-(f.span[1]-f.span[0]))>.001)throw Error('Frame duration/span mismatch');cursor=f.span[1];if(!['beat_cut','phrase_flow'].includes(f.pacing))throw Error('Missing/invalid pacing');if(!f.src||!f.src.endsWith('.html'))throw Error('Frame src required');if(project)localPath(project,f.src);if(!f.groups.length)throw Error('Unfilled frame groups');let groupCursor=f.span[0];const gids=new Set();
+ for(const g of f.groups){if(gids.has(g.id))throw Error('Duplicate group id');gids.add(g.id);span(g.span,groupCursor,f.span[1],'Group '+g.id);groupCursor=g.span[1];if(g.kind==='template'&&(!g.template||!templates||!existsSync(resolve(templates,g.template,'index.html'))||!/^[-\w]+$/.test(g.template)))throw Error('Unknown template: '+g.template);
+ if(g.kind==='free_design'){if(!g.free_design?.dominant_system||!Array.isArray(g.free_design.primitives)||!g.free_design.primitives.length)throw Error('Incomplete free_design');for(const p of g.free_design.primitives)if(primitives&&!primitives.includes(p))throw Error('Unknown primitive: '+p)}
+ if(g.kind==='asset'){if(!g.asset||!['beat_cut','ken_burns','bg_under_text'].includes(g.asset.treatment)||!g.asset.clips?.length)throw Error('Incomplete asset group');if(f.pacing==='phrase_flow'&&g.asset.treatment==='beat_cut')throw Error('Beat cut contradicts phrase_flow');if(project)for(const p of g.asset.clips)if(!existsSync(localPath(project,p)))throw Error('Missing asset: '+p)}
+ function checkTimes(obj,key=''){if(Array.isArray(obj)){let prev=-Infinity;for(const value of obj){if(typeof value==='number'){finite(value,'anchor');if(value<g.span[0]-.001||value>g.span[1]+.001||value<prev)throw Error('Anchors must be sorted inside group');onAnchor(value,'Group anchor');prev=value}else checkTimes(value,key)}}else if(obj&&typeof obj==='object'){for(const[k,v]of Object.entries(obj)){if(typeof v==='number'&&['in','out','start','end','at','iconAt','on','off','to','fade','box','swap','t'].includes(k)){if(v<g.span[0]-.001||v>g.span[1]+.001)throw Error('Role anchor outside group');onAnchor(v,'Role anchor')}else if(['times','beats','enter','exit','fill','overlay','recolor','anchors'].includes(k)||typeof v==='object')checkTimes(v,k)}}}
+ checkTimes(g.anchors);checkTimes(g.role_bindings);checkTimes(g.asset?.anchors);
+ }
+ if(Math.abs(groupCursor-f.span[1])>.001)throw Error('Groups do not tile frame');
+ }
+ if(Math.abs(cursor-duration)>.001)throw Error('Frames do not tile track');return {frames:frames.length,groups:frames.reduce((n,f)=>n+f.groups.length,0),duration};
+}
+export function loadPlan(storyboard,audiomap,options){const plan=parseMusicPlan(readFileSync(storyboard,'utf8'));if(!existsSync(audiomap))throw Error('Missing audiomap');const audio=JSON.parse(readFileSync(audiomap,'utf8'));validateMusicPlan(plan,audio,options);return {plan,audio};}

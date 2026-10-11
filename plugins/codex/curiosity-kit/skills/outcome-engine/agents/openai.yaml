@@ -1,0 +1,7 @@
+interface:
+  display_name: "Outcome Engine"
+  short_description: "Plan and deliver bounded outcomes with inspectable evidence."
+  default_prompt: "Use $outcome-engine to turn this accepted direction into a complete, verified result."
+
+policy:
+  allow_implicit_invocation: true

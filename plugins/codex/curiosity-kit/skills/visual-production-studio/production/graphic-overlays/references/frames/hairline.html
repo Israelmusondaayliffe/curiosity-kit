@@ -1,0 +1,134 @@
+<!--
+  Frame: hairline. Double inset stroke with accent halo and four explicit corner ticks.
+  Use a configurable --frame-accent, with a supported rgba halo fallback for color-mix.
+  The video viewport and pointer-events:none decorative layer are siblings INSIDE
+  one common outer #video-wrap. Decorations use inset:0; only the outer wrapper
+  receives stage-coordinate geometry tweens. This keeps all four corners aligned.
+  See references/frames.css and references/composition.md for production construction.
+  Best with clinical split/stack; clean frame normally serves PiP/overlay better.
+  Fade decoration before a clean layout transition, using the same master timeline.
+-->
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>frame · hairline (double stroke + viewfinder ticks)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0a0c12;
+        color: #fff;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .stage {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        transform-origin: top left;
+        transform: scale(0.5);
+        background: #0a0c12;
+        overflow: hidden;
+      }
+      .video-wrap {
+        position: absolute;
+        left: 240px;
+        top: 140px;
+        width: 1440px;
+        height: 810px;
+        background: #1a1f2e;
+        background-image: repeating-linear-gradient(
+          45deg,
+          transparent 0 12px,
+          rgba(255, 255, 255, 0.05) 12px 13px
+        );
+      }
+      .v-label {
+        position: absolute;
+        left: 24px;
+        top: 24px;
+        padding: 8px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 3px;
+        color: rgba(255, 255, 255, 0.7);
+        font:
+          600 16px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.14em;
+      }
+      .frame-deco {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 3;
+        --frame-accent: #2557a7;
+        box-shadow:
+          inset 0 0 0 2px var(--frame-accent),
+          inset 0 0 0 6px rgba(37, 87, 167, 0.13),
+          0 0 0 1px rgba(0, 0, 0, 0.1);
+      }
+      .tick {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+      }
+      .tick.tl {
+        top: -3px;
+        left: -3px;
+        border-top: 4px solid var(--frame-accent, #2557a7);
+        border-left: 4px solid var(--frame-accent, #2557a7);
+      }
+      .tick.tr {
+        top: -3px;
+        right: -3px;
+        border-top: 4px solid var(--frame-accent, #2557a7);
+        border-right: 4px solid var(--frame-accent, #2557a7);
+      }
+      .tick.bl {
+        bottom: -3px;
+        left: -3px;
+        border-bottom: 4px solid var(--frame-accent, #2557a7);
+        border-left: 4px solid var(--frame-accent, #2557a7);
+      }
+      .tick.br {
+        bottom: -3px;
+        right: -3px;
+        border-bottom: 4px solid var(--frame-accent, #2557a7);
+        border-right: 4px solid var(--frame-accent, #2557a7);
+      }
+      .note {
+        position: absolute;
+        left: 240px;
+        bottom: 60px;
+        right: 240px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        font:
+          14px/1.4 ui-monospace,
+          monospace;
+        letter-spacing: 0.12em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="video-wrap">
+        <span class="v-label">VIDEO</span>
+      <div class="frame-deco">
+        <span class="tick tl"></span>
+        <span class="tick tr"></span>
+        <span class="tick bl"></span>
+        <span class="tick br"></span>
+      </div>
+      </div>
+      <div class="note">
+        HAIRLINE — double stroke (2px inner + soft 6px halo) + four-corner viewfinder ticks. Accent
+        color matches the card style.
+      </div>
+    </div>
+  </body>
+</html>

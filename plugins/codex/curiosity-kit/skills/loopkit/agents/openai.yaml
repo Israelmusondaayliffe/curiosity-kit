@@ -1,0 +1,7 @@
+interface:
+  display_name: "LoopKit"
+  short_description: "Run bounded work, verify results and recover interrupted loops."
+  default_prompt: "Use $loopkit to run this task with clear checks and stop conditions."
+
+policy:
+  allow_implicit_invocation: true

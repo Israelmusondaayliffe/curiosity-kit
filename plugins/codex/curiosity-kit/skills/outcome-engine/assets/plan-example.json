@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "brief": {
+    "source": "synthetic brief: private onboarding guide",
+    "revision": "draft-1",
+    "status": "accepted",
+    "approval_source": "Synthetic scenario: sponsor accepted private draft scope; no external send authorized."
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "A first-time reader can identify the single next step."
+    },
+    {
+      "id": "R2",
+      "text": "The review note and guide use the same next step."
+    }
+  ],
+  "slices": [
+    {
+      "id": "S1",
+      "title": "Draft the private guide",
+      "outcome": "Draft the private guide for sponsor review",
+      "proof": "Inspect the private draft against the source and the check below.",
+      "checks": [
+        {
+          "id": "C1",
+          "requirement_ids": [
+            "R1"
+          ],
+          "description": "Verify the named requirement against the current private output."
+        }
+      ],
+      "dependencies": [],
+      "blockers": [],
+      "owner": "Scenario author",
+      "action_scope": "private draft",
+      "boundaries": [
+        "Synthetic data only",
+        "No publication, account changes or external sharing"
+      ],
+      "state": "planned",
+      "output_version": 1,
+      "evidence": [],
+      "asset_ids": [],
+      "approval_ids": [],
+      "authority": null
+    },
+    {
+      "id": "S2",
+      "title": "Review consistency and prepare private handoff",
+      "outcome": "Review consistency and prepare private handoff for sponsor review",
+      "proof": "Inspect the private draft against the source and the check below.",
+      "checks": [
+        {
+          "id": "C1",
+          "requirement_ids": [
+            "R2"
+          ],
+          "description": "Verify the named requirement against the current private output."
+        }
+      ],
+      "dependencies": [
+        {
+          "slice": "S1",
+          "output_version": 1
+        }
+      ],
+      "blockers": [],
+      "owner": "Scenario author",
+      "action_scope": "private draft",
+      "boundaries": [
+        "Synthetic data only",
+        "No publication, account changes or external sharing"
+      ],
+      "state": "planned",
+      "output_version": 1,
+      "evidence": [],
+      "asset_ids": [],
+      "approval_ids": [],
+      "authority": null
+    }
+  ]
+}

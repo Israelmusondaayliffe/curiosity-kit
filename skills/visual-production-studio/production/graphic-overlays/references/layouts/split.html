@@ -1,0 +1,93 @@
+<!--
+  Layout: split. Equal card/video halves; card left and video right in landscape,
+  card top and video bottom in portrait. zone="side-panel" is the planning label,
+  but this recipe explicitly overrides the independent generic side-panel bounds.
+  Set BOTH card-host and outer #video-wrap rectangles (x,y,width,height):
+    1920x1080: card (0,0,960,1080); video (960,0,960,1080).
+    1080x1920: card (0,0,1080,960); video (0,960,1080,960).
+    1080x1350: card (0,0,1080,675); video (0,675,1080,675).
+  geometry.mjs is authoritative for other sizes. Swap paired rectangles to flip sides.
+  An optional separator must subtract from the appropriate paired bounds; it is
+  not an unaccounted overlay. Opaque card backgrounds are appropriate here.
+  Tween only the outer #video-wrap on the master GSAP timeline; use contain on video.
+  The storyboard is an authoring convention, with no card.layout field.
+-->
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>layout · split (50/50)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0a0c12;
+        color: #fff;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .stage {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        transform-origin: top left;
+        transform: scale(0.5);
+        background: #0a0c12;
+        overflow: hidden;
+      }
+      .region {
+        position: absolute;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font:
+          600 24px/1.3 ui-monospace,
+          monospace;
+        letter-spacing: 0.12em;
+      }
+      .card-region {
+        left: 0;
+        top: 0;
+        width: 960px;
+        height: 1080px;
+        background: #f1ead8;
+        color: #1a1d2b;
+      }
+      .video-region {
+        left: 960px;
+        top: 0;
+        width: 960px;
+        height: 1080px;
+        background: #1a1f2e;
+        background-image: repeating-linear-gradient(
+          45deg,
+          transparent 0 12px,
+          rgba(255, 255, 255, 0.05) 12px 13px
+        );
+      }
+      .label {
+        padding: 12px 18px;
+        border: 1.5px solid currentColor;
+        border-radius: 4px;
+      }
+      .meta {
+        position: absolute;
+        left: 18px;
+        top: -36px;
+        font:
+          12px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.18em;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="meta">SPLIT · 1920×1080 · card 960 | video 960</div>
+      <div class="region card-region"><span class="label">CARD · 960×1080</span></div>
+      <div class="region video-region"><span class="label">VIDEO · 960×1080</span></div>
+    </div>
+  </body>
+</html>

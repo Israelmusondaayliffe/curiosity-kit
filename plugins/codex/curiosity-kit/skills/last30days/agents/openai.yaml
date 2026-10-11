@@ -1,0 +1,7 @@
+interface:
+  display_name: "Last30Days"
+  short_description: "Research recent evidence and maintain a source-linked library."
+  default_prompt: "Use $last30days to research this topic with dated evidence and clear coverage."
+
+policy:
+  allow_implicit_invocation: true

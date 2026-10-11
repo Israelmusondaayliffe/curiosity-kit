@@ -1,0 +1,93 @@
+{
+  "packetType": "NodeTaskPacket",
+  "protocolVersion": 2,
+  "runId": "run-simulated-packet-example-60e039a0981345648bb5dcb2ce44a01c",
+  "graphId": "simulated-packet-example",
+  "graphVersion": 1,
+  "epoch": 1,
+  "nodeId": "builder",
+  "invocationId": "inv-builder-0001",
+  "attempt": 1,
+  "contractSha256": "f524b26187bdb1de580cdce6f6e109de1e72c0f95a36321c4b1a7e1dd15349ce",
+  "task": {
+    "budget": {
+      "maxAttempts": 2,
+      "workUnits": 2
+    },
+    "capabilities": [
+      "artifact-read",
+      "artifact-write"
+    ],
+    "critical": true,
+    "enabled": true,
+    "execution": {
+      "mode": "subagent",
+      "modelHint": null,
+      "skill": null
+    },
+    "id": "builder",
+    "inputs": [],
+    "kind": "worker",
+    "label": "Builder",
+    "localLoop": {
+      "enabled": true,
+      "maxIterations": 2,
+      "sequence": [
+        "attempt",
+        "inspect",
+        "evaluate",
+        "correct"
+      ],
+      "stopCondition": "All builder success criteria are satisfied."
+    },
+    "outputs": [
+      {
+        "artifactType": "deliverable",
+        "required": true
+      }
+    ],
+    "priority": 70,
+    "purpose": "Create a simulated demonstration deliverable. This illustrative packet and its matching records do not establish a real worker launch, human approval, or native host qualification.",
+    "successCriteria": [
+      "The deliverable is complete."
+    ]
+  },
+  "requiredInputs": [],
+  "successCriteria": [
+    "The deliverable is complete."
+  ],
+  "expectedOutputs": [
+    {
+      "artifactType": "deliverable",
+      "required": true
+    }
+  ],
+  "launchSpec": {
+    "tool": "host.fresh_worker",
+    "forkTurns": "none",
+    "model": null,
+    "taskName": "og_e32b9d07f65f3ff33efca5fa",
+    "normalizedIntent": true,
+    "identityKind": "host-worker"
+  },
+  "allowedWriteRoots": [
+    "node-runs/builder/inv-builder-0001/worker",
+    "artifacts/builder/inv-builder-0001"
+  ],
+  "canonicalReturnPath": "node-runs/builder/inv-builder-0001/worker/return-packet.json",
+  "approvalScopes": {},
+  "deadline": "2026-10-09T22:05:15Z",
+  "authorization": {
+    "maySpawnWorkers": false,
+    "mayApprove": false,
+    "mayIntegrate": false,
+    "mayUpdateControllerState": false,
+    "mayAnswerUser": false,
+    "mayIssueTerminalVerdict": false
+  },
+  "limits": {
+    "workUnits": 2,
+    "maxLocalIterations": 2,
+    "enforcement": "host work and local iterations are declared; controller enforces invocation limits"
+  }
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Continuity Vault"
+  short_description: "Preserve source-backed handoffs, knowledge and continuity."
+  default_prompt: "Use $continuity-vault to prepare this source-backed continuity artifact."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "confirmed_by": "",
+  "platform": {"primary": "claude-code", "others": []},
+  "user": {"role": "[fill: who operates the harness]", "reviewers": []},
+  "scope": {"global": "[fill: personal defaults]", "workspace": "[fill: workspace path and rules]", "projects": [], "exclusions": []},
+  "work": {"recurring_tasks": [], "deliverables": [], "sources": []},
+  "capabilities": {"skills": [], "plugins": [], "connectors": [], "automation": []},
+  "authority": {"read": [], "write": [], "install": false, "authenticate": false, "publish": false, "spend": false, "delete": false},
+  "verification": {"deterministic_checks": [], "judgement_criteria": [], "evidence_surfaces": []},
+  "maintenance": {"owner": "[fill: who maintains it]", "cadence": "[fill: when it is reviewed]"},
+  "decisions": [
+    {"id": "D1", "type": "decision", "text": "[fill: one recorded answer]", "source": "interview"}
+  ],
+  "deferred": [
+    {"item": "[fill: open question]", "owner": "[fill: who decides]", "revisit_trigger": ""}
+  ]
+}

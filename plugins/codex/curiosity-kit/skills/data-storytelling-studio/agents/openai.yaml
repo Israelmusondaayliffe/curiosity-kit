@@ -1,0 +1,7 @@
+interface:
+  display_name: "Data Storytelling Studio"
+  short_description: "Turn checked data into clear stories, charts and decisions."
+  default_prompt: "Use $data-storytelling-studio to create and verify this evidence-backed data story."
+
+policy:
+  allow_implicit_invocation: true
