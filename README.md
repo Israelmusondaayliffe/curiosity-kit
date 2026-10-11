@@ -23,7 +23,7 @@ Upload requires permission or access as an eligible workspace owner or administr
 
 Use the ZIP linked above. GitHub's whole-repository **Download ZIP** and attaching a ZIP to an ordinary chat are not plugin installation.
 
-This package has been checked for structure, resources and archive integrity. This exact public Curiosity Kit archive has **not yet been natively installed in ChatGPT**. A successful installation of the source edition, Curio, does not establish installation proof for this Kit. All 26 skills and existing hooks are included; native hooks are unsupported in ChatGPT Cloud and will not provide local hook behavior there. Other workflows still depend on the tools and permissions available in your host. Read [Data handling](#data-handling) and [Cloud and hooks](#cloud-and-hooks) before use.
+This package has been checked for structure, resources and archive integrity. This exact public Curiosity Kit archive has **not yet been natively installed in ChatGPT**. All 26 skills and existing hooks are included; native hooks are unsupported in ChatGPT Cloud and will not provide local hook behavior there. Other workflows still depend on the tools and permissions available in your host. Read [Data handling](#data-handling) and [Cloud and hooks](#cloud-and-hooks) before use.
 
 ### Codex and Claude Code
 
