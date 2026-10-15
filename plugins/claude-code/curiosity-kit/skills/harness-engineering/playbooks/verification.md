@@ -28,6 +28,18 @@ A helper validates what it measures. Parsing a receipt cannot establish that its
 8. For context changes, compare affected sections and actual loaded context, routes, visible entries and selected methods. Rerun affected frozen behavior cases after installation or task-start context changes. Entry count is not token savings.
 9. Inspect current qualitative output separately. When independent review is required, use a fresh reviewer on the integrated candidate; otherwise identify the actual review method honestly.
 
+## Operational acceptance
+
+Registration is not execution. Before calling hooks or routines operational on a host, run this bounded sequence once per host and candidate. Reuse the current receipt template rather than adding a framework.
+
+1. Discover the current install, version and enabled state from the host's own listing.
+2. Review hook trust or enablement through the host's supported surface. Where no supported reader exists, record the state as unknown rather than parsing private app storage. `hectl audit --readiness` reports these checks as pass, fail or unknown; add `--native-hooks` on Codex to query `codex app-server`, `--registry` for a runtime registry and `--routine-state` for a routine's receipt proof.
+3. On an isolated, disposable fixture with its own state root and a bound run, trigger native startup and pre-compaction events through the real host. Accept evidence only from the host's own event records, such as hook responses or transcript lines naming the hook. A direct script invocation proves the script, not native delivery. Remove the fixture binding afterwards.
+4. Run each routine twice by hand, then observe one native scheduled or run-now occurrence, and reopen the artifact it actually produced.
+5. Record the host version, permission mode as observed (not assumed after an edit), scope, timezone, failure and stop behavior, output identity and recovery. Treat a run marked successful without its required artifact as a failure. Preserve any classifier or permission denial verbatim.
+
+An unattended routine that keeps state must fail closed on invalid state, write it atomically, bound each subprocess, and read the exact receipt path the tool reports. Keep each host's evidence separate; one host's pass is not another host's qualification.
+
 ## Verdict and recovery
 
 Return one compact receipt (for a bounded run, in the shape of `assets/templates/verifier-receipt.json`, which `hectl run stop --as completed` checks): candidate identity, host/version, target-state change, unresolved count, each required check's action, expected and observed result, evidence and status; separate functional and qualitative results; and recovery state.

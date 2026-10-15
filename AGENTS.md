@@ -6,4 +6,4 @@ Use the smallest adequate change. Do not add personal defaults, private paths, c
 
 Run the existing builder for package/resource closure. Update the committed host payloads from the same source. Run affected checks when behavior changes; report unrun host or provider paths honestly. Preserve third-party licenses and asset-specific rights.
 
-This repository remains private until its owner approves publication. See READINESS.md for the candidate’s scope and limits.
+This repository is public; its owner approved publication of the cleaned export. Each further publication step, such as a release, a tag or a directory submission, still needs the owner’s explicit approval. See READINESS.md for the release’s scope and limits.

@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from hecore import audit as audit_mod  # noqa: E402
 from hecore import cleanup as cleanup_mod  # noqa: E402
+from hecore import readiness as readiness_mod  # noqa: E402
 from hecore import packaging, plans, runstate, scan, unslop  # noqa: E402
 from hecore.common import HectlError, load_json, write_json  # noqa: E402
 
@@ -78,11 +79,26 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--home", help="config home; defaults per platform")
     p.add_argument("--workspace", help="workspace, project or connected folder")
     p.add_argument("--output")
+    p.add_argument("--readiness", action="store_true", help="opt-in runtime checks: native hook trust and duplicates "
+                   "(Codex app-server), registry structure and task parity, and routine receipt proof")
+    p.add_argument("--native-hooks", action="store_true", help="with --readiness on Codex: query `codex app-server` hooks/list")
+    p.add_argument("--registry", help="with --readiness: runtime registry file to check")
+    p.add_argument("--routine-state", help="with --readiness: routine state file whose last receipt must prove a complete dry run")
+    p.add_argument("--readiness-timeout", type=float, default=30, help="with --readiness: seconds allowed for native listing")
+    p.add_argument("--codex-bin", default="codex", help=argparse.SUPPRESS)
 
     def run_audit(a):
         platform = audit_mod.detect_platform() if a.platform == "auto" else a.platform
         home = Path(a.home) if a.home else audit_mod.default_home(platform)
-        emit(audit_mod.audit(platform, home, Path(a.workspace) if a.workspace else None), a.output)
+        workspace = Path(a.workspace) if a.workspace else None
+        report = audit_mod.audit(platform, home, workspace)
+        if a.readiness:
+            report["readiness"] = readiness_mod.readiness(
+                report["platform"], Path(report["home"]), Path(report["workspace"]) if report["workspace"] else None,
+                Path(a.registry).expanduser() if a.registry else None,
+                Path(a.routine_state).expanduser() if a.routine_state else None,
+                a.native_hooks, a.codex_bin, a.readiness_timeout)
+        emit(report, a.output)
         return 0
     p.set_defaults(func=run_audit)
 
@@ -171,8 +187,33 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reference-file", action="append", default=[], help="extra continuity file whose paths stay protected")
     p.add_argument("--installed-json", help="Codex installed-plugin JSON instead of calling `codex plugin list --json`")
     p.add_argument("--approved-receipt", help="with --apply: the dry-run receipt whose exact candidates the user approved; nothing else is deleted")
+    p.add_argument("--routine-state", help="opt-in unattended mode: dry run only, with a fail-closed consecutive-failure "
+                   "counter in this JSON file (exit 0 complete, 1 failed, 2 refused, 3 stopped at the limit, "
+                   "4 invalid state, 5 another routine call holds the state)")
+    p.add_argument("--routine-max-failures", type=int, default=3, help="with --routine-state: stop after this many consecutive failures")
+    p.add_argument("--routine-timeout", type=float, default=900, help="with --routine-state: seconds before the dry run counts as failed")
 
     def run_cleanup(a):
+        if a.routine_state:
+            if a.apply or a.approved_receipt:
+                raise HectlError("--routine-state is dry-run only; it never combines with --apply", exit_code=2)
+            child = [sys.executable, "-I", str(Path(__file__).resolve()), "cleanup", "--host", a.host,
+                     "--max-candidates", str(a.max_candidates), "--max-bytes", str(a.max_bytes)]
+            for flag, value in (("--home", a.home), ("--receipt-dir", a.receipt_dir), ("--installed-json", a.installed_json)):
+                if value:
+                    child += [flag, value]
+            for item in a.retain:
+                child += ["--retain", item]
+            for ref in a.reference_file:
+                child += ["--reference-file", ref]
+            try:
+                owned_lock = cleanup_mod.resolve_home(a.host, a.home) / cleanup_mod.LOCK
+            except HectlError:
+                owned_lock = None  # the child reports the bad home itself, and the run is counted as failed
+            code, result = cleanup_mod.run_routine(Path(a.routine_state).expanduser(), child,
+                                                   a.routine_max_failures, a.routine_timeout, owned_lock)
+            emit(result)
+            return code
         overrides = {}
         for item in a.retain:
             key, _, value = item.partition("=")

@@ -10,6 +10,8 @@ Classify differences as intentional user changes, platform/model changes, broken
 
 Weekly output reviews, monthly instruction reviews and post-release/model reviews are possible scopes when requested. Do not create schedules as a maintenance side effect.
 
+Unattended or recurring runs prepare and validate; they do not apply new edits on their own authority. A recurring maintenance request authorizes the review it names, not new edits or deletion. In an unattended run, write the plan, validate it with `hectl plan`, and report it ready for approval. Run `hectl apply --mode apply` only with the exact approved group (`--approved`), its receipt (`--receipt`) and host permission for that write when no one is present. A prior explicit approval that covers the same plan, groups and scope stays valid; reuse it instead of asking again. Cleanup follows the same rule: an unattended run uses the dry run only, and deletion needs approval of that receipt's exact candidates.
+
 ## Narrow repair
 
 Choose the smallest reversible change that fixes the observed failure. Reuse existing tooling. Turn repeated mechanically detectable failures into regression checks rather than accumulating instructions. Keep judgment criteria explicit.
@@ -34,6 +36,14 @@ Use this procedure for authorized human-facing instruction/prose changes, not au
 Freeze model, effort, tools, routes, scorer, prompts and baseline outputs ([subtraction protocol](../references/subtraction-protocol.md)); `hectl context-scan` supplies the deterministic over-constraint findings. Repeat model-change comparisons under fixed conditions. Subtract one coherent instruction group at a time; restore any critical, category or overall regression. Recheck loaded behavior after context mutations. A failing baseline needs diagnosis and repair before a reduction claim.
 
 Generic cleanup requests, including "clean it up safely", authorize inventory and dry-run only. Use `hectl cleanup --host claude-code|codex` without `--apply`. Present the exact candidate paths, the deletion scope and the preservation exclusions from its receipt. Run `--apply --approved-receipt <that dry-run receipt>` only after the user approves those candidates; reuse a prior explicit approval when it covers that exact set and scope. The tool revalidates before deletion; new candidates stay excluded without new approval, and changed safety conditions stop execution. Preserve retention floors, ceilings, locking, symlink/open-file/process checks and protection of active, installed, memory-referenced and backup data. Never interchange host roots or deletion contracts. A permission, ownership or preservation stop requires reporting the blocker, not weakening guards or removing preservation references; do not recommend those bypasses. Report no candidates only after the required checks succeed; unavailable checks or incomplete receipts mean blocked or unknown, never empty success.
+
+For an unattended cleanup routine, use the opt-in `hectl cleanup --host … --routine-state FILE` (with `--routine-max-failures`, default 3, and `--routine-timeout`, default 900 seconds). It refuses `--apply`.
+- **State.** It keeps a consecutive-failure counter in FILE. Invalid or unreadable state fails closed (exit 4) without running or rewriting anything, and the counter is replaced atomically.
+- **Run.** The dry run runs as its own process group. A timeout stops that group and releases only the cleanup lock that child owned.
+- **Receipt.** It counts a run as complete only when the dry run reports a receipt that proves complete status and an empty deletion list.
+- **Stop and overlap.** At the failure limit it stops (exit 3) until someone reviews the receipts and resets the counter. An overlapping invocation is refused (exit 5) without touching the counter.
+
+Refusals exit 2 and failed runs exit 1. Routine mode needs POSIX file locking.
 
 ## Close
 

@@ -7,8 +7,10 @@ an atomic receipt. Exit codes: 0 ok, 2 safety stop, 3 locked, 4 bad home, 5 rece
 from __future__ import annotations
 
 import json
+import math
 import os
 import shutil
+import signal
 import subprocess
 import time
 from pathlib import Path
@@ -485,3 +487,154 @@ def run_cleanup(host: str, home_override: Optional[str], apply: bool, retention_
         receipt["stop_reason"] = f"receipt write failed: {exc}"
         return EXIT_RECEIPT, receipt
     return code, receipt
+
+
+ROUTINE_COMPLETE, ROUTINE_FAILED, ROUTINE_STOPPED, ROUTINE_STATE_INVALID, ROUTINE_BUSY = 0, 1, 3, 4, 5
+
+
+def _routine_state(path: Path) -> tuple[Optional[dict[str, Any]], Optional[str]]:
+    """Read routine state. Absent is a fresh start; anything unreadable or malformed fails closed."""
+    if not os.path.lexists(path):
+        return {"consecutive_failures": 0}, None
+    try:
+        state = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        return None, f"unreadable or invalid JSON: {type(exc).__name__}"
+    if not isinstance(state, dict):
+        return None, "state is not a JSON object"
+    fails = state.get("consecutive_failures")
+    if isinstance(fails, bool) or not isinstance(fails, int) or fails < 0:
+        return None, f"consecutive_failures must be a non-negative integer, found {type(fails).__name__}"
+    return state, None
+
+
+def _replace_state(path: Path, state: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    try:
+        with open(tmp, "w", encoding="utf-8") as handle:
+            json.dump(state, handle, indent=2)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(tmp, path)
+    finally:
+        if tmp.exists():
+            tmp.unlink()
+
+
+def _release_owned_lock(lock: Optional[Path], pid: int) -> bool:
+    """Remove the cleanup lock only when it records exactly this child's pid."""
+    if lock is None or not lock.is_file() or lock.is_symlink():
+        return False
+    try:
+        owner = lock.read_text(encoding="utf-8").strip()
+    except OSError:
+        return False
+    if owner != str(pid):
+        return False
+    lock.unlink()
+    return True
+
+
+def _run_bounded(argv: list[str], timeout: float, owned_lock: Optional[Path]) -> tuple[Optional[int], str, str, bool]:
+    """Run the dry run in its own process group. On timeout, kill that group (including any
+    inventory helpers it started) and release only the lock the killed child owned."""
+    proc = subprocess.Popen(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, start_new_session=True)
+    try:
+        out, err = proc.communicate(timeout=timeout)
+        return proc.returncode, out, err, False
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(proc.pid, signal.SIGKILL)
+        except OSError:
+            pass
+        proc.communicate()
+        _release_owned_lock(owned_lock, proc.pid)
+        return None, "", "", True
+
+
+def _receipt_status(stdout: str) -> tuple[Optional[str], str]:
+    try:
+        summary = json.loads(stdout)
+    except ValueError:
+        summary = None
+    reported = summary.get("receipt") if isinstance(summary, dict) else None
+    if reported is not None and not isinstance(reported, str):
+        return None, "receipt-path-invalid"
+    if not reported:
+        return None, "no-receipt-in-output"
+    if not Path(reported).is_file():
+        return reported, "receipt-missing"
+    try:
+        receipt = json.loads(Path(reported).read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, ValueError):
+        receipt = None
+    if not isinstance(receipt, dict):
+        return reported, "receipt-unreadable"
+    if receipt.get("mode") != "dry-run":
+        return reported, "wrong-mode"
+    if receipt.get("deleted") != []:
+        return reported, "deleted-in-dry-run" if receipt.get("deleted") else "deletion-list-missing"
+    status = receipt.get("status")
+    return reported, status if isinstance(status, str) else "receipt-status-invalid"
+
+
+def run_routine(state_path: Path, child_argv: list[str], max_failures: int, timeout: float,
+                owned_lock: Optional[Path] = None) -> tuple[int, dict[str, Any]]:
+    """Opt-in unattended wrapper around a dry-run cleanup. It owns a consecutive-failure counter:
+    invalid state fails closed without running or writing; at the limit it stops without running;
+    an overlapping invocation is refused (exit 5) without touching the counter; otherwise it runs
+    the dry run as a bounded child process group, reads the exact receipt the child reports, and
+    replaces the state atomically. It never applies."""
+    if max_failures < 1 or not math.isfinite(timeout) or timeout <= 0:
+        raise HectlError("--routine-max-failures must be at least 1 and --routine-timeout a finite positive number",
+                         exit_code=2)
+    try:
+        import fcntl
+    except ImportError:
+        raise HectlError("routine mode needs POSIX file locking (fcntl)", exit_code=2)
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    guard = os.open(str(state_path.with_name(f".{state_path.name}.lock")), os.O_CREAT | os.O_RDWR, 0o600)
+    try:
+        try:
+            fcntl.flock(guard, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError:
+            return ROUTINE_BUSY, {"result": "BUSY", "state": str(state_path),
+                                  "reason": "another routine invocation holds this state; nothing ran and the counter is unchanged"}
+        return _routine_locked(state_path, child_argv, max_failures, timeout, owned_lock)
+    finally:
+        os.close(guard)
+
+
+def _routine_locked(state_path: Path, child_argv: list[str], max_failures: int, timeout: float,
+                    owned_lock: Optional[Path]) -> tuple[int, dict[str, Any]]:
+    state, problem = _routine_state(state_path)
+    if state is None:
+        return ROUTINE_STATE_INVALID, {"result": "STATE_INVALID", "state": str(state_path), "reason": problem,
+                                       "action": "nothing ran and the state file was not changed; inspect or restore it"}
+    fails = state["consecutive_failures"]
+    if fails >= max_failures:
+        return ROUTINE_STOPPED, {"result": "STOPPED", "state": str(state_path), "consecutive_failures": fails,
+                                 "reason": f"{fails} consecutive failed runs; review the receipts, then reset consecutive_failures to 0"}
+    receipt_path: Optional[str] = None
+    child_exit: Optional[int] = None
+    detail = ""
+    try:
+        child_exit, out, err, timed_out = _run_bounded(child_argv, timeout, owned_lock)
+        if timed_out:
+            status, detail = "timeout", f"dry run exceeded {timeout:g}s; its process group was stopped"
+        else:
+            receipt_path, status = _receipt_status(out)
+            if child_exit != 0 or status != "complete":
+                detail = (err or "")[-600:]
+    except OSError as exc:
+        status, detail = "launch-failed", type(exc).__name__
+    ok = child_exit == 0 and status == "complete"
+    fails = 0 if ok else fails + 1
+    _replace_state(state_path, {"consecutive_failures": fails, "last_run": now_iso(),
+                                "last_result": "complete" if ok else "failed", "last_status": status,
+                                "last_receipt": receipt_path})
+    return (ROUTINE_COMPLETE if ok else ROUTINE_FAILED), {
+        "result": "COMPLETE" if ok else "FAILED", "state": str(state_path), "receipt": receipt_path,
+        "receipt_status": status, "dry_run_exit": child_exit, "consecutive_failures": fails, "detail": detail}

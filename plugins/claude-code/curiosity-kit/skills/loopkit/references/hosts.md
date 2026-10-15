@@ -15,13 +15,24 @@ python3 "/absolute/package/skills/loopkit/scripts/loopkit_hook.py" session-start
 
 Use `claude-code` for that host. Bind actual package paths through the supported host variable at integration and quote the complete path, including spaces. The coordinator emits the exact host registration; this skill supplies no duplicate default-plus-manifest hook registrations. Register each owning event once.
 
-PreCompact refreshes a derived checkpoint. SessionStart restores on startup, resume and compact. The checkpoint is an index with the authoritative run pointer, workspace, generation, outcome, committed units, next action and pending-work warning. Oversized content becomes a short pointer; actual emitted JSON is capped at 4096 bytes. Hooks do not read transcripts, invoke model/provider calls, create schedules, execute the loop or modify artifacts.
+PreCompact refreshes a derived checkpoint. SessionStart restores on startup, resume and compact, and on Claude Code also on fork (forked sessions report source `fork` there); Codex sources are unchanged. The checkpoint is an index with the authoritative run pointer, workspace, generation, outcome, committed units, next action and pending-work warning. Oversized content becomes a short pointer; actual emitted JSON is capped at 4096 bytes. Hooks do not read transcripts, invoke model/provider calls, create schedules, execute the loop or modify artifacts.
 
 Terminal runs are inactive. Missing selection is silent; malformed input, corruption, lock conflict or wrong binding emits a concise visible error. A visible hook error means state was not restored. Read the named run directly before continuing. A failure must not be silently treated as successful restoration.
 
 ## Qualification
 
 In an authorized disposable environment, prove native registration/trust and actual event delivery. Check active run, inactive/unselected run, wrong workspace/host, startup/resume/compact, bounded output, interruption and cleanup. Direct script invocation tests only the adapter logic. Preserve evidence after removing only test-owned settings/processes; keep the live harness unchanged. Never bypass trust to make a test green.
+
+### Native hook recipe
+
+A repeatable native check that touches no real state:
+
+1. Create a disposable workspace and run, and bind them with `LOOPKIT_STATE_ROOT` pointing at a disposable directory.
+2. Start a fresh headless host session in that workspace with the same `LOOPKIT_STATE_ROOT` exported to the host process. The SessionStart event should write `checkpoint.txt`; confirm it from the host's own hook-response records.
+3. Compact that same session through the host (for Claude Code, resume it and send `/compact`). Confirm the PreCompact event from the host's transcript line naming the hook, not from a manual call.
+4. Unbind the fixture and confirm the real state root holds no new binding.
+
+Running `loopkit_hook.py` directly is a script check only. Label it that way and never count it as native event delivery.
 
 ## Goals and schedules
 

@@ -8,6 +8,11 @@ from lk_state import Fault, need, clean_path, locked, load, atomic
 from loopkit import checkpoint
 from lk_binding import resolve, canonical
 
+# SessionStart sources that restore a checkpoint. Claude Code reports `fork` for forked sessions
+# (since 2.1.214); Codex keeps its own set.
+SESSION_SOURCES = {"claude-code": {"startup", "resume", "compact", "fork"},
+                   "codex": {"startup", "resume", "compact"}}
+
 
 def main():
     p = argparse.ArgumentParser()
@@ -21,7 +26,7 @@ def main():
         need(len(raw) <= 65536, "hook-input", "Hook payload is too large")
         payload = json.loads(raw) if raw.strip() else {}
         need(isinstance(payload, dict) and isinstance(payload.get("cwd"), str), "hook-input", "Host cwd is required")
-        if args.event == "session-start" and payload.get("source", "startup") not in {"startup", "resume", "compact"}:
+        if args.event == "session-start" and payload.get("source", "startup") not in SESSION_SOURCES[args.host]:
             return 0
         selected = canonical(args.run) if args.run else resolve(payload["cwd"], args.host, args.state_root)
         if selected is None:

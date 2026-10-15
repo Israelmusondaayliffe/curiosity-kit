@@ -1,6 +1,6 @@
 {
   "loopkit": {
     "PreCompact": [{"matcher": "^(manual|auto)$", "hooks": [{"type": "command", "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/skills/loopkit/scripts/loopkit_hook.py\" pre-compact --host claude-code", "timeout": 10}]}],
-    "SessionStart": [{"matcher": "^(startup|resume|compact)$", "hooks": [{"type": "command", "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/skills/loopkit/scripts/loopkit_hook.py\" session-start --host claude-code", "timeout": 10}]}]
+    "SessionStart": [{"matcher": "^(startup|resume|compact|fork)$", "hooks": [{"type": "command", "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/skills/loopkit/scripts/loopkit_hook.py\" session-start --host claude-code", "timeout": 10}]}]
   }
 }

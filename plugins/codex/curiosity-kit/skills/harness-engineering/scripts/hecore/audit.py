@@ -17,6 +17,10 @@ MANAGED_CLAUDE_MD = {
 }
 IMPORT_RE = re.compile(r"(?<![\w`])@((?:~|\.{1,2}|/)?[\w./-]+\.\w+)")
 PATH_RE = re.compile(r"`((?:~|/)[^`\s]+)`")
+# Date or named placeholders mark a path template, not a literal file: YYYY-MM-DD, {name}.
+TEMPLATE_RE = re.compile(r"YYYY|\bMM-DD\b|\{[^}/]+\}")
+# A single absolute segment with no extension reads as a slash command (/contract-check, /plugin:skill).
+COMMAND_RE = re.compile(r"/[A-Za-z][\w:-]*")
 SECRET_VALUE = re.compile(r"(?i)(sk-|key|token|secret|bearer|password)")
 PLACEHOLDER_RE = re.compile(r"\[fill:[^\]]*\]|\[(?:TODO|TBD|PLACEHOLDER)[^\]]*\]|\{\{[^}]+\}\}|<(?:REPLACE|FILL)[^>]*>", re.IGNORECASE)
 
@@ -314,7 +318,9 @@ def mcp_names(*paths: Path) -> list[dict[str, str]]:
     return out
 
 
-def chain_findings(chain: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def chain_findings(chain: list[dict[str, Any]], commands: Optional[set[str]] = None) -> list[dict[str, Any]]:
+    """Instruction-chain findings. `commands` holds names the host can invoke as `/name`;
+    None means the registry was not inspected, so command references stay unverified."""
     findings = []
     for entry in chain:
         path = Path(entry["path"])
@@ -323,11 +329,16 @@ def chain_findings(chain: list[dict[str, Any]]) -> list[dict[str, Any]]:
             if not imp["exists"]:
                 findings.append({"type": "dead-import", "file": str(path), "ref": imp["ref"]})
         for ref in PATH_RE.findall(text):
-            if "*" in ref or "<" in ref or "$" in ref:
+            if "*" in ref or "<" in ref or "$" in ref or TEMPLATE_RE.search(ref):
                 continue
             target = Path(ref).expanduser()
-            if not target.exists():
-                findings.append({"type": "dead-path-reference", "file": str(path), "ref": ref})
+            if target.exists():
+                continue
+            if COMMAND_RE.fullmatch(ref):
+                if commands is None or ref[1:] not in commands:
+                    findings.append({"type": "unverified-command-reference", "file": str(path), "ref": ref})
+                continue
+            findings.append({"type": "dead-path-reference", "file": str(path), "ref": ref})
         for line_no, line in enumerate(text.splitlines(), 1):
             if PLACEHOLDER_RE.search(line):
                 findings.append({"type": "placeholder", "file": str(path), "line": line_no})
@@ -384,7 +395,14 @@ def audit(platform: str, home: Path, workspace: Optional[Path]) -> dict[str, Any
     for group in report["skills"].values():
         for name in group:
             names[name] = names.get(name, 0) + 1
-    findings = chain_findings(chain)
+    commands = set(report.get("commands", [])) | set(names)
+    if platform == "codex":
+        commands |= {p.stem for p in (home / "prompts").glob("*.md")}
+    for plugin in report.get("plugins", []):
+        if plugin.get("enabled") is not False and plugin.get("name") and plugin.get("path"):
+            commands |= {f"{plugin['name']}:{n}" for n in skills_in(Path(plugin["path"]) / "skills")}
+            commands |= {f"{plugin['name']}:{c.stem}" for c in (Path(plugin["path"]) / "commands").glob("*.md")}
+    findings = chain_findings(chain, commands)
     findings += [{"type": "duplicate-skill-name", "name": n} for n, c in sorted(names.items()) if c > 1]
     if platform == "cowork" and ws and not (ws / "CLAUDE.md").is_file():
         findings.append({"type": "missing-folder-contract", "file": str(ws / "CLAUDE.md")})
