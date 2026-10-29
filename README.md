@@ -2,7 +2,7 @@
 
 *Independent skills for curious people.*
 
-**[Download for ChatGPT](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip)** · [Upload and install](#chatgpt-web)
+**[Start here: install guide](INSTALL.md)** · [Download for ChatGPT Work](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip) · [Download for Claude](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-claude.zip)
 
 Curiosity Kit is a plugin for Codex and Claude Code. It brings together 26 independent skills for researching, writing, making decisions, building software, producing creative work and finishing multi-step projects.
 
@@ -12,49 +12,42 @@ Start with Chief of Staff when you want help choosing an approach. Go straight t
 
 ## Install
 
-### ChatGPT (web)
+We recommend **ChatGPT Work, Codex or Claude Code** for the full working setup. The Claude app also supports plugin upload; use Cowork for tasks that need its workspace tools. Ordinary chat is not our recommended route for the full Kit. Capabilities depend on the actual tools and permissions in your session.
 
-1. Click **[Download for ChatGPT](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip)** and save the ZIP file. Keep it zipped.
-2. On ChatGPT web, open **Plugins > Add > Upload plugin/archive**, when that option is available. Eligible workspace owners and administrators can use **Admin console > select workspace > Plugins > Add > Upload plugin**.
-3. Choose `curiosity-kit-chatgpt.zip`, review the plugin, and select **Install** when shown.
-4. Open a fresh chat, select **Curiosity Kit**, then choose **Chief of Staff** and describe what you want to do.
-
-Upload requires permission or access as an eligible workspace owner or administrator. Availability varies by account, plan and workspace; not every personal account offers ZIP upload. If the option is missing, check with your workspace administrator. See OpenAI's [Plugins in ChatGPT instructions](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
-
-Use the ZIP linked above. GitHub's whole-repository **Download ZIP** and attaching a ZIP to an ordinary chat are not plugin installation.
-
-This package has been checked for structure, resources and archive integrity. This exact public Curiosity Kit archive has **not yet been natively installed in ChatGPT**. All 26 skills and existing hooks are included; native hooks are unsupported in ChatGPT Cloud and will not provide local hook behavior there. Other workflows still depend on the tools and permissions available in your host. Read [Data handling](#data-handling) and [Cloud and hooks](#cloud-and-hooks) before use.
-
-### Codex and Claude Code
-
-Clone or download this repository, open a terminal in its root directory, and run the two commands for your host. Use an existing Codex or Claude Code installation. For a published Git marketplace, its repository URL can replace `.`.
+The [step-by-step install guide](INSTALL.md) includes messages you can paste into the AI, ZIP upload steps, a small task to check the installation and fixes for common problems. You can ask the AI to do the terminal work and explain anything unfamiliar.
 
 ### Codex
 
 ```sh
-codex plugin marketplace add .
+codex plugin marketplace add https://github.com/Israelmusondaayliffe/curiosity-kit
 codex plugin add curiosity-kit@curiosity-kit
 ```
 
 ### Claude Code
 
 ```sh
-claude plugin marketplace add .
+claude plugin marketplace add Israelmusondaayliffe/curiosity-kit
 claude plugin install curiosity-kit@curiosity-kit
 ```
 
-After installation, check the plugin list and open a fresh session.
+Use an existing host installation. Both marketplace commands also accept `.` from the root of a cloned or downloaded copy of this repository.
 
-```sh
-codex plugin list
-# or
-claude plugin list
-claude plugin details curiosity-kit
-```
+After installation, check `codex plugin list` or `claude plugin list`, then open a fresh session and select the installed `curiosity-kit:chief-of-staff` entry. Claude Code uses `/curiosity-kit:chief-of-staff`. There are 26 installed skills; Codex's automatic-discovery list may show 21 because five require explicit selection. A plugin-list entry alone does not prove skill loading or hook execution.
 
-Look for the enabled selector `curiosity-kit@curiosity-kit`. Check the loaded skill inventory as well. A plugin appearing in the list doesn't prove every skill loaded. There are 26 installed entries; Codex's implicit-discovery list may show only 21 because five entries require explicit selection.
+### ChatGPT Work
 
-No separate Curiosity Kit installer or mandatory setup interview is needed. For removal, use `codex plugin remove curiosity-kit@curiosity-kit` or `claude plugin uninstall curiosity-kit@curiosity-kit`. See [Cloud limits](#cloud-and-hooks) before assuming a local installation is available in a Cloud session.
+[Download the Work ZIP](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip), keep it zipped and install it through your account's plugin upload flow. Eligible owners and administrators can use **Admin console > select workspace > Plugins > Add > Upload plugin**. Start a fresh Work chat and select Curiosity Kit. See [the guide](INSTALL.md#chatgpt-work) for account limits and help.
+
+<a id="chatgpt-web"></a>
+The previous ChatGPT download URL still works; it now contains the 0.1.1 package. Use the plugin ZIP, not GitHub's whole-repository Download ZIP. Attaching a ZIP to a chat does not by itself install a plugin.
+
+### Claude app / Cowork
+
+[Download the Claude ZIP](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-claude.zip), keep it zipped and use the custom-plugin upload option in **Customize > Plugins**. Start a fresh chat or Cowork task and select Chief of Staff. See [the guide](INSTALL.md#claude-app--cowork) for the repository alternative and host limits.
+
+Both ZIPs match the committed 0.1.1 host payloads and pass archive-integrity checks. This update does not claim a fresh native ZIP installation in either app. Existing account installations need their own update. Read [Data handling](#data-handling) and [Cloud and hooks](#cloud-and-hooks) before use.
+
+No separate Curiosity Kit installer or mandatory setup interview is needed. For removal, use `codex plugin remove curiosity-kit@curiosity-kit` or `claude plugin uninstall curiosity-kit@curiosity-kit`, or the app's plugin controls.
 
 ## Your first task
 
