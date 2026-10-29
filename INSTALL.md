@@ -4,16 +4,18 @@ Curiosity Kit gives your AI 26 methods for research, writing, decisions, softwar
 
 We recommend **ChatGPT Work, Codex or Claude Code** for work that needs files, scripts and tools. The Claude app also accepts plugins; use its Cowork workspace for heavier tasks. The Kit works across models, but each task still needs an app with the right tools and permissions. Ordinary chat is not our recommended setup for the full Kit.
 
-You can ask the AI to handle terminal commands and explain each step. You remain in charge of installation and permissions.
+Ask the AI in your chosen app to install the Kit. It handles fetching the package, running commands or installing the ZIP, and checking the result. If a step requires your own approval or a control it cannot operate, it should explain that step and guide you through it.
 
 ## Pick your app
 
-| App | Start here |
+| App | What the AI uses |
 | --- | --- |
-| Claude Code | Paste the install message below |
-| Codex | Paste the install message below |
-| ChatGPT Work | Download the Work ZIP and use the plugin upload flow |
-| Claude app / Cowork | Download the Claude ZIP and use the plugin upload flow |
+| Claude Code | Marketplace and plugin commands |
+| Codex | Marketplace and plugin commands |
+| ChatGPT Work | The Work ZIP from this repository |
+| Claude app / Cowork | The Claude ZIP from this repository |
+
+Paste the message for your app below.
 
 ## Claude Code
 
@@ -45,29 +47,35 @@ Then run codex plugin list and confirm the installed version and enabled state. 
 
 Review any permission request before approving it. You should see `curiosity-kit@curiosity-kit` in the installed plugin list. Open a fresh session and select Chief of Staff from the installed skill catalog.
 
-Both CLIs also accept a local repository: clone or download this repository, then run the marketplace command with `.` as its source from the repository root. This is a fallback when the app can read a local copy but cannot add the remote marketplace.
+Both CLIs also accept a local repository. If the remote marketplace cannot be added, the AI can diagnose the error and, when appropriate, clone or download the repository and use `.` as the marketplace source from its root.
 
 There are 26 packaged skills. Codex may list only 21 for automatic selection: AI Film Studio, Gauntlet, Operating Graph, ProofLoop and the Matt method library require explicit selection. Review hooks separately through the host's controls. Trusting a hook permits it to run; it does not prove that it ran successfully.
 
 ## ChatGPT Work
 
-1. [Download the Work ZIP](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip). Keep `curiosity-kit-chatgpt.zip` zipped.
-2. Open the plugin upload flow available to your account. Eligible workspace owners and administrators can use **Admin console > select workspace > Plugins > Add > Upload plugin**. Other accounts may expose upload in Plugins.
-3. Choose the ZIP, review it and install it. You should see Curiosity Kit in your installed plugins.
-4. Start a fresh Work chat and select Curiosity Kit using the plugin picker or `@` mention. Try the check below.
+Open a Work chat and paste:
 
-Upload access varies by account, workspace and role. If the control is absent, ask Work to explain the supported installation route in your current app, or ask your workspace owner. Attaching the ZIP to an ordinary message alone does not establish installation. See [OpenAI's upload guidance](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
+```text
+Install Curiosity Kit for me from https://github.com/Israelmusondaayliffe/curiosity-kit. Read its install instructions, fetch the Work plugin ZIP from the repository, and install it in this app. Preserve my existing plugins and settings. Check that Curiosity Kit is installed and enabled, then help me verify that its Chief of Staff skill loads. If a step requires my approval or a click you cannot do, explain exactly what I need to do and continue afterward.
+```
+
+The package is [curiosity-kit-chatgpt.zip](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip). The AI can fetch it directly; you do not need to download it before asking.
+
+If the AI needs you to complete an upload, it should guide you through the controls available in your account. Eligible workspace owners and administrators can use **Admin console > select workspace > Plugins > Add > Upload plugin**. Access varies by account, workspace and role. See [OpenAI's upload guidance](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
+
+You should end with Curiosity Kit installed and selected in a fresh Work chat. A downloaded file or chat attachment alone does not establish installation. Use the check below to confirm skill loading.
 
 ## Claude app / Cowork
 
-1. [Download the Claude ZIP](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-claude.zip). Keep `curiosity-kit-claude.zip` zipped.
-2. Open **Customize > Plugins**, then the custom-plugin upload option, and choose the ZIP. Plugins require a supported paid plan.
-3. Review and install it. You should see Curiosity Kit in your plugin list.
-4. Start a fresh chat or Cowork task and select Chief of Staff through the skill picker, then try the check below.
+Open Claude, preferably a Cowork task for workspace access, and paste:
 
-If upload is unavailable, use **Plugins > Add > Add marketplace > Add from a repository** with `Israelmusondaayliffe/curiosity-kit`. Organisation policies may restrict sources. Ask the AI to guide you through the controls actually shown on your screen.
+```text
+Install Curiosity Kit for me from https://github.com/Israelmusondaayliffe/curiosity-kit. Read its install instructions, fetch the Claude plugin ZIP from the repository, and install it in this app. Preserve my existing plugins and settings. Check that Curiosity Kit is installed and enabled, then help me verify that its Chief of Staff skill loads. If a step requires my approval or a click you cannot do, explain exactly what I need to do and continue afterward.
+```
 
-Claude chat supports skill instructions, while hooks and sub-agents require Cowork or Claude Code. Supported account-installed plugins can sync to Claude Code; check the actual Code session before relying on that. See [Anthropic's plugin guidance](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
+The package is [curiosity-kit-claude.zip](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-claude.zip). The AI can fetch it directly. If it needs you to complete the upload, the custom-plugin controls are under **Customize > Plugins** on supported paid plans. A repository alternative is **Plugins > Add > Add marketplace > Add from a repository** with `Israelmusondaayliffe/curiosity-kit`; organisation policies may restrict sources.
+
+You should end with Curiosity Kit installed and Chief of Staff available in a fresh session. Claude chat supports skill instructions, while hooks and sub-agents require Cowork or Claude Code. Supported account-installed plugins can sync to Claude Code; check the actual Code session before relying on that. See [Anthropic's plugin guidance](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
 
 ## Ask the AI for help
 

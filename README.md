@@ -14,7 +14,7 @@ Start with Chief of Staff when you want help choosing an approach. Go straight t
 
 We recommend **ChatGPT Work, Codex or Claude Code** for the full working setup. The Claude app also supports plugin upload; use Cowork for tasks that need its workspace tools. Ordinary chat is not our recommended route for the full Kit. Capabilities depend on the actual tools and permissions in your session.
 
-The [step-by-step install guide](INSTALL.md) includes messages you can paste into the AI, ZIP upload steps, a small task to check the installation and fixes for common problems. You can ask the AI to do the terminal work and explain anything unfamiliar.
+Give the AI this repository link and ask it to install Curiosity Kit: `https://github.com/Israelmusondaayliffe/curiosity-kit`. It handles fetching the right package, installing it and checking the result. The [install guide](INSTALL.md) has a ready-to-paste message for each app, a small verification task and common fixes. If the app requires your approval or a click the AI cannot perform, it should guide you through that step.
 
 ### Codex
 
@@ -30,20 +30,20 @@ claude plugin marketplace add Israelmusondaayliffe/curiosity-kit
 claude plugin install curiosity-kit@curiosity-kit
 ```
 
-Use an existing host installation. Both marketplace commands also accept `.` from the root of a cloned or downloaded copy of this repository.
+Ask your AI to run the commands for its host. Both marketplace commands also accept `.` from the root of a cloned or downloaded copy of this repository.
 
 After installation, check `codex plugin list` or `claude plugin list`, then open a fresh session and select the installed `curiosity-kit:chief-of-staff` entry. Claude Code uses `/curiosity-kit:chief-of-staff`. There are 26 installed skills; Codex's automatic-discovery list may show 21 because five require explicit selection. A plugin-list entry alone does not prove skill loading or hook execution.
 
 ### ChatGPT Work
 
-[Download the Work ZIP](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip), keep it zipped and install it through your account's plugin upload flow. Eligible owners and administrators can use **Admin console > select workspace > Plugins > Add > Upload plugin**. Start a fresh Work chat and select Curiosity Kit. See [the guide](INSTALL.md#chatgpt-work) for account limits and help.
+Ask Work to fetch and install the [Work ZIP](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-chatgpt.zip) from this repository, then verify the installed plugin in a fresh Work chat. See [the guide](INSTALL.md#chatgpt-work) for the install message and help with any account controls that need your action.
 
 <a id="chatgpt-web"></a>
 The previous ChatGPT download URL still works; it now contains the 0.1.1 package. Use the plugin ZIP, not GitHub's whole-repository Download ZIP. Attaching a ZIP to a chat does not by itself install a plugin.
 
 ### Claude app / Cowork
 
-[Download the Claude ZIP](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-claude.zip), keep it zipped and use the custom-plugin upload option in **Customize > Plugins**. Start a fresh chat or Cowork task and select Chief of Staff. See [the guide](INSTALL.md#claude-app--cowork) for the repository alternative and host limits.
+Ask Claude to fetch and install the [Claude ZIP](https://raw.githubusercontent.com/Israelmusondaayliffe/curiosity-kit/main/downloads/curiosity-kit-claude.zip) from this repository, then verify Chief of Staff in a fresh session. See [the guide](INSTALL.md#claude-app--cowork) for the install message, repository alternative and any controls that need your action.
 
 Both ZIPs match the committed 0.1.1 host payloads and pass archive-integrity checks. This update does not claim a fresh native ZIP installation in either app. Existing account installations need their own update. Read [Data handling](#data-handling) and [Cloud and hooks](#cloud-and-hooks) before use.
 
